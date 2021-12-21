@@ -1,6 +1,6 @@
 package com.example.test_2_springboot.controller;
 
-import com.example.test_2_springboot.service.City;
+import com.example.test_2_springboot.model.City;
 import com.example.test_2_springboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
