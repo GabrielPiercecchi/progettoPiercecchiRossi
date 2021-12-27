@@ -1,6 +1,8 @@
 package com.example.test_2_springboot.service;
 
 import com.example.test_2_springboot.model.City;
+import com.example.test_2_springboot.utilities.CreatingJSONDocument;
+
 
 
 import org.json.JSONObject;
@@ -62,6 +64,11 @@ public class CityServiceImpl implements CityService {
     @Override
     public void deleteCity(Integer Id) {
         cityRepo.remove(Id);
+    }
+
+    @Override
+    public Collection<City> getCities() {
+        return cityRepo.values();
     }
 
     @Override
@@ -188,6 +195,7 @@ public class CityServiceImpl implements CityService {
             request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1())).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
+                    //.thenAccept(System.out::println) --> PRINTLN FILE JSON
                     .thenApply(CityServiceImpl::parse)
                     .join();
 
@@ -201,10 +209,12 @@ public class CityServiceImpl implements CityService {
         }
     }
 
+    //METODO CHE "parsa" il file JSON ricevuto
     public static int Ncity=1;
     public static String parse(String responseBody) {
 
         try {
+            CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
             String fName = (String) obj.get("name");
 
@@ -215,12 +225,16 @@ public class CityServiceImpl implements CityService {
             double temp_min = obj.getJSONObject("main").getDouble("temp_min");
             double temp_max = obj.getJSONObject("main").getDouble("temp_max");
 
+            jsonDocument.fileWriter(fName,temp,feels_like,temp_max,temp_min);
+
             System.out.println("Current temperature of " + fName + ":");
             System.out.println("--> temp: " + round((temp - 273.15)));
             System.out.println("--> feels_like: " + round((feels_like - 273.15)));
             System.out.println("--> temp_min: " + round((temp_min - 273.15)));
             System.out.println("--> temp_max: " + round((temp_max - 273.15)));
             System.out.println();
+
+            //--> Richiamo metodo che compara le temp "feels_like" delle due città
             CompareT(feels_like);
 
         } catch (Exception e) {
@@ -278,10 +292,5 @@ public class CityServiceImpl implements CityService {
             }
         }
         else Ntemp++;
-    }
-
-    @Override
-    public Collection<City> getCities() {
-        return cityRepo.values();
     }
 }

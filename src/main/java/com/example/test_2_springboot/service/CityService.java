@@ -9,11 +9,11 @@ import java.util.Collection;
 public interface CityService {
 
     public abstract void createCity(City city);
-    public abstract void updateCity(Integer Id, City city);
-    public abstract void deleteCity(Integer Id);
+    public abstract void updateCity(Integer Id, City city);//PUT
+    public abstract void deleteCity(Integer Id);//DELETE
     //--> Contiene menù e inserimento delle due città
-    //--> Possubile separare le due cose
+    //--> COMMENTO::Possibile separare le due cose
     public abstract void inputCity();
-    public abstract Collection<City> getCities();
+    public abstract Collection<City> getCities();//GET
 }
 

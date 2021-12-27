@@ -1,4 +1,4 @@
-package com.example.test_2_springboot.utilities;
+package inactiveClasses;
 
 import com.example.test_2_springboot.service.CityService;
 import com.example.test_2_springboot.service.CityServiceImpl;

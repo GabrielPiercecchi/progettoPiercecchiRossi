@@ -1,4 +1,4 @@
-package com.example.test_2_springboot.utilities;
+package inactiveClasses;
 
 
 import org.json.simple.JSONArray;

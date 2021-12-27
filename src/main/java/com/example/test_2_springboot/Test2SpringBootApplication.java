@@ -15,7 +15,7 @@ public class Test2SpringBootApplication {
     public static void main(String[] args) {
         SpringApplication.run(Test2SpringBootApplication.class, args);
         CityService cityService = new CityServiceImpl();
-        //--> Questo metodo comprende anche il menu
+        //--> Questo metodo comprende anche il MENU
         cityService.inputCity();
 
         /*

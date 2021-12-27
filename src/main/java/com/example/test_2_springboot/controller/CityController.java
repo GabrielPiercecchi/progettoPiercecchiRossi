@@ -39,6 +39,4 @@ public class CityController {
             cityService.createCity((city));
             return new ResponseEntity<>("City is created successfully", HttpStatus.OK);
     }
-
-
 }
