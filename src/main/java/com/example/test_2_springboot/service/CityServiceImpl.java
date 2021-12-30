@@ -4,7 +4,6 @@ import com.example.test_2_springboot.model.City;
 import com.example.test_2_springboot.utilities.CreatingJSONDocument;
 
 
-
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -77,6 +76,8 @@ public class CityServiceImpl implements CityService {
         City city = new City();
         String city1;
         String city2;
+        String cont;
+        boolean cycle = false;
 
         // To read File
         BufferedReader reader;
@@ -84,32 +85,33 @@ public class CityServiceImpl implements CityService {
         StringBuffer responseContent = new StringBuffer();
 
         //MENU
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("********************************");
-        System.out.println("WELCOME TO OUR WEATHER PROGRAM!!");
-        System.out.println("********************************");
-        System.out.println();
-        System.out.println("Description:");
-        System.out.println("--------------------------------");
-        System.out.println("With this program you can search and see the current temperatures of two different cities\n" +
-                "and compare them!!\n" +
-                "Let's begin!!\n");
+        while (!cycle) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("********************************");
+            System.out.println("WELCOME TO OUR WEATHER PROGRAM!!");
+            System.out.println("********************************");
+            System.out.println();
+            System.out.println("Description:");
+            System.out.println("--------------------------------");
+            System.out.println("With this program you can search and see the current temperatures of two different cities\n" +
+                    "and compare them!!\n" +
+                    "Let's begin!!\n");
 
-        System.out.println("--> Please insert first city:");
-        city1 = scanner.nextLine();
-        city.setId((int) counter.incrementAndGet());
-        city.setName(city1);
-        cityRepo.put(city.getId(), city);
+            System.out.println("--> Please insert first city:");
+            city1 = scanner.nextLine();
+            city.setId((int) counter.incrementAndGet());
+            city.setName(city1);
+            cityRepo.put(city.getId(), city);
 
-        System.out.println("--> Please insert second city:");
-        city2 = scanner.nextLine();
-        city.setId((int) counter.incrementAndGet());
-        city.setName(city2);
-        cityRepo.put(city.getId(), city);
+            System.out.println("--> Please insert second city:");
+            city2 = scanner.nextLine();
+            city.setId((int) counter.incrementAndGet());
+            city.setName(city2);
+            cityRepo.put(city.getId(), city);
 
-        // Method 1: java.net.HttpURLConnection
+            // Method 1: java.net.HttpURLConnection
         /*
         try {
             URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1());
@@ -187,30 +189,52 @@ public class CityServiceImpl implements CityService {
         }
         */
 
-        // Method 2: java.net.Http.HttpClient
-        try {
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request;
+            // Method 2: java.net.Http.HttpClient
+            try {
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request;
 
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1())).build();
-            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    //.thenAccept(System.out::println) --> PRINTLN FILE JSON
-                    .thenApply(CityServiceImpl::parse)
-                    .join();
+                request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1())).build();
+                client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                        .thenApply(HttpResponse::body)
+                        //.thenAccept(System.out::println) --> PRINTLN FILE JSON
+                        .thenApply(CityServiceImpl::parse)
+                        .join();
 
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + city.getApiKey1())).build();
-            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    .thenApply(CityServiceImpl::parse)
-                    .join();
-        } catch (Exception e) {
-            System.out.println("ERROR in the URI request");
+                request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + city.getApiKey1())).build();
+                client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                        .thenApply(HttpResponse::body)
+                        .thenApply(CityServiceImpl::parse)
+                        .join();
+            } catch (Exception e) {
+                System.out.println("ERROR in the URI request");
+            }
+
+            System.out.println();
+            System.out.println("--> Do you want to continue? Y/N");
+            System.out.println("--> Any other command will terminate the program");
+            cont = scanner.nextLine();
+            switch (cont) {
+                case "Y":
+                case "y":
+                    break;
+                case "N":
+                case "n":
+                    cycle = true;
+                    System.out.println("--> Goodbye ;-)");
+                    break;
+                default:
+                    System.out.println("ERROR\n" +
+                            "--> Wrong command\n" +
+                            "--> Goodbye ;-)");
+                    cycle = true;
+            }
         }
     }
 
     //METODO CHE "parsa" il file JSON ricevuto
-    public static int Ncity=1;
+    public static int Ncity = 1;
+
     public static String parse(String responseBody) {
 
         try {
@@ -225,7 +249,6 @@ public class CityServiceImpl implements CityService {
             double temp_min = obj.getJSONObject("main").getDouble("temp_min");
             double temp_max = obj.getJSONObject("main").getDouble("temp_max");
 
-            jsonDocument.fileWriter(fName,temp,feels_like,temp_max,temp_min);
 
             System.out.println("Current temperature of " + fName + ":");
             System.out.println("--> temp: " + round((temp - 273.15)));
@@ -236,11 +259,13 @@ public class CityServiceImpl implements CityService {
 
             //--> Richiamo metodo che compara le temp "feels_like" delle due città
             CompareT(feels_like);
+            //--> Richiamo metodo che scrive su file JSON i dati ricevuti
+            jsonDocument.fileWriter(fName, round(temp - 273.15), round(feels_like - 273.15), round(temp_min - 273.15), round(temp_max - 273.15));
 
         } catch (Exception e) {
             System.out.println();
             System.out.println("Sorry :-(\n" +
-                    "--> City n° " + Ncity + " not found");
+                    "--> City n° " + (++Ncity) + " not found");
         }
         return null;
     }
@@ -273,24 +298,25 @@ public class CityServiceImpl implements CityService {
      */
 
     static double[] TCollection = new double[2];
-    static int Ntemp=0;
-    public static void CompareT(double feels_like){
-        TCollection[Ntemp]= feels_like;
-        if (Ntemp==1){
-            double controller = Integer.compare((int) TCollection[Ntemp-1], (int) TCollection[Ntemp]);
+    static int Ntemp = 0;
+
+    public static void CompareT(double feels_like) {
+        TCollection[Ntemp] = feels_like;
+        if (Ntemp == 1) {
+            double controller = Integer.compare((int) TCollection[Ntemp - 1], (int) TCollection[Ntemp]);
             // Output will be a value less than zero if a<b
-            if (controller < 0){
+            if (controller < 0) {
                 System.out.println("--> The second city is the hottest");
             }
             // Output will be zero if a==b
-            else if (controller==0){
+            else if (controller == 0) {
                 System.out.println("--> Both the cities have the same temperature");
             }
             // Output will be a value greater than zero if a>b
-            else if (controller>0){
+            else if (controller > 0) {
                 System.out.println("--> The first city is the hottest");
             }
-        }
-        else Ntemp++;
+            Ntemp = 0;
+        } else Ntemp++;
     }
 }

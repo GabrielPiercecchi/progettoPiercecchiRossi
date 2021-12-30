@@ -5,21 +5,26 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.json.simple.JSONObject;
 
 public class CreatingJSONDocument {
 
-    public static void fileWriter(String name, double temp, double feels_like, double temp_max, double temp_min) throws IOException {
+    public static int cityCounter = 0;
+    private final AtomicLong counter = new AtomicLong();
+
+    public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
         JSONObject citiesObj = new JSONObject();
+        citiesObj.put("Call N°", ++cityCounter);
         citiesObj.put("Name", name);
 
         JSONObject listOfTemps = new JSONObject();
-        listOfTemps.put("temp",temp);
-        listOfTemps.put("feels_like",feels_like);
-        listOfTemps.put("temp_max",temp_max);
-        listOfTemps.put("temp_min",temp_min);
+        listOfTemps.put("temp", temp);
+        listOfTemps.put("feels_like", feels_like);
+        listOfTemps.put("temp_min", temp_min);
+        listOfTemps.put("temp_max", temp_max);
 
 
         citiesObj.put("Main", listOfTemps);
@@ -28,17 +33,17 @@ public class CreatingJSONDocument {
         try {
 
             // Writing to a file
-            File file=new File("FileCities.json");
+            File file = new File("FileCities.json");
             BufferedWriter bufferedWriter = null;
-            if (!file.exists()){
+            if (!file.exists()) {
 
                 file.createNewFile();
                 System.out.println("JSON file created:");
                 System.out.println("");
             }
             //System.out.print(citiesObj);
-            bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"),true));
-            bufferedWriter.write(citiesObj.toJSONString()+"\n");
+            bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), true));
+            bufferedWriter.write(citiesObj.toJSONString() + "\n");
             bufferedWriter.close();
             System.out.println("--> File updated successfully.");
 
@@ -48,6 +53,7 @@ public class CreatingJSONDocument {
             e.printStackTrace();
         }
     }
+
 }
 
 /*
