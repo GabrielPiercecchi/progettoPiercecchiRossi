@@ -4,8 +4,6 @@ public class City {
 
     private String name;
     private int Id;
-    //API-KEY messa qui per comodità
-    private String ApiKey1 = "14bbc528b3c2df06e94336bd503ddc1a";
 
 
     public String getName() {
@@ -24,8 +22,5 @@ public class City {
         Id = id;
     }
 
-    public String getApiKey1(){
-        return ApiKey1;
-    }
 
 }

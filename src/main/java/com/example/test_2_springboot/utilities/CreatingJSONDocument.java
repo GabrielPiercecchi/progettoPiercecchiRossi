@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 
+import java.time.LocalDateTime; // Import the LocalDateTime class
+import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
+
 import org.json.simple.JSONObject;
 
 public class CreatingJSONDocument {
@@ -16,9 +19,15 @@ public class CreatingJSONDocument {
 
     public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
+        //--> STATS/FILTRI su base oraria
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+
         JSONObject citiesObj = new JSONObject();
         citiesObj.put("Call N°", ++cityCounter);
         citiesObj.put("Name", name);
+        citiesObj.put("Time", formattedDate);
 
         JSONObject listOfTemps = new JSONObject();
         listOfTemps.put("temp", temp);
@@ -27,8 +36,7 @@ public class CreatingJSONDocument {
         listOfTemps.put("temp_max", temp_max);
 
 
-        citiesObj.put("Main", listOfTemps);
-
+        citiesObj.put("Main"+ (cityCounter), listOfTemps);
 
         try {
 

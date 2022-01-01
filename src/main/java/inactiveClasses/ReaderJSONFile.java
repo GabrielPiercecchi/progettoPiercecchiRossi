@@ -16,7 +16,7 @@ public class ReaderJSONFile {
 
         JSONParser jsonParser = new JSONParser();
 
-        FileReader reader = new FileReader(".\\JsonFile\\Cities.json");
+        FileReader reader = new FileReader("FileCities.json");
 
         Object object = jsonParser.parse(reader);
 

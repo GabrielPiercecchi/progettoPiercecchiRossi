@@ -12,6 +12,8 @@ public class CityController {
 
     @Autowired
     CityService cityService;
+    private String city1;
+    private String city2;
 
     @RequestMapping(value = "/cities", method = RequestMethod.GET)
     public ResponseEntity<Object>
@@ -38,5 +40,14 @@ public class CityController {
         createCity(@RequestBody City city){
             cityService.createCity((city));
             return new ResponseEntity<>("City is created successfully", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/cities/names", method = RequestMethod.POST)
+    public ResponseEntity<Object>
+        nameCities(@RequestBody String city1,String city2){
+        this.city1 = city1;
+        this.city2 = city2;
+        cityService.inputCity(this.city1, this.city2);
+        return new ResponseEntity<>("OK",HttpStatus.OK);
     }
 }

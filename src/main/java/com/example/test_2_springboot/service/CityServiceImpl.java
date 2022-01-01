@@ -15,6 +15,7 @@ import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.text.StringCharacterIterator;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class CityServiceImpl implements CityService {
     private static Map<Integer, City> cityRepo = new HashMap<>();
     private final AtomicLong counter = new AtomicLong();
     private static HttpURLConnection connection;
-
+    private static String APY_keys = "14bbc528b3c2df06e94336bd503ddc1a";
 
     public CityServiceImpl() {
         //loading data
@@ -71,47 +72,22 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void inputCity() {
-        Scanner scanner = new Scanner(System.in);
+    public void inputCity(String city1, String city2) {
+
         City city = new City();
-        String city1;
-        String city2;
-        String cont;
-        boolean cycle = false;
+        City cityI = new City();
+        City cityII = new City();
 
-        // To read File
-        BufferedReader reader;
-        String line;
-        StringBuffer responseContent = new StringBuffer();
+        //--> Set city1
+        cityI.setId((int) counter.incrementAndGet());
+        cityI.setName(city1);
+        cityRepo.put(cityI.getId(), cityI);
+        //--> Set city2
+        cityII.setId((int) counter.incrementAndGet());
+        cityII.setName(city2);
+        cityRepo.put(cityII.getId(), cityII);
 
-        //MENU
-        while (!cycle) {
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println("********************************");
-            System.out.println("WELCOME TO OUR WEATHER PROGRAM!!");
-            System.out.println("********************************");
-            System.out.println();
-            System.out.println("Description:");
-            System.out.println("--------------------------------");
-            System.out.println("With this program you can search and see the current temperatures of two different cities\n" +
-                    "and compare them!!\n" +
-                    "Let's begin!!\n");
-
-            System.out.println("--> Please insert first city:");
-            city1 = scanner.nextLine();
-            city.setId((int) counter.incrementAndGet());
-            city.setName(city1);
-            cityRepo.put(city.getId(), city);
-
-            System.out.println("--> Please insert second city:");
-            city2 = scanner.nextLine();
-            city.setId((int) counter.incrementAndGet());
-            city.setName(city2);
-            cityRepo.put(city.getId(), city);
-
-            // Method 1: java.net.HttpURLConnection
+        // Method 1: java.net.HttpURLConnection
         /*
         try {
             URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1());
@@ -189,51 +165,30 @@ public class CityServiceImpl implements CityService {
         }
         */
 
-            // Method 2: java.net.Http.HttpClient
-            try {
-                HttpClient client = HttpClient.newHttpClient();
-                HttpRequest request;
+        // Method 2: java.net.Http.HttpClient
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request;
 
-                request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1())).build();
-                client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                        .thenApply(HttpResponse::body)
-                        //.thenAccept(System.out::println) --> PRINTLN FILE JSON
-                        .thenApply(CityServiceImpl::parse)
-                        .join();
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + APY_keys)).build();
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                    .thenApply(HttpResponse::body)
+                    //.thenAccept(System.out::println) --> PRINTLN FILE JSON
+                    .thenApply(CityServiceImpl::parse)
+                    .join();
 
-                request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + city.getApiKey1())).build();
-                client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                        .thenApply(HttpResponse::body)
-                        .thenApply(CityServiceImpl::parse)
-                        .join();
-            } catch (Exception e) {
-                System.out.println("ERROR in the URI request");
-            }
-
-            System.out.println();
-            System.out.println("--> Do you want to continue? Y/N");
-            System.out.println("--> Any other command will terminate the program");
-            cont = scanner.nextLine();
-            switch (cont) {
-                case "Y":
-                case "y":
-                    break;
-                case "N":
-                case "n":
-                    cycle = true;
-                    System.out.println("--> Goodbye ;-)");
-                    break;
-                default:
-                    System.out.println("ERROR\n" +
-                            "--> Wrong command\n" +
-                            "--> Goodbye ;-)");
-                    cycle = true;
-            }
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + APY_keys)).build();
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                    .thenApply(HttpResponse::body)
+                    .thenApply(CityServiceImpl::parse)
+                    .join();
+        } catch (Exception e) {
+            System.out.println("ERROR in the URI request");
         }
     }
 
     //METODO CHE "parsa" il file JSON ricevuto
-    public static int Ncity = 1;
+    public static int Ncity = 0;
 
     public static String parse(String responseBody) {
 
