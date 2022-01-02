@@ -19,8 +19,8 @@ public class City {
     }
 
     public void setId(Integer id) {
-        Id = id;
-    }
+         Id = id;
+     }
 
 
 }

@@ -1,7 +1,10 @@
 package com.example.test_2_springboot.controller;
 
 import com.example.test_2_springboot.model.City;
+import com.example.test_2_springboot.model.Menu;
 import com.example.test_2_springboot.service.CityService;
+import com.example.test_2_springboot.service.CityServiceImpl;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +15,6 @@ public class CityController {
 
     @Autowired
     CityService cityService;
-    private String city1;
-    private String city2;
 
     @RequestMapping(value = "/cities", method = RequestMethod.GET)
     public ResponseEntity<Object>
@@ -44,10 +45,11 @@ public class CityController {
 
     @RequestMapping(value = "/cities/names", method = RequestMethod.POST)
     public ResponseEntity<Object>
-        nameCities(@RequestBody String city1,String city2){
-        this.city1 = city1;
-        this.city2 = city2;
-        cityService.inputCity(this.city1, this.city2);
-        return new ResponseEntity<>("OK",HttpStatus.OK);
+    nameCities(@RequestBody String cities) {
+        JSONObject obj = new JSONObject(cities);
+        String city1 = (String) obj.get("city1");
+        String city2 = (String) obj.get("city2");
+        cityService.inputCity(city1, city2);
+        return new ResponseEntity<>("Cities accepted, check the terminal!!", HttpStatus.OK);
     }
 }
