@@ -12,8 +12,10 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
 
         City city = new City();
-        String city1;
-        String city2;
+        String city1Before;
+        String city2Before;
+        String city1After;
+        String city2After;
         String cont;
         boolean cycle = false;
 
@@ -33,12 +35,17 @@ public class Menu {
                     "Let's begin!!\n");
 
             System.out.println("--> Please insert first city:");
-            city1 = scanner.nextLine();
+            city1Before = scanner.nextLine();
             System.out.println("--> Please insert second city:");
-            city2 = scanner.nextLine();
+            city2Before = scanner.nextLine();
 
+            //--> Sostituisco gli spazi con "%20 per poter inserire citta con più "nomi"
+            city1After = city1Before.trim().replaceAll(" ", "%20");
+            city2After = city2Before.trim().replaceAll(" ", "%20");
+
+            //--> Richiamo metodo inputCity (cerca le città inseirite)
             CityService cityService = new CityServiceImpl();
-            cityService.inputCity(city1,city2);
+            cityService.inputCity(city1After,city2After);
 
             System.out.println();
             System.out.println("--> Do you want to continue? Y/N");
