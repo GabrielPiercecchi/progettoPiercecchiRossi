@@ -169,14 +169,14 @@ public class CityServiceImpl implements CityService {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request;
 
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" +  "14bbc528b3c2df06e94336bd503ddc1a")).build();
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
                     //.thenAccept(System.out::println) --> PRINTLN FILE JSON
                     .thenApply(CityServiceImpl::parse)
                     .join();
 
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" +  "14bbc528b3c2df06e94336bd503ddc1a")).build();
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
                     .thenApply(CityServiceImpl::parse)

@@ -45,7 +45,7 @@ public class Menu {
 
             //--> Richiamo metodo inputCity (cerca le città inseirite)
             CityService cityService = new CityServiceImpl();
-            cityService.inputCity(city1After,city2After);
+            cityService.inputCity(city1After, city2After);
 
             System.out.println();
             System.out.println("--> Do you want to continue? Y/N");
@@ -68,6 +68,4 @@ public class Menu {
             }
         }
     }
-
-
 }

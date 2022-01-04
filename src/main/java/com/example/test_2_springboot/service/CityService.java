@@ -9,9 +9,13 @@ import java.util.Collection;
 public interface CityService {
 
     public abstract void createCity(City city);
+
     public abstract void updateCity(Integer Id, City city);
+
     public abstract void deleteCity(Integer Id);
+
     public abstract void inputCity(String city1, String city2);
+
     public abstract Collection<City> getCities();
 }
 
