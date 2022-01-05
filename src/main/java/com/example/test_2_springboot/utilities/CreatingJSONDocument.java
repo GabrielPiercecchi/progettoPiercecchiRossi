@@ -45,7 +45,7 @@ public class CreatingJSONDocument {
         //ObjectMapper mapper = new ObjectMapper();//--> legato al metodo secondario sottostante
 
         try {
-            // Writing to a file
+            // Writing a file
             File file = new File("FileCities.json");
             BufferedWriter bufferedWriter = null;
             if (!file.exists()) {

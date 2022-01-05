@@ -18,29 +18,29 @@ public class CityController {
 
     @RequestMapping(value = "/cities", method = RequestMethod.GET)
     public ResponseEntity<Object>
-        getCity(){
-            return new ResponseEntity<>(cityService.getCities(), HttpStatus.OK);
+    getCity() {
+        return new ResponseEntity<>(cityService.getCities(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/cities/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Object>
-        updateCity(@PathVariable("id") int id, @RequestBody City city){
-            cityService.updateCity(id,city);
-            return new ResponseEntity<>("City is updated successfully",HttpStatus.OK);
+    updateCity(@PathVariable("id") int id, @RequestBody City city) {
+        cityService.updateCity(id, city);
+        return new ResponseEntity<>("City is updated successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/cities/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object>
-        delete(@PathVariable("id") Integer id){
-            cityService.deleteCity(id);
-            return new ResponseEntity<>("City is deleted successfully",HttpStatus.OK);
+    delete(@PathVariable("id") Integer id) {
+        cityService.deleteCity(id);
+        return new ResponseEntity<>("City is deleted successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/cities", method = RequestMethod.POST)
     public ResponseEntity<Object>
-        createCity(@RequestBody City city){
-            cityService.createCity((city));
-            return new ResponseEntity<>("City is created successfully", HttpStatus.OK);
+    createCity(@RequestBody City city) {
+        cityService.createCity((city));
+        return new ResponseEntity<>("City is created successfully", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/cities/names", method = RequestMethod.POST)
