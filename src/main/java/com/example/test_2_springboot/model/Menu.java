@@ -32,6 +32,7 @@ public class Menu {
             System.out.println("--------------------------------");
             System.out.println("With this program you can search and see the current temperatures of two different cities\n" +
                     "and compare them!!\n" +
+                    "Finally you can see all your history call on the JSON file called 'FileCities.json'." +
                     "Let's begin!!\n");
 
             System.out.println("--> Please insert first city:");

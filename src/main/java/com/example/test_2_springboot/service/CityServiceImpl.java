@@ -270,7 +270,7 @@ public class CityServiceImpl implements CityService {
             else if (controller > 0) {
                 System.out.println("--> The first city is the hottest");
             }
-            Ntemp = 0;
+            Ntemp = 0;//--> Reset statistiche
         } else Ntemp++;
     }
 }

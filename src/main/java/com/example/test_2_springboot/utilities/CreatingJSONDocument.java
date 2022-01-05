@@ -5,11 +5,15 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
 import java.time.LocalDateTime; // Import the LocalDateTime class
 import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONObject;
 
 public class CreatingJSONDocument {
@@ -20,6 +24,7 @@ public class CreatingJSONDocument {
     public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
         //--> STATS/FILTRI su base oraria
+        //--> metodo da fare con attenzione (WORK IN PROGRES)
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
@@ -35,25 +40,34 @@ public class CreatingJSONDocument {
         listOfTemps.put("temp_min", temp_min);
         listOfTemps.put("temp_max", temp_max);
 
+        citiesObj.put("Main", listOfTemps);
 
-        citiesObj.put("Main" + (cityCounter), listOfTemps);
+        //ObjectMapper mapper = new ObjectMapper();//--> legato al metodo secondario sottostante
 
         try {
-
             // Writing to a file
             File file = new File("FileCities.json");
             BufferedWriter bufferedWriter = null;
             if (!file.exists()) {
-
                 file.createNewFile();
                 System.out.println("JSON file created:");
                 System.out.println("");
             }
+
+            //--> Metodo alternativo per la scrittura dei dati nel file JSON
+            /*
+            // Create JSON
+            final String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(citiesObj.toJSONString());
+            // Content is appended (due to StandardOpenOption.APPEND)
+            Files.write(new File("FileCities.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
+            */
+
             //System.out.print(citiesObj);
             bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), true));
             bufferedWriter.write(citiesObj.toJSONString() + "\n");
             bufferedWriter.close();
-            System.out.println("--> File updated successfully.");
+            //System.out.println();
+            //System.out.println("--> File updated successfully.");
 
         } catch (IOException e) {
             System.out.println("ERROR");
