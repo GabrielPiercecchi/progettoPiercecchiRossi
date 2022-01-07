@@ -1,6 +1,9 @@
 package com.example.test_2_springboot.service;
 
 import com.example.test_2_springboot.model.City;
+import com.example.test_2_springboot.stats.CityStats;
+import com.example.test_2_springboot.stats.ComparativeStats;
+import com.example.test_2_springboot.stats.ComparativeStatsImpl;
 import com.example.test_2_springboot.utilities.CreatingJSONDocument;
 
 
@@ -192,6 +195,9 @@ public class CityServiceImpl implements CityService {
     public static String parse(String responseBody) {
 
         try {
+            CityStats cityStats = new CityStats(0, 0, 0, 0);
+            City city = new City();
+
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
             String fName = (String) obj.get("name");
@@ -203,18 +209,29 @@ public class CityServiceImpl implements CityService {
             double temp_min = obj.getJSONObject("main").getDouble("temp_min");
             double temp_max = obj.getJSONObject("main").getDouble("temp_max");
 
+            //--> Salvataggio stats
+            cityStats.setTemp(round((temp - 273.15)));
+            cityStats.setFeels_like(round((feels_like - 273.15)));
+            cityStats.setTemp_min(round((temp_min - 273.15)));
+            cityStats.setTemp_max(round((temp_max - 273.15)));
 
             System.out.println("Current temperature of " + fName + ":");
+            //--> Println dei valori salvati
+            System.out.println(cityStats.toString());
+            System.out.println();
+
+            /*
             System.out.println("--> temp: " + round((temp - 273.15)));
             System.out.println("--> feels_like: " + round((feels_like - 273.15)));
             System.out.println("--> temp_min: " + round((temp_min - 273.15)));
             System.out.println("--> temp_max: " + round((temp_max - 273.15)));
-            System.out.println();
+            */
 
-            //--> Richiamo metodo che compara le temp "feels_like" delle due città
-            CompareT(feels_like);
+            //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
+            ComparativeStats comparativeStats = new ComparativeStatsImpl();
+            comparativeStats.CompareT(feels_like);
             //--> Richiamo metodo che scrive su file JSON i dati ricevuti
-            jsonDocument.fileWriter(fName, round(temp - 273.15), round(feels_like - 273.15), round(temp_min - 273.15), round(temp_max - 273.15));
+            jsonDocument.fileWriter(fName, cityStats.getTemp(), cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
 
         } catch (Exception e) {
             System.out.println();
@@ -224,33 +241,8 @@ public class CityServiceImpl implements CityService {
         return null;
     }
 
-    //METODO DA CORREGGERE E/O ELIMINARE
-    //--> metodo SOSTITUITO con quello sottostante "CompareT"
+    //--> Metodo spostato nel package "stats" nell'interfaccia "ComparativeStats"
     /*
-    public static int NCity = 1;
-
-
-    public static void CompareTFeels_like(Double feels_like) {
-        Double[] TCollection = new Double[2];
-        TCollection[NCity] = feels_like;
-        NCity--;
-        try {
-            if (NCity == 0) {
-                if (TCollection[NCity] < TCollection[NCity + 1]) {
-                    System.out.println();
-                    System.out.println("--> The first city is hotter");
-                } else if (TCollection[NCity] > TCollection[NCity + 1]) {
-                    System.out.println();
-                    System.out.println("--> The second city is hotter");
-                }
-            }
-        }catch (Exception e){
-            System.out.println();
-            System.out.println("--> Impossible to compare the two temperature");
-        }
-    }
-     */
-
     static double[] TCollection = new double[2];
     static int Ntemp = 0;
 
@@ -273,4 +265,5 @@ public class CityServiceImpl implements CityService {
             Ntemp = 0;//--> Reset statistiche
         } else Ntemp++;
     }
+    */
 }

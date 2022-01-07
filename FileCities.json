@@ -1,0 +1,16 @@
+{"Time":"07-01-2022 17:17:29","Main":{"temp":3.0,"temp_min":1.0,"feels_like":3.0,"temp_max":5.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 17:17:29","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-3.0,"temp_max":-3.0},"Call N°":2,"Name":"Rome"}
+{"Time":"07-01-2022 17:18:23","Main":{"temp":5.0,"temp_min":4.0,"feels_like":5.0,"temp_max":6.0},"Call N°":1,"Name":"Provincia di Rimini"}
+{"Time":"07-01-2022 17:18:24","Main":{"temp":6.0,"temp_min":4.0,"feels_like":3.0,"temp_max":7.0},"Call N°":2,"Name":"Riccione"}
+{"Time":"07-01-2022 17:21:37","Main":{"temp":3.0,"temp_min":1.0,"feels_like":3.0,"temp_max":5.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 17:21:37","Main":{"temp":6.0,"temp_min":4.0,"feels_like":3.0,"temp_max":7.0},"Call N°":2,"Name":"Riccione"}
+{"Time":"07-01-2022 17:22:30","Main":{"temp":3.0,"temp_min":1.0,"feels_like":3.0,"temp_max":5.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 17:22:30","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-10.0,"temp_max":-2.0},"Call N°":2,"Name":"Rome"}
+{"Time":"07-01-2022 17:25:01","Main":{"temp":3.0,"temp_min":1.0,"feels_like":3.0,"temp_max":5.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 17:25:01","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-10.0,"temp_max":-2.0},"Call N°":2,"Name":"Rome"}
+{"Time":"07-01-2022 17:25:25","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-10.0,"temp_max":-2.0},"Call N°":3,"Name":"Rome"}
+{"Time":"07-01-2022 17:25:25","Main":{"temp":3.0,"temp_min":1.0,"feels_like":3.0,"temp_max":5.0},"Call N°":4,"Name":"Trento"}
+{"Time":"07-01-2022 17:28:38","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-10.0,"temp_max":-2.0},"Call N°":1,"Name":"Rome"}
+{"Time":"07-01-2022 17:28:38","Main":{"temp":4.0,"temp_min":3.0,"feels_like":4.0,"temp_max":5.0},"Call N°":2,"Name":"Parma"}
+{"Time":"07-01-2022 17:30:11","Main":{"temp":2.0,"temp_min":1.0,"feels_like":2.0,"temp_max":4.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 17:30:11","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-10.0,"temp_max":-2.0},"Call N°":2,"Name":"Rome"}
