@@ -14,3 +14,15 @@
 {"Time":"07-01-2022 17:28:38","Main":{"temp":4.0,"temp_min":3.0,"feels_like":4.0,"temp_max":5.0},"Call N°":2,"Name":"Parma"}
 {"Time":"07-01-2022 17:30:11","Main":{"temp":2.0,"temp_min":1.0,"feels_like":2.0,"temp_max":4.0},"Call N°":1,"Name":"Trento"}
 {"Time":"07-01-2022 17:30:11","Main":{"temp":-3.0,"temp_min":-5.0,"feels_like":-10.0,"temp_max":-2.0},"Call N°":2,"Name":"Rome"}
+{"Time":"07-01-2022 19:06:08","Main":{"temp":2.0,"temp_min":0.0,"feels_like":2.0,"temp_max":4.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 19:06:09","Main":{"temp":-4.0,"temp_min":-6.0,"feels_like":-4.0,"temp_max":-2.0},"Call N°":2,"Name":"Rome"}
+{"Time":"07-01-2022 19:15:03","Main":{"temp":2.0,"temp_min":0.0,"feels_like":2.0,"temp_max":4.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 19:15:03","Main":{"temp":1.0,"temp_min":0.0,"feels_like":-3.0,"temp_max":2.0},"Call N°":2,"Name":"Prague"}
+{"Time":"07-01-2022 19:16:53","Main":{"temp":2.0,"temp_min":0.0,"feels_like":2.0,"temp_max":4.0},"Call N°":1,"Name":"Trento"}
+{"Time":"07-01-2022 19:16:53","Main":{"temp":-2.0,"temp_min":-5.0,"feels_like":-2.0,"temp_max":1.0},"Call N°":2,"Name":"Province of Turin"}
+{"Time":"07-01-2022 19:19:16","Main":{"temp":-8.0,"temp_min":-11.0,"feels_like":-8.0,"temp_max":-4.0},"Call N°":1,"Name":"Toronto"}
+{"Time":"07-01-2022 19:19:16","Main":{"temp":4.0,"temp_min":2.0,"feels_like":3.0,"temp_max":6.0},"Call N°":2,"Name":"Pesaro"}
+{"Time":"07-01-2022 19:21:31","Main":{"temp":4.0,"temp_min":2.0,"feels_like":-1.0,"temp_max":6.0},"Call N°":1,"Name":"Amsterdam"}
+{"Time":"07-01-2022 19:21:31","Main":{"temp":5.0,"temp_min":4.0,"feels_like":3.0,"temp_max":7.0},"Call N°":2,"Name":"Porto Recanati"}
+{"Time":"07-01-2022 19:22:01","Main":{"temp":3.0,"temp_min":2.0,"feels_like":0.0,"temp_max":5.0},"Call N°":3,"Name":"Provincia di Rimini"}
+{"Time":"07-01-2022 19:22:01","Main":{"temp":4.0,"temp_min":2.0,"feels_like":2.0,"temp_max":6.0},"Call N°":4,"Name":"Riccione"}

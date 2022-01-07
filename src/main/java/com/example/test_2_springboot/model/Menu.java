@@ -11,7 +11,7 @@ public class Menu {
     public void menu() {
         Scanner scanner = new Scanner(System.in);
 
-        City city = new City();
+        //City city = new City();
         String city1Before;
         String city2Before;
         String city1After;
@@ -20,7 +20,7 @@ public class Menu {
         boolean cycle = false;
 
         //MENU
-        while (!cycle) {
+        do {
             System.out.println();
             System.out.println();
             System.out.println();
@@ -49,24 +49,28 @@ public class Menu {
             cityService.inputCity(city1After, city2After);
 
             System.out.println();
-            System.out.println("--> Do you want to continue? Y/N");
-            System.out.println("--> Any other command will terminate the program");
-            cont = scanner.nextLine();
-            switch (cont) {
-                case "Y":
-                case "y":
-                    break;
-                case "N":
-                case "n":
-                    cycle = true;
-                    System.out.println("--> Goodbye ;-)");
-                    break;
-                default:
-                    System.out.println("ERROR\n" +
-                            "--> Wrong command\n" +
-                            "--> Goodbye ;-)");
-                    cycle = true;
-            }
-        }
+
+            boolean switchC = false;
+            do {
+                System.out.println("--> Do you want to continue? Y/N");
+                cont = scanner.nextLine();
+                switch (cont) {
+                    case "Y":
+                    case "y":
+                        switchC = true;
+                        break;
+                    case "N":
+                    case "n":
+                        cycle = true;
+                        switchC = true;
+                        System.out.println("--> Goodbye ;-)");
+                        break;
+                    default:
+                        System.out.println("ERROR\n" +
+                                "--> Wrong command\n" +
+                                "--> Please use the right ones ;-)");
+                }
+            } while (!switchC);
+        } while (!cycle);
     }
 }
