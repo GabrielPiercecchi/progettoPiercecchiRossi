@@ -53,10 +53,10 @@ public class CityStats {
     @Override
     public String toString() {
         return "{" +
-                "\n--> Temp =" + temp + "°C" +
-                ", \n--> Feels_like =" + feels_like + "°C" +
-                ", \n--> Temp_max =" + temp_max + "°C" +
-                ", \n--> Temp_min =" + temp_min + "°C" +
+                "\n--> Temp = " + temp + "°C" +
+                ", \n--> Feels_like = " + feels_like + "°C" +
+                ", \n--> Temp_max = " + temp_max + "°C" +
+                ", \n--> Temp_min = " + temp_min + "°C" +
                 "\n}";
     }
 }

@@ -7,6 +7,7 @@ import com.example.test_2_springboot.stats.ComparativeStatsImpl;
 import com.example.test_2_springboot.utilities.CreatingJSONDocument;
 
 
+import com.example.test_2_springboot.utilities.ParseJSONDocument;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -169,6 +170,7 @@ public class CityServiceImpl implements CityService {
 
         // Method 2: java.net.Http.HttpClient
         try {
+
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request;
 
@@ -176,69 +178,17 @@ public class CityServiceImpl implements CityService {
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
                     //.thenAccept(System.out::println) --> PRINTLN FILE JSON
-                    .thenApply(CityServiceImpl::parse)
+                    .thenApply(ParseJSONDocument::parse)
                     .join();
 
             request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
-                    .thenApply(CityServiceImpl::parse)
+                    .thenApply(ParseJSONDocument::parse)
                     .join();
         } catch (Exception e) {
             System.out.println("ERROR in the URI request");
         }
-    }
-
-    //METODO CHE "parsa" il file JSON ricevuto
-    public static int Ncity = 0;
-
-    public static String parse(String responseBody) {
-
-        try {
-            CityStats cityStats = new CityStats(0, 0, 0, 0);
-            City city = new City();
-
-            CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
-            JSONObject obj = new JSONObject(responseBody);
-            String fName = (String) obj.get("name");
-
-            //JSONArray arr = obj.getJSONArray("main");
-
-            double temp = obj.getJSONObject("main").getDouble("temp");
-            double feels_like = obj.getJSONObject("main").getDouble("feels_like");
-            double temp_min = obj.getJSONObject("main").getDouble("temp_min");
-            double temp_max = obj.getJSONObject("main").getDouble("temp_max");
-
-            //--> Salvataggio stats
-            cityStats.setTemp(round((temp - 273.15)));
-            cityStats.setFeels_like(round((feels_like - 273.15)));
-            cityStats.setTemp_min(round((temp_min - 273.15)));
-            cityStats.setTemp_max(round((temp_max - 273.15)));
-
-            System.out.println("Current temperature of " + fName + ":");
-            //--> Println dei valori salvati
-            System.out.println(cityStats.toString());
-            System.out.println();
-
-            /*
-            System.out.println("--> temp: " + round((temp - 273.15)));
-            System.out.println("--> feels_like: " + round((feels_like - 273.15)));
-            System.out.println("--> temp_min: " + round((temp_min - 273.15)));
-            System.out.println("--> temp_max: " + round((temp_max - 273.15)));
-            */
-
-            //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
-            ComparativeStats comparativeStats = new ComparativeStatsImpl();
-            comparativeStats.CompareT(feels_like);
-            //--> Richiamo metodo che scrive su file JSON i dati ricevuti
-            jsonDocument.fileWriter(fName, cityStats.getTemp(), cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
-
-        } catch (Exception e) {
-            System.out.println();
-            System.out.println("Sorry :-(\n" +
-                    "--> City n° " + (++Ncity) + " not found");
-        }
-        return null;
     }
 
     //--> Metodo spostato nel package "stats" nell'interfaccia "ComparativeStats"

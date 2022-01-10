@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -25,22 +26,25 @@ public class CreatingJSONDocument {
 
         //--> STATS/FILTRI su base oraria
         //--> metodo da fare con attenzione (WORK IN PROGRES)
+
+        //--> Incremento cityCounter ad ogni chiamata del metodo
+        ++cityCounter;
+
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
         JSONObject citiesObj = new JSONObject();
-        citiesObj.put("Call N°", ++cityCounter);
-        citiesObj.put("Name", name);
-        citiesObj.put("Time", formattedDate);
+        citiesObj.put("Name_" + cityCounter, name);
+        citiesObj.put("Time_" + cityCounter, formattedDate);
 
         JSONObject listOfTemps = new JSONObject();
-        listOfTemps.put("temp", temp);
-        listOfTemps.put("feels_like", feels_like);
-        listOfTemps.put("temp_min", temp_min);
-        listOfTemps.put("temp_max", temp_max);
+        listOfTemps.put("temp_" + cityCounter, temp);
+        listOfTemps.put("feels_like_" + cityCounter, feels_like);
+        listOfTemps.put("temp_min_" + cityCounter, temp_min);
+        listOfTemps.put("temp_max_" + cityCounter, temp_max);
 
-        citiesObj.put("Main", listOfTemps);
+        citiesObj.put("Main_" + cityCounter, listOfTemps);
 
         //ObjectMapper mapper = new ObjectMapper();//--> legato al metodo secondario sottostante
 
@@ -54,8 +58,8 @@ public class CreatingJSONDocument {
                 System.out.println("");
             }
 
-            //--> Metodo alternativo per la scrittura dei dati nel file JSON
             /*
+             //--> Metodo alternativo per la scrittura dei dati nel file JSON
             // Create JSON
             final String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(citiesObj.toJSONString());
             // Content is appended (due to StandardOpenOption.APPEND)
@@ -64,7 +68,7 @@ public class CreatingJSONDocument {
 
             //System.out.print(citiesObj);
             bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), true));
-            bufferedWriter.write(citiesObj.toJSONString() + "\n");
+            bufferedWriter.write(MessageFormat.format("{0}\n", citiesObj.toJSONString()));
             bufferedWriter.close();
             //System.out.println();
             //System.out.println("--> File updated successfully.");
