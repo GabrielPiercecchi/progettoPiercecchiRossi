@@ -15,6 +15,9 @@ public class ParseJSONDocument {
 
     public static String parse(String responseBody) {
 
+        //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
+        ComparativeStats comparativeStats = new ComparativeStatsImpl();
+
         try {
             CityStats cityStats = new CityStats(0, 0, 0, 0);
             City city = new City();
@@ -32,7 +35,7 @@ public class ParseJSONDocument {
 
             //--> Salvataggio stats
             cityStats.setTemp(round((temp - 273.15)));
-            cityStats.setFeels_like(round((feels_like - 273.15)));
+            cityStats.setFeels_like(round((feels_like - 273)));
             cityStats.setTemp_min(round((temp_min - 273.15)));
             cityStats.setTemp_max(round((temp_max - 273.15)));
 
@@ -49,15 +52,18 @@ public class ParseJSONDocument {
             */
 
             //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
-            ComparativeStats comparativeStats = new ComparativeStatsImpl();
+            //ComparativeStats comparativeStats = new ComparativeStatsImpl();
             comparativeStats.CompareT(feels_like);
+
             //--> Richiamo metodo che scrive su file JSON i dati ricevuti
             jsonDocument.fileWriter(fName, cityStats.getTemp(), cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
 
+            Ncity++;
         } catch (Exception e) {
             System.out.println();
             System.out.println("Sorry :-(\n" +
                     "--> City n° " + (++Ncity) + " not found");
+            comparativeStats.ResetT();
         }
         return null;
     }
