@@ -35,7 +35,7 @@ public class CityController {
      * Questo metodo serve a richiamare il metodo che aggiorna, tramite l'Id, il nome delle città già salvate
      * tramite PostMan
      *
-     * @param id variabile int che rappresenta in modo univoco ogni città
+     * @param id   variabile int che rappresenta in modo univoco ogni città
      * @param city variabile String che rappresenta il nome della città
      * @return restituisce, nel caso in cui l'aggiornamento della città sia riuscito, una stringa
      */

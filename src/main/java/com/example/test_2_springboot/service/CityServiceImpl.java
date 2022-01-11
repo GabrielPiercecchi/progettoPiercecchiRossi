@@ -57,7 +57,6 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     *
      * @param city variabile ti tipo City contenente di conseguenza al suo interno le variabili
      *             definite nella class City
      */
@@ -70,8 +69,7 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     *
-     * @param Id variabile int che serve a identificare univocamente una città
+     * @param Id   variabile int che serve a identificare univocamente una città
      * @param city variabile String che contiene il nome di una città
      */
     @Override
@@ -82,7 +80,6 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     *
      * @param Id variabile int che serve per identificare univocamente una città
      */
     @Override
@@ -91,7 +88,6 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     *
      * @return restituisce tutte le città salvate fino a quel momento
      */
     @Override
@@ -100,7 +96,6 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     *
      * @param city1 variabile String che contiene il nome della prima città
      * @param city2 variabile String che contiene il nome della prima città
      */

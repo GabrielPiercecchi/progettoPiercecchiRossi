@@ -43,7 +43,7 @@ public class ComparativeStatsImpl implements ComparativeStats {
         ++controllo;
         if (controllo > 1) {
             controllo = 0;
-            Ntemp=0;
+            Ntemp = 0;
         }
     }
 }

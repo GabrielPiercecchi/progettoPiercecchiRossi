@@ -131,7 +131,7 @@ public class CreatingJSONDocument {
             Files.write(new File("FileCities.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
             */
 
-            //System.out.print(citiesObj);
+//System.out.print(citiesObj);
 /*
             bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), true));
             bufferedWriter.write(MessageFormat.format("{0}\n", citiesObj.toJSONString()));
