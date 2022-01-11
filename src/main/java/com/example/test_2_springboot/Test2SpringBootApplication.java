@@ -10,9 +10,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Questa classe rappresenta l'inizio del programma assegnato
+ *
+ * @author Piercecchi Gabriel
+ * @author Rossi Alan
+ */
 @SpringBootApplication
 public class Test2SpringBootApplication {
 
+    /**
+     * Questo metodo serve per avviare il programma
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         SpringApplication.run(Test2SpringBootApplication.class, args);
         CityService cityService = new CityServiceImpl();

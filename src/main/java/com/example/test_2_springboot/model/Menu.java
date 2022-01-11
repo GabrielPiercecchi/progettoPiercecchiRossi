@@ -6,16 +6,20 @@ import com.example.test_2_springboot.service.CityServiceImpl;
 
 import java.util.Scanner;
 
+/**
+ * Questa classe contiene il menu con cui l'utente dovrà interagire per utilizzare il programma
+ */
 public class Menu {
 
+    /**
+     * Questo metodo rappresenta il menu del programma assegnato
+     */
     public void menu() {
         Scanner scanner = new Scanner(System.in);
 
         //City city = new City();
         String city1Before;
         String city2Before;
-        String city1After;
-        String city2After;
         String cont;
         boolean cycle = false;
 
@@ -40,13 +44,9 @@ public class Menu {
             System.out.println("--> Please insert second city:");
             city2Before = scanner.nextLine();
 
-            //--> Sostituisco gli spazi con "%20 per poter inserire citta con più "nomi"
-            city1After = city1Before.trim().replaceAll(" ", "%20");
-            city2After = city2Before.trim().replaceAll(" ", "%20");
-
             //--> Richiamo metodo inputCity (cerca le città inseirite)
             CityService cityService = new CityServiceImpl();
-            cityService.inputCity(city1After, city2After);
+            cityService.inputCity(city1Before, city2Before);
 
             System.out.println();
 

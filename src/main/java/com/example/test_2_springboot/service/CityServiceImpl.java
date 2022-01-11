@@ -28,14 +28,21 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import static java.lang.Math.round;
 
+/**
+ * Questa classe implementa i metodo definiti nell'interfaccia "CityService" associata
+ */
 @Service
 public class CityServiceImpl implements CityService {
 
 
     private static Map<Integer, City> cityRepo = new HashMap<>();
     private final AtomicLong counter = new AtomicLong();
-    private static HttpURLConnection connection;
+    //private static HttpURLConnection connection;
 
+
+    /**
+     * Questo metodo serve a creare di default due città
+     */
     public CityServiceImpl() {
         //loading data
         City rome = new City();
@@ -49,6 +56,11 @@ public class CityServiceImpl implements CityService {
         cityRepo.put(milan.getId(), milan);
     }
 
+    /**
+     *
+     * @param city variabile ti tipo City contenente di conseguenza al suo interno le variabili
+     *             definite nella class City
+     */
     @Override
     public void createCity(City city) {
         if (cityRepo.containsKey(city.getId())) {
@@ -57,6 +69,11 @@ public class CityServiceImpl implements CityService {
         cityRepo.put(city.getId(), city);
     }
 
+    /**
+     *
+     * @param Id variabile int che serve a identificare univocamente una città
+     * @param city variabile String che contiene il nome di una città
+     */
     @Override
     public void updateCity(Integer Id, City city) {
         cityRepo.remove(Id);
@@ -64,22 +81,41 @@ public class CityServiceImpl implements CityService {
         cityRepo.put(Id, city);
     }
 
+    /**
+     *
+     * @param Id variabile int che serve per identificare univocamente una città
+     */
     @Override
     public void deleteCity(Integer Id) {
         cityRepo.remove(Id);
     }
 
+    /**
+     *
+     * @return restituisce tutte le città salvate fino a quel momento
+     */
     @Override
     public Collection<City> getCities() {
         return cityRepo.values();
     }
 
+    /**
+     *
+     * @param city1 variabile String che contiene il nome della prima città
+     * @param city2 variabile String che contiene il nome della prima città
+     */
     @Override
     public void inputCity(String city1, String city2) {
 
-        City city = new City();
+        //City city = new City();
         City cityI = new City();
         City cityII = new City();
+        String city1After;
+        String city2After;
+
+        //--> Sostituisco gli spazi con "%20 per poter inserire citta con più "nomi"
+        city1After = city1.trim().replaceAll(" ", "%20");
+        city2After = city2.trim().replaceAll(" ", "%20");
 
         //--> Set city1
         cityI.setId((int) counter.incrementAndGet());
@@ -174,14 +210,14 @@ public class CityServiceImpl implements CityService {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request;
 
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
                     //.thenAccept(System.out::println) --> PRINTLN FILE JSON
                     .thenApply(ParseJSONDocument::parse)
                     .join();
 
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
                     .thenApply(ParseJSONDocument::parse)
