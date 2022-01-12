@@ -21,8 +21,6 @@ public class Test2SpringBootApplication {
 
     /**
      * Questo metodo serve per avviare il programma
-     *
-     * @param args
      */
     public static void main(String[] args) {
         SpringApplication.run(Test2SpringBootApplication.class, args);

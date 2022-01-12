@@ -12,7 +12,6 @@ public class City {
     private String name;
     private int Id;
 
-
     /**
      * Questo metodo serve per restituire il nome della città appena salvata
      *

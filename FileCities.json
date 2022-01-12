@@ -1,0 +1,5 @@
+[{"Main1":{"temp":7.0,"temp_min":4.0,"feels_like":3.0,"temp_max":9.0},"Time":"11-01-2022 21:59:03","Call N°":1,"Name":"Provincia di Rimini"},
+{"Main2":{"temp":7.0,"temp_min":4.0,"feels_like":3.0,"temp_max":9.0},"Time":"11-01-2022 21:59:14","Call N°":2,"Name":"Provincia di Rimini"},
+{"Main3":{"temp":1.0,"temp_min":0.0,"feels_like":1.0,"temp_max":4.0},"Time":"11-01-2022 21:59:14","Call N°":3,"Name":"Trento"},
+{"Main4":{"temp":6.0,"temp_min":5.0,"feels_like":0.0,"temp_max":6.0},"Time":"11-01-2022 21:59:54","Call N°":4,"Name":"Porto Recanati"},
+{"Main5":{"temp":5.0,"temp_min":4.0,"feels_like":-1.0,"temp_max":7.0},"Time":"11-01-2022 21:59:54","Call N°":5,"Name":"Provincia di Ancona"}]

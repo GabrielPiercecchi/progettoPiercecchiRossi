@@ -28,7 +28,7 @@ public class CreatingJSONDocument {
 
     public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
-        //--> STATS/FILTRI su base oraria
+        //--> Serve per STATS/FILTRI su base oraria
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
@@ -81,73 +81,71 @@ public class CreatingJSONDocument {
         }
     }
 }
+
+//--> Vecchia classe
 /*
-public class CreatingJSONDocument {
+ public class CreatingJSONDocument {
 
-    public static int cityCounter = 0;
-    private final AtomicLong counter = new AtomicLong();
+     public static int cityCounter = 0;
+     private final AtomicLong counter = new AtomicLong();
 
-    public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
+     public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
-        //--> STATS/FILTRI su base oraria
-        //--> metodo da fare con attenzione (WORK IN PROGRES)
+         //--> STATS/FILTRI su base oraria
+         //--> metodo da fare con attenzione (WORK IN PROGRES)
 
-        //--> Incremento cityCounter ad ogni chiamata del metodo
-        ++cityCounter;
+         //--> Incremento cityCounter ad ogni chiamata del metodo
+         ++cityCounter;
 
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        String formattedDate = myDateObj.format(myFormatObj);
+         LocalDateTime myDateObj = LocalDateTime.now();
+         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+         String formattedDate = myDateObj.format(myFormatObj);
 
-        JSONObject citiesObj = new JSONObject();
-        citiesObj.put("Name_" + cityCounter, name);
-        citiesObj.put("Time_" + cityCounter, formattedDate);
+         JSONObject citiesObj = new JSONObject();
+         citiesObj.put("Name_" + cityCounter, name);
+         citiesObj.put("Time_" + cityCounter, formattedDate);
 
-        JSONObject listOfTemps = new JSONObject();
-        listOfTemps.put("temp_" + cityCounter, temp);
-        listOfTemps.put("feels_like_" + cityCounter, feels_like);
-        listOfTemps.put("temp_min_" + cityCounter, temp_min);
-        listOfTemps.put("temp_max_" + cityCounter, temp_max);
+         JSONObject listOfTemps = new JSONObject();
+         listOfTemps.put("temp_" + cityCounter, temp);
+         listOfTemps.put("feels_like_" + cityCounter, feels_like);
+         listOfTemps.put("temp_min_" + cityCounter, temp_min);
+         listOfTemps.put("temp_max_" + cityCounter, temp_max);
 
-        citiesObj.put("Main_" + cityCounter, listOfTemps);
+         citiesObj.put("Main_" + cityCounter, listOfTemps);
 
-        //ObjectMapper mapper = new ObjectMapper();//--> legato al metodo secondario sottostante
+         //ObjectMapper mapper = new ObjectMapper();//--> legato al metodo secondario sottostante
 
-        try {
-            // Writing a file
-            File file = new File("FileCities.json");
-            BufferedWriter bufferedWriter = null;
-            if (!file.exists()) {
-                file.createNewFile();
-                System.out.println("JSON file created:");
-                System.out.println("");
-            }
+         try {
+             // Writing a file
+             File file = new File("FileCities.json");
+             BufferedWriter bufferedWriter = null;
+             if (!file.exists()) {
+                 file.createNewFile();
+                 System.out.println("JSON file created:");
+                 System.out.println("");
+             }
 
-            /*
-             //--> Metodo alternativo per la scrittura dei dati nel file JSON
-            // Create JSON
-            final String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(citiesObj.toJSONString());
-            // Content is appended (due to StandardOpenOption.APPEND)
-            Files.write(new File("FileCities.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
-            */
+             /*
+              //--> Metodo alternativo per la scrittura dei dati nel file JSON
+             // Create JSON
+             final String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(citiesObj.toJSONString());
+             // Content is appended (due to StandardOpenOption.APPEND)
+             Files.write(new File("FileCities.json").toPath(), Arrays.asList(json), StandardOpenOption.APPEND);
+             System.out.print(citiesObj);
+ /*
+             bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), true));
+             bufferedWriter.write(MessageFormat.format("{0}\n", citiesObj.toJSONString()));
+             bufferedWriter.close();
+             //System.out.println();
+             //System.out.println("--> File updated successfully.");
 
-//System.out.print(citiesObj);
-/*
-            bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), true));
-            bufferedWriter.write(MessageFormat.format("{0}\n", citiesObj.toJSONString()));
-            bufferedWriter.close();
-            //System.out.println();
-            //System.out.println("--> File updated successfully.");
-
-        } catch (IOException e) {
-            System.out.println("ERROR");
-            System.out.println("--> File not updated");
-            e.printStackTrace();
-        }
-    }
-}
-
-
+         } catch (IOException e) {
+             System.out.println("ERROR");
+             System.out.println("--> File not updated");
+             e.printStackTrace();
+         }
+     }
+ }
 */
 /*
 import java.io.FileWriter;

@@ -35,7 +35,7 @@ public interface CityService {
     public abstract void deleteCity(Integer Id);
 
     /**
-     * questo metodo serve per ricercare i dati meteorologici di due città tramite delle richieste di
+     * Questo metodo serve per ricercare i dati meteorologici di due città tramite delle richieste di
      * tipo URI all'API current di "Open-weather"
      *
      * @param city1 variabile String che contiene il nome della prima città

@@ -5,16 +5,16 @@ import static java.lang.Math.round;
 public class ComparativeStatsImpl implements ComparativeStats {
 
     static double[] TCollection = new double[2];
-    static int Ntemp = 0;
-    static int controllo = 0;
+    static int NTemp = 0;
+    static int controlC = 0;
 
     @Override
     public void CompareT(double feels_like) {
-        ++controllo;
-        TCollection[Ntemp] = feels_like;
-        if (controllo > 1) {
-            if (Ntemp == 1) {
-                double controller = Integer.compare((int) TCollection[Ntemp - 1], (int) TCollection[Ntemp]);
+        controlC++;
+        TCollection[NTemp] = feels_like;
+        if (controlC > 1) {
+            if (NTemp == 1) {
+                double controller = Integer.compare((int) TCollection[NTemp - 1], (int) TCollection[NTemp]);
                 // Output will be a value less than zero if a<b
                 if (controller < 0) {
                     System.out.println("--> The second city is the hottest by " + round(TCollection[1] - TCollection[0]) + "°C");
@@ -29,9 +29,9 @@ public class ComparativeStatsImpl implements ComparativeStats {
                 }
             }
             //--> Reset statistiche
-            controllo = 0;
-            Ntemp = 0;
-        } else Ntemp++;
+            controlC = 0;
+            NTemp = 0;
+        } else NTemp++;
     }
 
     @Override
@@ -39,11 +39,11 @@ public class ComparativeStatsImpl implements ComparativeStats {
         System.out.println();
         System.out.println("--> Impossible to compare");
         System.out.println();
-        Ntemp++;
-        ++controllo;
-        if (controllo > 1) {
-            controllo = 0;
-            Ntemp = 0;
+        NTemp++;
+        ++controlC;
+        if (controlC > 1) {
+            controlC = 0;
+            NTemp = 0;
         }
     }
 }

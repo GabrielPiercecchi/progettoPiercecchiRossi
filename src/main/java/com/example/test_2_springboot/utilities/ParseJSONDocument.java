@@ -24,6 +24,7 @@ public class ParseJSONDocument {
 
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
+
             String fName = (String) obj.get("name");
 
             //JSONArray arr = obj.getJSONArray("main");
