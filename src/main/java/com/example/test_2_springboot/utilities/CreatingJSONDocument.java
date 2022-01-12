@@ -44,7 +44,7 @@ public class CreatingJSONDocument {
         listOfTemps.put("temp_min", temp_min);
         listOfTemps.put("temp_max", temp_max);
 
-        citiesObj.put("Main" + (cityCounter), listOfTemps);
+        citiesObj.put("Main", listOfTemps);
 
         try {
 

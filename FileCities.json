@@ -1,5 +1,8 @@
-[{"Main1":{"temp":7.0,"temp_min":4.0,"feels_like":3.0,"temp_max":9.0},"Time":"11-01-2022 21:59:03","Call N°":1,"Name":"Provincia di Rimini"},
-{"Main2":{"temp":7.0,"temp_min":4.0,"feels_like":3.0,"temp_max":9.0},"Time":"11-01-2022 21:59:14","Call N°":2,"Name":"Provincia di Rimini"},
-{"Main3":{"temp":1.0,"temp_min":0.0,"feels_like":1.0,"temp_max":4.0},"Time":"11-01-2022 21:59:14","Call N°":3,"Name":"Trento"},
-{"Main4":{"temp":6.0,"temp_min":5.0,"feels_like":0.0,"temp_max":6.0},"Time":"11-01-2022 21:59:54","Call N°":4,"Name":"Porto Recanati"},
-{"Main5":{"temp":5.0,"temp_min":4.0,"feels_like":-1.0,"temp_max":7.0},"Time":"11-01-2022 21:59:54","Call N°":5,"Name":"Provincia di Ancona"}]
+[{"Time":"12-01-2022 16:50:53","Main":{"temp":5.0,"temp_min":3.0,"feels_like":5.0,"temp_max":7.0},"Call N°":1,"Name":"Trento"},
+{"Time":"12-01-2022 16:50:53","Main":{"temp":6.0,"temp_min":4.0,"feels_like":4.0,"temp_max":7.0},"Call N°":2,"Name":"Provincia di Rimini"},
+{"Time":"12-01-2022 16:51:00","Main":{"temp":10.0,"temp_min":8.0,"feels_like":7.0,"temp_max":10.0},"Call N°":3,"Name":"Provincia di Taranto"},
+{"Time":"12-01-2022 16:51:00","Main":{"temp":6.0,"temp_min":3.0,"feels_like":4.0,"temp_max":8.0},"Call N°":4,"Name":"Bologna"},
+{"Time":"12-01-2022 16:51:09","Main":{"temp":3.0,"temp_min":2.0,"feels_like":1.0,"temp_max":3.0},"Call N°":5,"Name":"Berlin"},
+{"Time":"12-01-2022 16:51:09","Main":{"temp":-15.0,"temp_min":-16.0,"feels_like":-21.0,"temp_max":-14.0},"Call N°":6,"Name":"Moscow"},
+{"Time":"12-01-2022 16:51:28","Main":{"temp":0.0,"temp_min":-3.0,"feels_like":1.0,"temp_max":4.0},"Call N°":7,"Name":"New York"},
+{"Time":"12-01-2022 16:51:28","Main":{"temp":1.0,"temp_min":0.0,"feels_like":0.0,"temp_max":3.0},"Call N°":8,"Name":"Toronto"}]
