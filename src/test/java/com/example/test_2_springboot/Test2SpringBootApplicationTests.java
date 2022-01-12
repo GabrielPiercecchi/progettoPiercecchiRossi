@@ -8,6 +8,7 @@ class Test2SpringBootApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("--> The main and his calls work");
     }
 
 }

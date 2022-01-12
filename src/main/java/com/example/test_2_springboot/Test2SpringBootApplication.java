@@ -13,6 +13,8 @@ import java.net.URL;
 /**
  * Questa classe rappresenta l'inizio del programma assegnato
  *
+ * @implNote terminato il programma formattare il file "fileCities.json"
+ *
  * @author Piercecchi Gabriel
  * @author Rossi Alan
  */
