@@ -1,6 +1,5 @@
 package com.example.test_2_springboot.utilities;
 
-import com.example.test_2_springboot.model.City;
 import com.example.test_2_springboot.stats.CityStats;
 import com.example.test_2_springboot.stats.ComparativeStats;
 import com.example.test_2_springboot.stats.ComparativeStatsImpl;
@@ -20,7 +19,7 @@ public class ParseJSONDocument {
 
         try {
             CityStats cityStats = new CityStats(0, 0, 0, 0);
-            City city = new City();
+            //City city = new City();
 
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);

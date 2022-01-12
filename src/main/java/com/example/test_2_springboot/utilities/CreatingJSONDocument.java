@@ -1,6 +1,8 @@
 package com.example.test_2_springboot.utilities;
 
 
+import org.json.simple.JSONObject;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -10,16 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicLong;
-
-import java.time.LocalDateTime; // Import the LocalDateTime class
-import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.simple.JSONObject;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CreatingJSONDocument {
 
@@ -147,12 +141,9 @@ public class CreatingJSONDocument {
      }
  }
 */
+
+//--> Classe originaria
 /*
-import java.io.FileWriter;
-import java.io.IOException;
-import org.json.simple.JSONObject;
-
-
 public class CreatingJSONDocument {
     public static void main(String args[]) {
 
@@ -171,7 +162,6 @@ public class CreatingJSONDocument {
             file.write(jsonObject.toJSONString());
             file.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         System.out.println("JSON file created: "+jsonObject);

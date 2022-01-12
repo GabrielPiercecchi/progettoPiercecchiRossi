@@ -1,19 +1,14 @@
 package com.example.test_2_springboot.controller;
 
 import com.example.test_2_springboot.model.City;
-import com.example.test_2_springboot.model.Menu;
 import com.example.test_2_springboot.service.CityService;
-import com.example.test_2_springboot.service.CityServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
 
