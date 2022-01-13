@@ -22,12 +22,11 @@ public class ParseJSONDocument {
         //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
         ComparativeStats comparativeStats = new ComparativeStatsImpl();
 
+        //--> Richiamo ArrayList per salvare nome città e data
+        CityFilters cityFilters = new CityFilters();
         try {
-            CityStats cityStats = new CityStats(0, 0, 0, 0);
+            CityStats cityStats = new CityStats(0, 0, 0, 0, null, null);
             //City city = new City();
-
-            //--> Richiamo ArrayList per salvare nome città e data
-            CityFilters cityFilters = new CityFilters();
 
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
@@ -56,7 +55,10 @@ public class ParseJSONDocument {
 
                 cityFilters.addCityNames(fName);
                 cityFilters.addDates(formattedDate);
+
+                System.out.println(cityFilters.toString());
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("ERROR");
                 System.out.println("--> Impossible to save data in the ArrayLists");
                 System.out.println();
@@ -64,7 +66,7 @@ public class ParseJSONDocument {
 
             System.out.println("Current temperature of " + fName + ":");
             //--> Println dei valori salvati
-            System.out.println(cityStats.toString());
+            System.out.println(cityStats);
             System.out.println();
 
             /*

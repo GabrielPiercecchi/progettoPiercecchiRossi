@@ -1,6 +1,8 @@
 package com.example.test_2_springboot.filters;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CityFilters {
 
@@ -30,5 +32,13 @@ public class CityFilters {
 
     public void addDates(String date) {
         Dates.add(date);
+    }
+
+    @Override
+    public String toString() {
+        return "CityFilters{" +
+                "Dates=" + Dates +
+                ", CityNames=" + CityNames +
+                '}';
     }
 }
