@@ -108,6 +108,28 @@ public class CityServiceImpl implements CityService {
         cityII.setName(city2);
         cityRepo.put(cityII.getId(), cityII);
 
+        // Method 2: java.net.Http.HttpClient
+        try {
+
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request;
+
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                    .thenApply(HttpResponse::body)
+                    //.thenAccept(System.out::println) --> PRINTLN FILE JSON
+                    .thenApply(ParseJSONDocument::parse)
+                    .join();
+
+            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                    .thenApply(HttpResponse::body)
+                    .thenApply(ParseJSONDocument::parse)
+                    .join();
+        } catch (Exception e) {
+            System.out.println("ERROR in the URI request");
+        }
+
         // Method 1: java.net.HttpURLConnection
         /*
         try {
@@ -185,27 +207,5 @@ public class CityServiceImpl implements CityService {
             connection.disconnect();
         }
         */
-
-        // Method 2: java.net.Http.HttpClient
-        try {
-
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request;
-
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
-            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    //.thenAccept(System.out::println) --> PRINTLN FILE JSON
-                    .thenApply(ParseJSONDocument::parse)
-                    .join();
-
-            request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city2After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
-            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    .thenApply(ParseJSONDocument::parse)
-                    .join();
-        } catch (Exception e) {
-            System.out.println("ERROR in the URI request");
-        }
     }
 }

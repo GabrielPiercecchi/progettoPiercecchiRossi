@@ -1,9 +1,15 @@
 package com.example.test_2_springboot.model;
 
 
+import com.example.test_2_springboot.filters.ControlFilters;
+import com.example.test_2_springboot.filters.ControlFiltersImpl;
 import com.example.test_2_springboot.service.CityService;
 import com.example.test_2_springboot.service.CityServiceImpl;
+import org.json.simple.parser.ParseException;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -12,10 +18,11 @@ import java.util.Scanner;
 public class Menu {
 
     /**
-     * Questo metodo rappresenta il menu del programma assegnato
+     * Questo metodo rappresenta il MENU del programma assegnato
      */
     public void menu() {
         Scanner scanner = new Scanner(System.in);
+        ControlFilters controlFilters = new ControlFiltersImpl();
 
         //City city = new City();
         String city1Before;
@@ -44,12 +51,13 @@ public class Menu {
             System.out.println("--> Please insert second city:");
             city2Before = scanner.nextLine();
 
-            //--> Richiamo metodo inputCity (cerca le città inseirite)
+            //--> Richiamo metodo inputCity (cerca le città inserite)
             CityService cityService = new CityServiceImpl();
             cityService.inputCity(city1Before, city2Before);
 
             System.out.println();
 
+            //--> Questo ciclo do-while permette d'inserire più coppie di città
             boolean switchC = false;
             do {
                 System.out.println("--> Do you want to continue? Y/N");
@@ -57,7 +65,33 @@ public class Menu {
                 switch (cont) {
                     case "Y":
                     case "y":
-                        switchC = true;
+                        //--> Questo switch annidato permette d'inserire una data da usare come "filter"
+                        System.out.println("--> Do you want to filter the cities already called? (Y/N)");
+                        String wantDate = scanner.nextLine();
+                        switch (wantDate) {
+                            case "Y":
+                            case "y":
+                                try {
+                                    System.out.println("--> Please insert a date:");
+                                    System.out.println("(Date format: dd-MM-yyyy HH:mm:ss)");
+                                    String strDate = scanner.nextLine();
+                                    //--> Richiamo metodo checkData della classe controlFilters
+                                    controlFilters.checkData(strDate);
+                                } catch (Exception e) {
+                                    System.out.println("--> ERROR");
+                                    System.out.println("--> Date format not acceptable");
+                                }
+                                switchC = true;
+                                break;
+                            case "N":
+                            case "n":
+                                switchC = true;
+                                break;
+                            default:
+                                System.out.println("ERROR\n" +
+                                        "--> Wrong command\n" +
+                                        "--> Please use the right ones ;-)");
+                        }
                         break;
                     case "N":
                     case "n":

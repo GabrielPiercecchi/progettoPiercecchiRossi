@@ -1,6 +1,7 @@
 package com.example.test_2_springboot.utilities;
 
 
+import com.example.test_2_springboot.filters.CityFilters;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedWriter;
@@ -12,8 +13,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class CreatingJSONDocument {
 
@@ -55,7 +58,7 @@ public class CreatingJSONDocument {
 
                 file.createNewFile();
                 System.out.println("JSON file created:");
-                System.out.println("");
+                System.out.println();
             }
 
             bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), false));

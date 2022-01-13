@@ -1,43 +1,8 @@
-{
-  "coord": {
-    "lon": -75.4557,
-    "lat": 43.2128
-  },
-  "weather": [
-    {
-      "id": 803,
-      "main": "Clouds",
-      "description": "broken clouds",
-      "icon": "04d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 269.4,
-    "feels_like": 267.05,
-    "temp_min": 268.39,
-    "temp_max": 271.14,
-    "pressure": 1019,
-    "humidity": 81
-  },
-  "visibility": 10000,
-  "wind": {
-    "speed": 1.54,
-    "deg": 130
-  },
-  "clouds": {
-    "all": 75
-  },
-  "dt": 1640615712,
-  "sys": {
-    "type": 2,
-    "id": 2007612,
-    "country": "US",
-    "sunrise": 1640608382,
-    "sunset": 1640640768
-  },
-  "timezone": -18000,
-  "id": 5134295,
-  "name": "Rome",
-  "cod": 200
-}
+[{"Time":"12-01-2022 16:50:53","Main":{"temp":5.0,"temp_min":3.0,"feels_like":5.0,"temp_max":7.0},"Call N°":1,"Name":"Trento"},
+  {"Time":"12-01-2022 16:50:53","Main":{"temp":6.0,"temp_min":4.0,"feels_like":4.0,"temp_max":7.0},"Call N°":2,"Name":"Provincia di Rimini"},
+  {"Time":"12-01-2022 16:51:00","Main":{"temp":10.0,"temp_min":8.0,"feels_like":7.0,"temp_max":10.0},"Call N°":3,"Name":"Provincia di Taranto"},
+  {"Time":"12-01-2022 16:51:00","Main":{"temp":6.0,"temp_min":3.0,"feels_like":4.0,"temp_max":8.0},"Call N°":4,"Name":"Bologna"},
+  {"Time":"12-01-2022 16:51:09","Main":{"temp":3.0,"temp_min":2.0,"feels_like":1.0,"temp_max":3.0},"Call N°":5,"Name":"Berlin"},
+  {"Time":"12-01-2022 16:51:09","Main":{"temp":-15.0,"temp_min":-16.0,"feels_like":-21.0,"temp_max":-14.0},"Call N°":6,"Name":"Moscow"},
+  {"Time":"12-01-2022 16:51:28","Main":{"temp":0.0,"temp_min":-3.0,"feels_like":1.0,"temp_max":4.0},"Call N°":7,"Name":"New York"},
+  {"Time":"12-01-2022 16:51:28","Main":{"temp":1.0,"temp_min":0.0,"feels_like":0.0,"temp_max":3.0},"Call N°":8,"Name":"Toronto"}]

@@ -1,9 +1,14 @@
 package com.example.test_2_springboot.utilities;
 
+import com.example.test_2_springboot.filters.CityFilters;
 import com.example.test_2_springboot.stats.CityStats;
 import com.example.test_2_springboot.stats.ComparativeStats;
 import com.example.test_2_springboot.stats.ComparativeStatsImpl;
+import com.example.test_2_springboot.utilities.CreatingJSONDocument;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static java.lang.Math.round;
 
@@ -21,6 +26,9 @@ public class ParseJSONDocument {
             CityStats cityStats = new CityStats(0, 0, 0, 0);
             //City city = new City();
 
+            //--> Richiamo ArrayList per salvare nome città e data
+            CityFilters cityFilters = new CityFilters();
+
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
 
@@ -35,9 +43,24 @@ public class ParseJSONDocument {
 
             //--> Salvataggio stats
             cityStats.setTemp(round((temp - 273.15)));
-            cityStats.setFeels_like(round((feels_like - 273)));
+            cityStats.setFeels_like(round((feels_like - 273.15)));
             cityStats.setTemp_min(round((temp_min - 273.15)));
             cityStats.setTemp_max(round((temp_max - 273.15)));
+
+            //--> Salvataggio filter
+            try {
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                String formattedDate = formatter.format(date);
+                System.out.println(formattedDate);
+
+                cityFilters.addCityNames(fName);
+                cityFilters.addDates(formattedDate);
+            } catch (Exception e) {
+                System.out.println("ERROR");
+                System.out.println("--> Impossible to save data in the ArrayLists");
+                System.out.println();
+            }
 
             System.out.println("Current temperature of " + fName + ":");
             //--> Println dei valori salvati

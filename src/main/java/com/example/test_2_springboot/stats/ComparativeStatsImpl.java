@@ -21,7 +21,7 @@ public class ComparativeStatsImpl implements ComparativeStats {
                 }
                 // Output will be zero if a==b
                 else if (controller == 0) {
-                    System.out.println("--> Both the cities have the same temperature: " + round(feels_like - 275) + "°C");
+                    System.out.println("--> Both the cities have the same temperature: " + round((feels_like - 273.15)) + "°C");
                 }
                 // Output will be a value greater than zero if a>b
                 else if (controller > 0) {
@@ -37,7 +37,7 @@ public class ComparativeStatsImpl implements ComparativeStats {
     @Override
     public void ResetT() {
         System.out.println();
-        System.out.println("--> Impossible to compare");
+        System.out.println("--> City not found: impossible to compare");
         System.out.println();
         NTemp++;
         ++controlC;

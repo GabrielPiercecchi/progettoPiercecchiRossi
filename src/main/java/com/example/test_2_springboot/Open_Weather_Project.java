@@ -1,14 +1,10 @@
 package com.example.test_2_springboot;
 
-import com.example.test_2_springboot.model.City;
 import com.example.test_2_springboot.model.Menu;
 import com.example.test_2_springboot.service.CityService;
 import com.example.test_2_springboot.service.CityServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 /**
  * Questa classe rappresenta l'inizio del programma assegnato
@@ -19,13 +15,13 @@ import java.net.URL;
  * @author Rossi Alan
  */
 @SpringBootApplication
-public class Test2SpringBootApplication {
+public class Open_Weather_Project {
 
     /**
      * Questo metodo serve per avviare il programma
      */
     public static void main(String[] args) {
-        SpringApplication.run(Test2SpringBootApplication.class, args);
+        SpringApplication.run(Open_Weather_Project.class, args);
         CityService cityService = new CityServiceImpl();
         Menu menu = new Menu();
         menu.menu();
