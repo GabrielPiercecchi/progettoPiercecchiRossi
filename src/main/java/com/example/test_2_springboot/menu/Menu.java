@@ -1,4 +1,4 @@
-package com.example.test_2_springboot.model;
+package com.example.test_2_springboot.menu;
 
 
 import com.example.test_2_springboot.filters.ControlFiltersImpl;

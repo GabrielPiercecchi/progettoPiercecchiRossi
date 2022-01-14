@@ -1,6 +1,6 @@
 package com.example.test_2_springboot;
 
-import com.example.test_2_springboot.model.Menu;
+import com.example.test_2_springboot.menu.Menu;
 import com.example.test_2_springboot.service.CityService;
 import com.example.test_2_springboot.service.CityServiceImpl;
 import org.springframework.boot.SpringApplication;
