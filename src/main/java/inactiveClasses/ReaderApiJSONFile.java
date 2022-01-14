@@ -1,10 +1,5 @@
 package inactiveClasses;
 
-import com.example.test_2_springboot.service.CityService;
-import com.example.test_2_springboot.service.CityServiceImpl;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 
 public class ReaderApiJSONFile {
 

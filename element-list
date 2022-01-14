@@ -1,8 +1,8 @@
-com.example.test_2_springboot
-com.example.test_2_springboot.controller
-com.example.test_2_springboot.filters
-com.example.test_2_springboot.menu
-com.example.test_2_springboot.model
-com.example.test_2_springboot.service
-com.example.test_2_springboot.stats
-com.example.test_2_springboot.utilities
+com.example.OpenWeatherProject
+com.example.OpenWeatherProject.controller
+com.example.OpenWeatherProject.filters
+com.example.OpenWeatherProject.menu
+com.example.OpenWeatherProject.model
+com.example.OpenWeatherProject.service
+com.example.OpenWeatherProject.stats
+com.example.OpenWeatherProject.utilities
