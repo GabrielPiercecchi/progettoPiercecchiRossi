@@ -1,6 +1,8 @@
 package com.example.test_2_springboot.utilities;
 
 import com.example.test_2_springboot.filters.CityFilters;
+import com.example.test_2_springboot.filters.ControlFilters;
+import com.example.test_2_springboot.filters.ControlFiltersImpl;
 import com.example.test_2_springboot.stats.CityStats;
 import com.example.test_2_springboot.stats.ComparativeStats;
 import com.example.test_2_springboot.stats.ComparativeStatsImpl;
@@ -22,12 +24,9 @@ public class ParseJSONDocument {
         //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
         ComparativeStats comparativeStats = new ComparativeStatsImpl();
 
-        //--> Richiamo ArrayList per salvare nome città e data
-        CityFilters cityFilters = new CityFilters();
         try {
-            CityStats cityStats = new CityStats(0, 0, 0, 0, null, null);
+            CityStats cityStats = new CityStats(0, 0, 0, 0);
             //City city = new City();
-
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
 
@@ -45,24 +44,6 @@ public class ParseJSONDocument {
             cityStats.setFeels_like(round((feels_like - 273.15)));
             cityStats.setTemp_min(round((temp_min - 273.15)));
             cityStats.setTemp_max(round((temp_max - 273.15)));
-
-            //--> Salvataggio filter
-            try {
-                Date date = new Date();
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                String formattedDate = formatter.format(date);
-                System.out.println(formattedDate);
-
-                cityFilters.addCityNames(fName);
-                cityFilters.addDates(formattedDate);
-
-                System.out.println(cityFilters.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("ERROR");
-                System.out.println("--> Impossible to save data in the ArrayLists");
-                System.out.println();
-            }
 
             System.out.println("Current temperature of " + fName + ":");
             //--> Println dei valori salvati

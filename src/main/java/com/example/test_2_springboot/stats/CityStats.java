@@ -10,16 +10,12 @@ public class CityStats {
     private double feels_like;
     private double temp_max;
     private double temp_min;
-    private String CityN1;
-    private String CityN2;
 
-    public CityStats(double temp, double feels_like, double temp_max, double temp_min, String cityN1, String cityN2) {
+    public CityStats(double temp, double feels_like, double temp_max, double temp_min) {
         this.temp = temp;
         this.feels_like = feels_like;
         this.temp_max = temp_max;
         this.temp_min = temp_min;
-        this.CityN1 = cityN1;
-        this.CityN2 = cityN2;
     }
 
     public double getTemp() {

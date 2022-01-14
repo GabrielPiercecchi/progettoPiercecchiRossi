@@ -2,6 +2,8 @@ package com.example.test_2_springboot.utilities;
 
 
 import com.example.test_2_springboot.filters.CityFilters;
+import com.example.test_2_springboot.filters.ControlFilters;
+import com.example.test_2_springboot.filters.ControlFiltersImpl;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedWriter;
@@ -42,6 +44,10 @@ public class CreatingJSONDocument {
         listOfTemps.put("temp_max", temp_max);
 
         citiesObj.put("Main", listOfTemps);
+
+        //--> Richiamo ArrayList per salvare nome città e data
+        ControlFiltersImpl controlFilters = new ControlFiltersImpl();
+        controlFilters.addData(formattedDate, name, temp, feels_like, temp_max, temp_min);
 
         try {
 

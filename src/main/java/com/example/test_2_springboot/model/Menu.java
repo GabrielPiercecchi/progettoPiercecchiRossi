@@ -23,7 +23,7 @@ public class Menu {
      */
     public void menu() {
         Scanner scanner = new Scanner(System.in);
-        ControlFilters controlFilters = new ControlFiltersImpl();
+        ControlFiltersImpl controlFilters = new ControlFiltersImpl();
 
         //City city = new City();
         String city1Before;
@@ -82,7 +82,6 @@ public class Menu {
                                     System.out.println("--> ERROR");
                                     System.out.println("--> Date format not acceptable");
                                 }
-                                switchC = true;
                                 break;
                             case "N":
                             case "n":
