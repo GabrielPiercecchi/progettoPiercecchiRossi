@@ -1,8 +1,6 @@
 package com.example.test_2_springboot.utilities;
 
 
-import com.example.test_2_springboot.filters.CityFilters;
-import com.example.test_2_springboot.filters.ControlFilters;
 import com.example.test_2_springboot.filters.ControlFiltersImpl;
 import org.json.simple.JSONObject;
 
@@ -15,10 +13,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class CreatingJSONDocument {
 

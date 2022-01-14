@@ -1,16 +1,9 @@
 package com.example.test_2_springboot.utilities;
 
-import com.example.test_2_springboot.filters.CityFilters;
-import com.example.test_2_springboot.filters.ControlFilters;
-import com.example.test_2_springboot.filters.ControlFiltersImpl;
 import com.example.test_2_springboot.stats.CityStats;
 import com.example.test_2_springboot.stats.ComparativeStats;
 import com.example.test_2_springboot.stats.ComparativeStatsImpl;
-import com.example.test_2_springboot.utilities.CreatingJSONDocument;
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import static java.lang.Math.round;
 
@@ -49,17 +42,15 @@ public class ParseJSONDocument {
             //--> Println dei valori salvati
             System.out.println(cityStats);
             System.out.println();
-
             /*
             System.out.println("--> temp: " + round((temp - 273.15)));
             System.out.println("--> feels_like: " + round((feels_like - 273.15)));
             System.out.println("--> temp_min: " + round((temp_min - 273.15)));
             System.out.println("--> temp_max: " + round((temp_max - 273.15)));
             */
-
             //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
             //ComparativeStats comparativeStats = new ComparativeStatsImpl();
-            comparativeStats.CompareT(feels_like);
+            comparativeStats.compareT(feels_like);
 
             //--> Richiamo metodo che scrive su file JSON i dati ricevuti
             jsonDocument.fileWriter(fName, cityStats.getTemp(), cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
@@ -69,7 +60,7 @@ public class ParseJSONDocument {
             System.out.println();
             System.out.println("Sorry :-(\n" +
                     "--> City n° " + (++Ncity) + " not found");
-            comparativeStats.ResetT();
+            comparativeStats.resetT();
         }
         return null;
     }

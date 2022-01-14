@@ -1,16 +1,10 @@
 package com.example.test_2_springboot.model;
 
 
-import com.example.test_2_springboot.filters.CityFilters;
-import com.example.test_2_springboot.filters.ControlFilters;
 import com.example.test_2_springboot.filters.ControlFiltersImpl;
 import com.example.test_2_springboot.service.CityService;
 import com.example.test_2_springboot.service.CityServiceImpl;
-import org.json.simple.parser.ParseException;
 
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Scanner;
 
 /**

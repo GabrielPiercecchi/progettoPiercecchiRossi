@@ -1,8 +1,5 @@
 package com.example.test_2_springboot.filters;
 
-import com.example.test_2_springboot.utilities.ParseJSONDocument;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -32,9 +29,7 @@ public class ControlFiltersImpl implements ControlFilters {
             int i = 0;
             while (i < CityFilters.CityNames.size()) {
                 String strCParse = CityFilters.Dates.get(i);
-                //System.out.println(strCParse);
                 Date dateCParse = dateInput.parse(strCParse);
-                //System.out.println(dateCParse);
                 try {
                     if (CityFilters.CityNames.size() == 0) {
                         System.out.println("--> There are no city call :-(");
@@ -65,16 +60,12 @@ public class ControlFiltersImpl implements ControlFilters {
     @Override
     public void addData(String date, String name, double temp, double feels_like, double temp_max, double temp_min) {
         try {
-            //System.out.println(formattedDate);
-
             cityFilters.addCityNames(name);
             cityFilters.addDates(date);
             cityFilters.addCityTemps(temp);
             cityFilters.addCityFeels_like(feels_like);
             cityFilters.addCityTemps_min(temp_min);
             cityFilters.addCityTemps_max(temp_max);
-
-            //System.out.println(cityFilters.toString());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR");

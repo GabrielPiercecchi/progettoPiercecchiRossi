@@ -1,8 +1,6 @@
 package com.example.test_2_springboot.filters;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CityFilters {
 

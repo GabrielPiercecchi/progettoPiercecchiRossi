@@ -2,14 +2,20 @@ package com.example.test_2_springboot.stats;
 
 import static java.lang.Math.round;
 
+/**
+ * Questa classe implementa i metodo definiti nell'interfaccia "ComparativeStats" associata
+ */
 public class ComparativeStatsImpl implements ComparativeStats {
 
     static double[] TCollection = new double[2];
     static int NTemp = 0;
     static int controlC = 0;
 
+    /**
+     * @param feels_like variabile double che contiene la temperatura percepita di una città
+     */
     @Override
-    public void CompareT(double feels_like) {
+    public void compareT(double feels_like) {
         controlC++;
         TCollection[NTemp] = feels_like;
         if (controlC > 1) {
@@ -34,8 +40,11 @@ public class ComparativeStatsImpl implements ComparativeStats {
         } else NTemp++;
     }
 
+    /**
+     * Questo metodo viene usato come controllo dal metodo sopra citato: "compareT"
+     */
     @Override
-    public void ResetT() {
+    public void resetT() {
         System.out.println();
         System.out.println("--> City not found: impossible to compare");
         System.out.println();

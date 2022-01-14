@@ -109,6 +109,7 @@ public class CityServiceImpl implements CityService {
         cityRepo.put(cityII.getId(), cityII);
 
         // Method 2: java.net.Http.HttpClient
+        //--> Uso questo metodo URI perchè più pulito e diretto rispetto a quello URL
         try {
 
             HttpClient client = HttpClient.newHttpClient();
