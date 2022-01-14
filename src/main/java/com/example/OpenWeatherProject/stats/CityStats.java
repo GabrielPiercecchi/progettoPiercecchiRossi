@@ -3,30 +3,49 @@ package com.example.OpenWeatherProject.stats;
 import com.example.OpenWeatherProject.model.City;
 
 /**
- * Questa classe serve per contenere tutte le variabile che caratterizzano una città
+ * Questa classe serve per contenere tutte le variabili che caratterizzano una città
  */
 public class CityStats {
 
-    City city = new City();
+    //City city = new City();
 
-
+    private String Name;
     private double temp;
     private double feels_like;
     private double temp_max;
     private double temp_min;
 
     /**
-     *
-     * @param temp variabile double che contiene la temperatura di una città
+     * @param name       variabile String proveniente dalla classe City
+     * @param temp       variabile double che contiene la temperatura di una città
      * @param feels_like variabile double che contiene la temperatura percepita di una città
-     * @param temp_max variabile double che contiene la temperatura massima di una città
-     * @param temp_min variabile double che contiene la temperatura minima di una città
+     * @param temp_max   variabile double che contiene la temperatura massima di una città
+     * @param temp_min   variabile double che contiene la temperatura minima di una città
      */
-    public CityStats(double temp, double feels_like, double temp_max, double temp_min) {
+    public CityStats(String name, double temp, double feels_like, double temp_max, double temp_min) {
+        this.Name = name;
         this.temp = temp;
         this.feels_like = feels_like;
         this.temp_max = temp_max;
         this.temp_min = temp_min;
+    }
+
+    /**
+     * Questo metodo "getter" serve per restituire il nome di una città appena salvata
+     *
+     * @return restituisce il nome attuale di una città
+     */
+    public String getName() {
+        return Name;
+    }
+
+    /**
+     * Questo metodo "setter" serve per salvare il nome di una città
+     *
+     * @param name variabile double che contiene il nome di una città
+     */
+    public void setName(String name) {
+        this.Name = name;
     }
 
     /**
@@ -109,10 +128,10 @@ public class CityStats {
     @Override
     public String toString() {
         return "{" +
-                "\n--> Temp = " + temp + "°C" +
-                ", \n--> Feels_like = " + feels_like + "°C" +
-                ", \n--> Temp_max = " + temp_max + "°C" +
-                ", \n--> Temp_min = " + temp_min + "°C" +
+                "\n--> Temp = " + this.temp + "°C" +
+                ", \n--> Feels_like = " + this.feels_like + "°C" +
+                ", \n--> Temp_max = " + this.temp_max + "°C" +
+                ", \n--> Temp_min = " + this.temp_min + "°C" +
                 "\n}";
     }
 }

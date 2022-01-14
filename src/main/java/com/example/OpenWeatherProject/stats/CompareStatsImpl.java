@@ -5,7 +5,7 @@ import static java.lang.Math.round;
 /**
  * Questa classe implementa i metodo definiti nell'interfaccia "ComparativeStats" associata
  */
-public class ComparativeStatsImpl implements ComparativeStats {
+public class CompareStatsImpl implements CompareStats {
 
     static double[] TCollection = new double[2];
     static int NTemp = 0;

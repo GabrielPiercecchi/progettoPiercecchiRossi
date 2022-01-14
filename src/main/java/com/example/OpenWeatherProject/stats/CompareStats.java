@@ -4,7 +4,7 @@ package com.example.OpenWeatherProject.stats;
  * Questa interfaccia serve a contenere tutti i metodi che interagiscono con le variabili definite
  * nella classe "CityStats"
  */
-public interface ComparativeStats {
+public interface CompareStats {
 
     /**
      * Questo metodo serve per confrontare i dati salvati di due città diverse

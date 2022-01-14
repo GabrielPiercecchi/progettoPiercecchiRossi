@@ -9,7 +9,7 @@ public class City {
      * @param name variabile String che serve a contenere il nome di una città
      * @param Id variabile int che serve a identificare in maniera univoca ogni città
      */
-    private String name;
+    private String Name;
     private int Id;
 
     /**
@@ -18,7 +18,7 @@ public class City {
      * @return restituisce il nome della città appena salvata
      */
     public String getName() {
-        return name;
+        return Name;
     }
 
     /**
@@ -27,7 +27,7 @@ public class City {
      * @param name variabile String che serve a contenere il nome di una città
      */
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     /**

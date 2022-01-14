@@ -21,11 +21,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class CityServiceImpl implements CityService {
 
-
     private static Map<Integer, City> cityRepo = new HashMap<>();
     private final AtomicLong counter = new AtomicLong();
-    //private static HttpURLConnection connection;
-
 
     /**
      * Questo metodo serve a creare di default due città

@@ -1,7 +1,9 @@
 package com.example.OpenWeatherProject.utilities;
 
 
+import com.example.OpenWeatherProject.filters.CityFilters;
 import com.example.OpenWeatherProject.filters.ControlFiltersImpl;
+import com.example.OpenWeatherProject.stats.CityStats;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedWriter;
@@ -18,15 +20,12 @@ import java.time.format.DateTimeFormatter;
 
 public class CreatingJSONDocument {
 
-    public static int cityCounter = 0;
+    private int cityCounter = 0;
     // private final AtomicLong counter = new AtomicLong();
 
-    public void fileWriter(String name, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
+    public void fileWriter(String name, String formattedDate, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
-        //--> Serve per STATS/FILTRI su base oraria
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        String formattedDate = myDateObj.format(myFormatObj);
+        CityFilters cityFilters = new CityFilters(null, null, 0, 0, 0, 0);
 
         JSONObject citiesObj = new JSONObject();
         citiesObj.put("Call N°", ++cityCounter);
@@ -40,13 +39,7 @@ public class CreatingJSONDocument {
         listOfTemps.put("temp_max", temp_max);
 
         citiesObj.put("Main", listOfTemps);
-
-        //--> Richiamo ArrayList per salvare nome città e data
-        ControlFiltersImpl controlFilters = new ControlFiltersImpl();
-        controlFilters.addData(formattedDate, name, temp, feels_like, temp_max, temp_min);
-
         try {
-
             // Writing to a file
             File file = new File("FileCities.json");
             BufferedWriter bufferedWriter;

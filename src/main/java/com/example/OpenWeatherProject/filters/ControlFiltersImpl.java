@@ -1,13 +1,15 @@
 package com.example.OpenWeatherProject.filters;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ControlFiltersImpl implements ControlFilters {
 
-    CityFilters cityFilters = new CityFilters();
     //--> Date format
     SimpleDateFormat dateInput = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+    private static final ArrayList<CityFilters> cityFiltersArrayList = new ArrayList<>();
 
     //Questo metodo serve per filtrare i dat ottenuti e restituire solo
     //quelli precedenti alla data scelta dall'utente
@@ -18,28 +20,27 @@ public class ControlFiltersImpl implements ControlFilters {
         System.out.println("--> Cities called before the date '" + date + "':");
         System.out.println();
         try {
-            /*
-            if ((cityFilters.CityNames.size()) == 0) System.out.println("--> CityNames vuoto");
-            if ((cityFilters.Dates.size()) == 0) System.out.println("--> Dates vuoto");
-            if (cityFilters.CityNames.size() > 0) System.out.println("--> CityNames non vuoto");
-            if (cityFilters.Dates.size() > 0) System.out.println("--> Dates non vuoto");
-            */
-            Date date1 = dateInput.parse(date);
-            //System.out.println(date1);
+
+            //if ((cityFiltersArrayList.size()) == 0) System.out.println("--> CityNames vuoto");
+            //if ((cityFiltersArrayList.size()) == 0) System.out.println("--> Dates vuoto");
+            //if (cityFiltersArrayList.size() > 0) System.out.println("--> CityNames non vuoto");
+            //if (cityFiltersArrayList.size() > 0) System.out.println("--> Dates non vuoto");
+
+            //--> Converto da String a Date la data ricevuta (date)
+            Date Date1 = dateInput.parse(date);
+            //System.out.println(Date);
+
             int i = 0;
-            while (i < CityFilters.CityNames.size()) {
-                String strCParse = CityFilters.Dates.get(i);
+            while (i < cityFiltersArrayList.size()) {
+                String strCParse = cityFiltersArrayList.get(i).getDate();
                 Date dateCParse = dateInput.parse(strCParse);
                 try {
-                    if (CityFilters.CityNames.size() == 0) {
-                        System.out.println("--> There are no city call :-(");
+                    if (Date1.after(dateCParse)) {
+                        System.out.println(toString(i));
                         System.out.println();
-                        break;
-                    } else if (date1.after(dateCParse)) {
-                        System.out.println(cityFilters.toString(i));
-                        break;
                     } else {
-                        System.out.println("--> There are no city call before the chosen date.");
+                        System.out.println("--> There are no more city call before the chosen date");
+                        System.out.println();
                         break;
                     }
                 } catch (Exception e) {
@@ -49,7 +50,6 @@ public class ControlFiltersImpl implements ControlFilters {
                 i++;
             }
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println("ERROR");
             System.out.println("--> Impossible to print the data");
             System.out.println();
@@ -58,19 +58,28 @@ public class ControlFiltersImpl implements ControlFilters {
 
     //--> Salvataggio filter
     @Override
-    public void addData(String date, String name, double temp, double feels_like, double temp_max, double temp_min) {
+    public void addData(String date, String name, double temp, double feels_like,
+                        double temp_max, double temp_min) {
         try {
-            cityFilters.addCityNames(name);
-            cityFilters.addDates(date);
-            cityFilters.addCityTemps(temp);
-            cityFilters.addCityFeels_like(feels_like);
-            cityFilters.addCityTemps_min(temp_min);
-            cityFilters.addCityTemps_max(temp_max);
+            cityFiltersArrayList.add(new CityFilters(date, name, temp, feels_like, temp_max, temp_min));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR");
-            System.out.println("--> Impossible to save data in the ArrayLists");
+            System.out.println("--> Impossible to save data using ArrayList");
             System.out.println();
         }
+    }
+
+    @Override
+    public String toString(int i) {
+        return ("City n°" + (i + 1) + ":" +
+                "\n{" +
+                "\n--> Date = " + (cityFiltersArrayList.get(i).getDate()) +
+                "\n--> Name = " + (cityFiltersArrayList.get(i).getName()) +
+                "\n--> Temp = " + (cityFiltersArrayList.get(i).getTemp()) +
+                "\n--> Feels_like = " + (cityFiltersArrayList.get(i).getFeels_like()) +
+                "\n--> Temp_min = " + (cityFiltersArrayList.get(i).getTemp_min()) +
+                "\n--> Temp_max = " + (cityFiltersArrayList.get(i).getTemp_max()) +
+                "\n}");
     }
 }
