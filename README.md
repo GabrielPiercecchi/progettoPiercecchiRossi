@@ -31,7 +31,8 @@ https://api.openweathermap.org/data/2.5/weather?q=roma&appid=1234
 
 si ottengono i seguenti dati sotto formato json
 
-`{
+```json
+{
 "coord": {
 "lon": 12.4839,
 "lat": 41.8947
@@ -73,7 +74,8 @@ si ottengono i seguenti dati sotto formato json
 "id": 6539761,
 "name": "Roma",
 "cod": 200
-}`
+}
+```
 
 Grazie all'utilizzo di quest'api è stato possibile ottenere i dati live necessari per il nostro progetto:
 
