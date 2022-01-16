@@ -55,7 +55,7 @@ public class ParseJSONDocument {
             cityStats.setName(fName);
             cityFilters.setDate(formattedDate);
 
-            System.out.println("Current temperature of " + fName + ":");
+            System.out.println("Current temperatures of " + fName + ":");
             //--> Println dei valori salvati
             System.out.println(cityStats);
             System.out.println();

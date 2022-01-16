@@ -128,10 +128,10 @@ public class CityStats {
     @Override
     public String toString() {
         return "{" +
-                "\n--> Temp = " + this.temp + "°C" +
-                ", \n--> Feels_like = " + this.feels_like + "°C" +
-                ", \n--> Temp_max = " + this.temp_max + "°C" +
-                ", \n--> Temp_min = " + this.temp_min + "°C" +
+                " \n--> The temperature is about " + this.temp + "°C" +
+                ",\n--> The perceived temperature is about " + this.feels_like + "°C" +
+                ",\n--> The maximum temperature is about " + this.temp_max + "°C" +
+                ",\n--> The minimum temperature is about " + this.temp_min + "°C" +
                 "\n}";
     }
 }
