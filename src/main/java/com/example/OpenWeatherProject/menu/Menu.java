@@ -67,11 +67,12 @@ public class Menu {
                             case "Y":
                             case "y":
                                 try {
-                                    System.out.println("--> Please insert a date:");
+                                    System.out.println("--> Please insert two dates:");
                                     System.out.println("(Date format: dd-MM-yyyy HH:mm:ss)");
-                                    String strDate = scanner.nextLine();
+                                    String strDate1 = scanner.nextLine();
+                                    String strdate2 = scanner.nextLine();
                                     //--> Richiamo metodo checkData della classe controlFilters
-                                    controlFilters.checkData(strDate);
+                                    controlFilters.checkData(strDate1);
                                 } catch (Exception e) {
                                     System.out.println("--> ERROR");
                                     System.out.println("--> Date format not acceptable");
