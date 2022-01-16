@@ -20,12 +20,6 @@ public class ControlFiltersImpl implements ControlFilters {
         System.out.println("--> Cities called before the date '" + date + "':");
         System.out.println();
         try {
-
-            //if ((cityFiltersArrayList.size()) == 0) System.out.println("--> CityNames vuoto");
-            //if ((cityFiltersArrayList.size()) == 0) System.out.println("--> Dates vuoto");
-            //if (cityFiltersArrayList.size() > 0) System.out.println("--> CityNames non vuoto");
-            //if (cityFiltersArrayList.size() > 0) System.out.println("--> Dates non vuoto");
-
             //--> Converto da String a Date la data ricevuta (date)
             Date Date1 = dateInput.parse(date);
             //System.out.println(Date);

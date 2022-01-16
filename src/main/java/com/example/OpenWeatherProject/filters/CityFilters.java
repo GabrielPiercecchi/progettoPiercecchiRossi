@@ -28,33 +28,4 @@ public class CityFilters extends CityStats {
     public void setDate(String date) {
         this.Date = date;
     }
-
-//*****************************************************************************
-    /*
-    public void addCityNames(String cityNames) {
-        CityNames.add(cityNames);
-    }
-
-    public void addDates(String date) {
-        Dates.add(date);
-    }
-
-    public void addCityTemps(double cityTemps) {
-        CityTemps.add(cityTemps);
-    }
-
-    public void addCityFeels_like(double cityFeels_like) {
-        CityFeels_like.add(cityFeels_like);
-    }
-
-    public void addCityTemps_min(double cityTemps_min) {
-        CityTemps_min.add(cityTemps_min);
-    }
-
-    public void addCityTemps_max(double cityTemps_max) {
-        CityTemps_max.add(cityTemps_max);
-    }
-     */
-//********************************************************************
-
 }

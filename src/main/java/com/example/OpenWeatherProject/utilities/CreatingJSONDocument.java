@@ -44,17 +44,15 @@ public class CreatingJSONDocument {
             File file = new File("FileCities.json");
             BufferedWriter bufferedWriter;
 
+            if (!file.exists()) {
+                file.createNewFile();
+                System.out.println("JSON file created");
+                System.out.println();
+            }
             // Saving previous data to a String variable
             Path path = Paths.get("FileCities.json");
             Charset charset = StandardCharsets.UTF_8;
             String content = new String(Files.readAllBytes(path), charset);
-
-            if (!file.exists()) {
-
-                file.createNewFile();
-                System.out.println("JSON file created:");
-                System.out.println();
-            }
 
             bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), false));
 
