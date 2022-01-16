@@ -42,7 +42,7 @@ public class ControlFiltersImpl implements ControlFilters {
                 Date dateCParse = dateInput.parse(strCParse);
                 try {
                     if (Date1.before(dateCParse) || (Date1.compareTo(dateCParse) == 0)) {
-                        if (Date2.after(dateCParse) || (Date1.compareTo(dateCParse) == 0)) {
+                        if (Date2.after(dateCParse) || (Date2.compareTo(dateCParse) == 0)) {
                             System.out.println(toString(i));
                             System.out.println();
                             cont = true;
@@ -55,7 +55,7 @@ public class ControlFiltersImpl implements ControlFilters {
                 i++;
             }
             if (!cont) {
-                System.out.println("--> There are no city call between the two dates :-(");
+                System.out.println("--> There are no city call between these dates :-(");
                 System.out.println();
             }
         } catch (Exception e) {
