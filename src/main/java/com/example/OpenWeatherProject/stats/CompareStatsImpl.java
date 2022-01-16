@@ -7,9 +7,9 @@ import static java.lang.Math.round;
  */
 public class CompareStatsImpl implements CompareStats {
 
-    private static final double[] TCollection = new double[2];
-    private static int NTemp = 0;
-    private static int controlC = 0;
+    static double[] TCollection = new double[2];
+    static int NTemp = 0;
+    static int controlC = 0;
 
     /**
      * @param feels_like variabile double che contiene la temperatura percepita di una città
