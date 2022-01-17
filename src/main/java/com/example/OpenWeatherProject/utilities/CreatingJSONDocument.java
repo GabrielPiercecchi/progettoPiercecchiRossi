@@ -16,12 +16,12 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class CreatingJSONDocument {
 
-    private final AtomicLong cityCounter = new AtomicLong();
+    private static int cityCounter = 0;
 
     public void fileWriter(String name, String formattedDate, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
         JSONObject citiesObj = new JSONObject();
-        citiesObj.put("Call N°", (int) cityCounter.incrementAndGet());
+        citiesObj.put("Call N°", ++cityCounter);
         citiesObj.put("Name", name);
         citiesObj.put("Time", formattedDate);
 
