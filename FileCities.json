@@ -1,0 +1,4 @@
+[{"Time":"17-01-2022 21:04:57","Main":{"temp":0.0,"temp_min":-5.0,"feels_like":-3.0,"temp_max":2.0},"Call N°":1,"Name":"Rome"},
+{"Time":"17-01-2022 21:04:57","Main":{"temp":4.0,"temp_min":2.0,"feels_like":4.0,"temp_max":6.0},"Call N°":2,"Name":"Udine"},
+{"Time":"17-01-2022 21:05:09","Main":{"temp":4.0,"temp_min":2.0,"feels_like":4.0,"temp_max":8.0},"Call N°":3,"Name":"Trento"},
+{"Time":"17-01-2022 21:05:09","Main":{"temp":-4.0,"temp_min":-8.0,"feels_like":-9.0,"temp_max":-3.0},"Call N°":4,"Name":"Peio"}]
