@@ -97,7 +97,7 @@ public class CityController {
      *
      * @return restituisce tutti i dati salvati nel file "FileCities.json"
      */
-    @GetMapping(value = "/cities/names")
+    @GetMapping(value = "/cities/metadata")
     public @ResponseBody
     Object getCityData() {
         File file = new File("FileCities.json");
