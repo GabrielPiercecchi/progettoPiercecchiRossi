@@ -38,22 +38,22 @@ public class ControlFiltersImpl implements ControlFilters {
 
             boolean cont = false;
 
-            for(int i = 0; i < cityFiltersArrayList.size(); i++) {
+            for (int i = 0; i < cityFiltersArrayList.size(); i++) {
                 String strCParse = cityFiltersArrayList.get(i).getDate();
                 Date dateCParse = dateInput.parse(strCParse);
                 try {
-                    if ((startDateTime.compareTo(dateCParse) <= 0) || (endDateTime.compareTo(dateCParse) >= 0)) {
-
+                    if (startDateTime.compareTo(dateCParse) <= 0) {
+                        if (endDateTime.compareTo(dateCParse) >= 0) {
                             System.out.println(toString(i));
                             System.out.println();
                             cont = true;
+                        }
                     }
                 } catch (Exception e) {
                     System.out.println("ERROR");
                     System.out.println("--> Impossible to compare the dates");
                 }
             }
-
             if (!cont) {
                 System.out.println("--> There are no city call between these dates :-(");
                 System.out.println();

@@ -1,4 +1,4 @@
-package com.example.OpenWeatherProject.filters;
+package inactiveClasses;
 
 import java.util.ArrayList;
 import java.util.Objects;
