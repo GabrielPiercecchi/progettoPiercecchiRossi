@@ -52,9 +52,11 @@ public class CityServiceImpl implements CityService {
         cityRepo.put(city.getId(), city);
     }
 
+
     /**
-     * @param Id   variabile int che serve a identificare univocamente una città
-     * @param city variabile String che contiene il nome di una città
+     *
+     * @param Id   variabile di tipo int che serve a identificare univocamente una città
+     * @param city variabile di tipo City contenente di conseguenza al suo interno le variabili definite nella class City
      */
     @Override
     public void updateCity(Integer Id, City city) {
@@ -64,7 +66,8 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     * @param Id variabile int che serve per identificare univocamente una città
+     *
+     * @param Id variabile di tipo int che serve per identificare univocamente una città
      */
     @Override
     public void deleteCity(Integer Id) {
@@ -80,8 +83,9 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     * @param city1 variabile String che contiene il nome della prima città
-     * @param city2 variabile String che contiene il nome della prima città
+     *
+     * @param city1 variabile di tipo String che contiene il nome della prima città
+     * @param city2 variabile di tipo String che contiene il nome della prima città
      */
     @Override
     public void inputCity(String city1, String city2) {
@@ -127,83 +131,5 @@ public class CityServiceImpl implements CityService {
         } catch (Exception e) {
             System.out.println("ERROR in the URI request");
         }
-
-        // Method 1: java.net.HttpURLConnection
-        /*
-        try {
-            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + city1 + "&appid=" + city.getApiKey1());
-            connection = (HttpURLConnection) url.openConnection();
-
-
-            // Request setup
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
-
-            // Connection Control
-            int status = connection.getResponseCode();
-            // --> System.out.println(status);
-
-            if (status > 299) {
-                reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-                while ((line = reader.readLine()) != null) {
-                    responseContent.append(line);
-                }
-                reader.close();
-            } else {
-                System.out.println("--> Data from the first city:");
-                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                while ((line = reader.readLine()) != null) {
-                    responseContent.append(line);
-                }
-                reader.close();
-            }
-            System.out.println(responseContent.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            connection.disconnect();
-        }
-        System.out.println();
-        try {
-            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=" + city.getApiKey1());
-            connection = (HttpURLConnection) url.openConnection();
-
-            // Request setup
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
-
-            // Connection Control
-            int status = connection.getResponseCode();
-            // --> System.out.println(status);
-
-            if (status > 299) {
-                reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-                while ((line = reader.readLine()) != null) {
-                    responseContent.append(line);
-                }
-                reader.close();
-            } else {
-                System.out.println("--> Data from the second city:");
-                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                while ((line = reader.readLine()) != null) {
-                    responseContent.append(line);
-                }
-                reader.close();
-            }
-            System.out.println(responseContent.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            connection.disconnect();
-        }
-        */
     }
 }

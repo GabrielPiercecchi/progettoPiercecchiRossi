@@ -20,15 +20,15 @@ public interface CityService {
     /**
      * Questo metodo serve per aggiornare il nome di una città
      *
-     * @param Id   variabile int che serve a identificare univocamente una città
-     * @param city variabile String che contiene il nome di una città
+     * @param Id   variabile di tipo int che serve a identificare univocamente una città
+     * @param city variabile di tipo City contenente di conseguenza al suo interno le variabili definite nella class City
      */
     public abstract void updateCity(Integer Id, City city);
 
     /**
      * Questo metodo serve per eliminare una città salvata nel programma
      *
-     * @param Id variabile int che serve per identificare univocamente una città
+     * @param Id variabile di tipo int che serve per identificare univocamente una città
      */
     public abstract void deleteCity(Integer Id);
 
@@ -36,8 +36,8 @@ public interface CityService {
      * Questo metodo serve per ricercare i dati meteorologici di due città tramite delle richieste di
      * tipo URI all'API current di "Open-weather"
      *
-     * @param city1 variabile String che contiene il nome della prima città
-     * @param city2 variabile String che contiene il nome della prima città
+     * @param city1 variabile di tipo String che contiene il nome della prima città
+     * @param city2 variabile di tipo String che contiene il nome della prima città
      */
     public abstract void inputCity(String city1, String city2);
 

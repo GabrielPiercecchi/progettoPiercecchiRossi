@@ -2,30 +2,23 @@ package com.example.OpenWeatherProject.service;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class per CityServiceImpl
+ */
 class CityServiceImplTest {
 
+    CityService cityService = new CityServiceImpl();
+
+    /**
+     * Test che controlla se i metodi createCity, inputCity e getCities funzionino correttamente
+     */
     @Test
     void createCity() {
-        System.out.println("--> createCity run");
+        cityService.inputCity("ancona", "porto recanati");
+        cityService.inputCity("bkjbbk", "roma");
+        cityService.getCities();
+        System.out.println();
+        System.out.println("--> createCity, inputCity and getCities run correctly");
     }
 
-    @Test
-    void updateCity() {
-        System.out.println("--> updateCity run");
-    }
-
-    @Test
-    void deleteCity() {
-        System.out.println("--> deleteCity run");
-    }
-
-    @Test
-    void getCities() {
-        System.out.println("--> getCities run");
-    }
-
-    @Test
-    void inputCity() {
-        System.out.println("--> inputCity run");
-    }
 }

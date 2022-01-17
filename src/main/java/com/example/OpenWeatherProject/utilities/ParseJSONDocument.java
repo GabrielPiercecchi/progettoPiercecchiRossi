@@ -76,6 +76,7 @@ public class ParseJSONDocument {
             System.out.println();
             System.out.println("Sorry :-(\n" +
                     "--> City n° " + (++Ncity) + " not found");
+            System.out.println();
             compareStats.resetT();
         }
         return null;

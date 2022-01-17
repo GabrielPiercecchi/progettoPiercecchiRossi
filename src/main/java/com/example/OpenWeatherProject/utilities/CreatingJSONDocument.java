@@ -61,7 +61,7 @@ public class CreatingJSONDocument {
         } catch (IOException e) {
             System.out.println("ERROR");
             System.out.println("--> File not updated");
-            e.printStackTrace();
+            System.out.println();
         }
     }
 }
