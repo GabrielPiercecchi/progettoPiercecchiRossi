@@ -12,16 +12,16 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class CreatingJSONDocument {
 
-    private int cityCounter = 0;
-    // private final AtomicLong counter = new AtomicLong();
+    private final AtomicLong cityCounter = new AtomicLong();
 
     public void fileWriter(String name, String formattedDate, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
         JSONObject citiesObj = new JSONObject();
-        citiesObj.put("Call N°", ++cityCounter);
+        citiesObj.put("Call N°", (int) cityCounter.incrementAndGet());
         citiesObj.put("Name", name);
         citiesObj.put("Time", formattedDate);
 
