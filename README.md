@@ -95,18 +95,17 @@ The operating mechanism of the program is as follows:
 
 1. the <code>Menu</code> class, interfacing with the user via the terminal *, collects the data entered by him (the names of the cities);
 
-2. the <code>CityServiceImpl.inputCity (...)</code> method, defined by the <code>CityService</code> interface, uses the data entered by the user to send requests through URI calls, using the OpenWeather API, and receive "in response" the statistics of the cities chosen in <code>*.json*</code> format;
+2. the <code>CityServiceImpl.inputCity(...)</code> method, defined by the <code>CityService</code> interface, uses the data entered by the user to send requests through URI calls, using the OpenWeather API, and receive "in response" the statistics of the cities chosen in <code>*.json*</code> format;
 
-3. the <code>ParseJSONDocument</code> class parses the *JSONObject*, received by the <code>CityServiceImpl.inputCity (...)</code> method, and returns the "parsed" data via the terminal.
+3. the <code>ParseJSONDocument</code> class parses the *JSONObject*, received by the <code>CityServiceImpl.inputCity(...)</code> method, and returns the "parsed" data via the terminal.
 
-4. the <code> CreatingJSONDocument </code> class creates (or updates) the <code>*.json*</code> file by entering the values obtained from the class described in **point 3**. It acts as a database, containing all the statistics of the cities requested by the user;
+4. the <code>CreatingJSONDocument</code> class creates (or updates) the <code>*.json*</code> file by entering the values obtained from the class described in **point 3**. It acts as a database, containing all the statistics of the cities requested by the user;
 
 5. the classes contained in the <code>stats</code> package are used to save and compare the obtained data.
 
 6. finally the classes contained in the <code>filters</code> package, through a request made by the terminal (entering two dates), filter the collected data.
 
-**<sup>*</sup> NOTE AGGIUNTIVE:** as an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests
-
+**<sup>*</sup> NOTE AGGIUNTIVE:** as an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
 </div>
 
 ##### EXPLANATION STEP BY STEP
@@ -125,8 +124,6 @@ Examples include agricultural businesses, sectors linked to tourism (travel agen
 
 * [Piercecchi Gabriel](https://github.com/GabrielPiercecchi)
 * [Rossi Alan](https://github.com/AlanRossi01)
-
-
 
 VERSIONE ITALIANA
 
@@ -227,13 +224,25 @@ Il meccanismo di funzionamento del programma è il seguente:
 
 6. infine le classi e l'interfaccia contenute nel package <code>**filters**</code>, tramite una richiesta fatta nell'interfaccia del menù (inserimento di due date), filtrano i dati collezionati.
 
-**<sup>1</sup> NOTE AGGIUNTIVE:** come implementazione aggiuntiva è  stata fornita all'utente la possibilità di inserire le città e richiedere le relative statistiche tramite richieste HTTP
+**<sup>1</sup> NOTE AGGIUNTIVE:** come implementazione aggiuntiva è  stata fornita all'utente la possibilità di inserire le città e richiedere le relative statistiche tramite richieste HTTP.
 
+//
+
+Questa implementazione è rappresentata dal packege <code>controller</code>:
+
+ROOTS
+
+| Roots            | Description                                                                                                       |
+|------------------|-------------------------------------------------------------------------------------------------------------------|
+| <code>/cities</code>          | <code>GET</code>: restituisce il nome di tutte le città inserite (oltre alle prime due di default);<br><code>POST</code>: permette di inserire, e successivamente salvare, il nome di una città |
+| <code>/cities/{id}</code>     | <code>PUT</code>: permette di aggiornare il nome di una città sfruttando il suo {id} univoco<br><code>DELETE</code>: permette di eliminare il nome di una città sfruttando il suo {id} univoco |
+| <code>/cities/names</code>    | <code>POST</code>: permette di inserire il nome delle due città di cui si vogliono le statistiche                              |
+| <code>/cities/metadata</code> | <code>GET</code>: restituisce i dati collezionati nelle chiamate precedenti (salvati in un file <code>*.json*</code> dedicato) |
+
+Esempi
 </div>
 
-##### EXPLANATION STEP BY STEP
-
-###### ROOT
+##### ROOTS
 <div style="text-align: justify">
 
 </div>
