@@ -14,46 +14,46 @@ public class ControlFiltersImpl implements ControlFilters {
     //Questo metodo serve per filtrare i dat ottenuti e restituire solo
     //quelli precedenti alla data scelta dall'utente
     @Override
-    public void checkData(String date1, String date2) {
+    public void checkData(String startDateTimeString, String endDateTimeString) {
         try {
             //--> Converto da String a Date la data ricevuta (date)
-            Date Date1 = dateInput.parse(date1);
-            Date Date2 = dateInput.parse(date2);
+            Date startDateTime = dateInput.parse(startDateTimeString);
+            Date endDateTime = dateInput.parse(endDateTimeString);
             //System.out.println(Date);
 
             //--> Controllo che le due date siano corrette
-            boolean controller = Date2.after(Date1);
+            boolean controller = endDateTime.after(startDateTime);
+
             if (!controller) {
                 Date append;
-                append = Date1;
-                Date1 = Date2;
-                Date2 = append;
+                append = startDateTime;
+                startDateTime = endDateTime;
+                endDateTime = append;
             }
 
             //--> dati ottenuti nel metodo parse classe ParseJSONDocument
             System.out.println();
-            System.out.println("--> Cities called between the dates '" + Date1 + " and " + Date2 + "':");
+            System.out.println("--> Cities called between the dates '" + startDateTime + " and " + endDateTime + "':");
             System.out.println();
 
             boolean cont = false;
-            int i = 0;
-            while (i < cityFiltersArrayList.size()) {
+
+            for(int i = 0; i < cityFiltersArrayList.size(); i++) {
                 String strCParse = cityFiltersArrayList.get(i).getDate();
                 Date dateCParse = dateInput.parse(strCParse);
                 try {
-                    if (Date1.before(dateCParse) || (Date1.compareTo(dateCParse) == 0)) {
-                        if (Date2.after(dateCParse) || (Date2.compareTo(dateCParse) == 0)) {
+                    if ((startDateTime.compareTo(dateCParse) <= 0) || (endDateTime.compareTo(dateCParse) >= 0)) {
+
                             System.out.println(toString(i));
                             System.out.println();
                             cont = true;
-                        }
                     }
                 } catch (Exception e) {
                     System.out.println("ERROR");
                     System.out.println("--> Impossible to compare the dates");
                 }
-                i++;
             }
+
             if (!cont) {
                 System.out.println("--> There are no city call between these dates :-(");
                 System.out.println();
