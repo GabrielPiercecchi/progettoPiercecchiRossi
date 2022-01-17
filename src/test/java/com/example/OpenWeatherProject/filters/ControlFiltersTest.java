@@ -22,9 +22,13 @@ class ControlFiltersTest {
     void checkData() {
         cityService.inputCity("ancona", "porto recanati");
         cityService.inputCity("rome", "bolzano");
+        System.out.println();
         cityService.inputCity("jkbkkk", "riccione");
         date1 = "12-09-2022 10:00:00";
         date2 = "12-09-2020 10:00:00";
+        controlFilters.checkData(date1, date2);
+        date1 = "12-09-2022 10:00:00";
+        date2 = "fbdfbddfb";
         controlFilters.checkData(date1, date2);
         System.out.println();
         System.out.println("--> inputCity and checkData run correctly");
