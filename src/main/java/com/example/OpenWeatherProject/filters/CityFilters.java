@@ -2,30 +2,28 @@ package com.example.OpenWeatherProject.filters;
 
 import com.example.OpenWeatherProject.stats.CityStats;
 
-import java.util.ArrayList;
-
 public class CityFilters extends CityStats {
 
-    private String Date;
+    private String date;
 
     /**
-     * @param date       variabile String che contiene la data in cui è stata chiamata una città
-     * @param name       variabile String che contiene il nome della città appena chiamata
-     * @param temp       variabile double che contiene la temperatura di una città
-     * @param feels_like variabile double che contiene la temperatura percepita di una città
-     * @param temp_max   variabile double che contiene la temperatura massima di una città
-     * @param temp_min   variabile double che contiene la temperatura minima di una città
+     * @param date       String variable that contains the date a city was called
+     * @param name       String variable that contains the name of the city called
+     * @param temp       double variable that contains the temperature of a city
+     * @param feels_like double variable that contains the perceived temperature of a city
+     * @param temp_max   double variable that contains the maximum temperature of a city
+     * @param temp_min   double variable that contains the minimum temperature of a city
      */
     public CityFilters(String date, String name, double temp, double feels_like, double temp_max, double temp_min) {
         super(name, temp, feels_like, temp_max, temp_min);
-        this.Date = date;
+        this.date = date;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        this.Date = date;
+        this.date = date;
     }
 }

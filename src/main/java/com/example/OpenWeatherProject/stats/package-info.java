@@ -1,6 +1,6 @@
 /**
- * Questo pacchetto contiene tutte quelle classi che servono per salvare e confrontare i dati
- * che il programma ottiene (Es Temperatura...).
+ * This package contains all those classes needed to save and compare data
+ * that the program obtains (Eg Temperature ...).
  */
 package com.example.OpenWeatherProject.stats;
 

@@ -1,29 +1,25 @@
 package com.example.OpenWeatherProject.stats;
 
-import com.example.OpenWeatherProject.model.City;
-
 /**
- * Questa classe serve per contenere tutte le variabili che caratterizzano una città
+ * This class is used to contain all the variables that characterize a city
  */
 public class CityStats {
 
-    //City city = new City();
-
-    private String Name;
+    private String name;
     private double temp;
     private double feels_like;
     private double temp_max;
     private double temp_min;
 
     /**
-     * @param name       variabile String proveniente dalla classe City
-     * @param temp       variabile double che contiene la temperatura di una città
-     * @param feels_like variabile double che contiene la temperatura percepita di una città
-     * @param temp_max   variabile double che contiene la temperatura massima di una città
-     * @param temp_min   variabile double che contiene la temperatura minima di una città
+     * @param name       String variable from the "City" class
+     * @param temp       double variable that contains the temperature of a city
+     * @param feels_like double variable that contains the perceived temperature of a city
+     * @param temp_max   double variable that contains the maximum temperature of a city
+     * @param temp_min   double variable that contains the minimum temperature of a city
      */
     public CityStats(String name, double temp, double feels_like, double temp_max, double temp_min) {
-        this.Name = name;
+        this.name = name;
         this.temp = temp;
         this.feels_like = feels_like;
         this.temp_max = temp_max;
@@ -31,99 +27,99 @@ public class CityStats {
     }
 
     /**
-     * Questo metodo "getter" serve per restituire il nome di una città appena salvata
+     * This "getter" method is used to return the name of a newly saved city
      *
-     * @return restituisce il nome attuale di una città
+     * @return returns the current name of a city
      */
     public String getName() {
-        return Name;
+        return name;
     }
 
     /**
-     * Questo metodo "setter" serve per salvare il nome di una città
+     * This "setter" method is used to save the name of a city
      *
-     * @param name variabile double che contiene il nome di una città
+     * @param name double variable that contains the name of a city
      */
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
     /**
-     * Questo metodo "getter" serve per restituire la temperatura di una città
+     * This "getter" method is used to return the temperature of a city
      *
-     * @return restituisce la temperatura attuale di una città
+     * @return returns the current temperature of a city
      */
     public double getTemp() {
         return temp;
     }
 
     /**
-     * Questo metodo "setter" serve per salvare la temperatura di una città
+     * This "setter" method is used to save the temperature of a city
      *
-     * @param temp variabile double che contiene la temperatura di una città
+     * @param temp double variable that contains the temperature of a city
      */
     public void setTemp(double temp) {
         this.temp = temp;
     }
 
     /**
-     * Questo metodo "getter" serve per restituire la temperatura percepita di una città
+     * This "getter" method is used to return the perceived temperature of a city
      *
-     * @return restituisce la temperatura percepita di una città
+     * @return returns the perceived temperature of a city
      */
     public double getFeels_like() {
         return feels_like;
     }
 
     /**
-     * Questo metodo "setter" serve per salvare la temperatura percepita di una città
+     * This "setter" method is used to save the perceived temperature of a city
      *
-     * @param feels_like variabile double che contiene la temperatura percepita di una città
+     * @param feels_like double variable that contains the perceived temperature of a city
      */
     public void setFeels_like(double feels_like) {
         this.feels_like = feels_like;
     }
 
     /**
-     * Questo metodo "getter" serve per restituire la temperatura massima di una città
+     * This "getter" method is used to return the maximum temperature of a city
      *
-     * @return restituisce la temperatura massima di una città
+     * @return returns the maximum temperature of a city
      */
     public double getTemp_max() {
         return temp_max;
     }
 
     /**
-     * Questo metodo "setter" serve per salvare la temperatura massima di una città
+     * This "setter" method is used to save the maximum temperature of a city
      *
-     * @param temp_max variabile double che contiene la temperatura massima di una città
+     * @param temp_max double variable that contains the maximum temperature of a city
      */
     public void setTemp_max(double temp_max) {
         this.temp_max = temp_max;
     }
 
     /**
-     * Questo metodo "getter" serve per restituire la temperatura minima di una città
+     * This "getter" method is used to return the minimum temperature of a city
      *
-     * @return restituisce la temperatura minima di una città
+     * @return returns the minimum temperature of a city
      */
     public double getTemp_min() {
         return temp_min;
     }
 
     /**
-     * Questo metodo "setter" serve per salvare la temperatura minima di una città
+     * This "setter" method is used to save the minimum temperature of a city
      *
-     * @param temp_min variabile double che contiene la temperatura minima di una città
+     * @param temp_min double variable that contains the minimum temperature of a city
      */
     public void setTemp_min(double temp_min) {
         this.temp_min = temp_min;
     }
 
     /**
-     * Questo metodo "toString" serve per restituire tutti i valori, definiti in questa classe, appena salvati
+     * This "toString" method is used to return all the values, defined in this class, just saved
      *
-     * @return restituisce tutti i valori, definiti in questa classe, appena salvati
+     * @return returns all the values, defined in this class, just saved
      */
     @Override
     public String toString() {

@@ -3,7 +3,7 @@ package com.example.OpenWeatherProject.stats;
 import static java.lang.Math.round;
 
 /**
- * Questa classe implementa i metodo definiti nell'interfaccia "ComparativeStats" associata
+ * This class implements the methods defined in the associated "CompareStats" interface
  */
 public class CompareStatsImpl implements CompareStats {
 
@@ -12,7 +12,7 @@ public class CompareStatsImpl implements CompareStats {
     private static int controlC = 0;
 
     /**
-     * @param feels_like variabile double che contiene la temperatura percepita di una città
+     * @param feels_like double variable that contains the perceived temperature of a city
      */
     @Override
     public void compareT(double feels_like) {
@@ -45,7 +45,7 @@ public class CompareStatsImpl implements CompareStats {
     }
 
     /**
-     * Questo metodo viene usato come controllo dal metodo sopra citato: "compareT"
+     * This method is used as a control of the above method: "compareT"
      */
     @Override
     public void resetT() {
