@@ -20,7 +20,7 @@ https://api.openweathermap.org/data/2.5/weather?q={city%20name}&appid={API%20key
 * {city%20name} represents the name of the city
 * {API%20key} represents the code needed to access the OpenWeather service
 
-*Eg.* By calling the API through the * HTTP GET * method:
+*Eg.* By calling the API through the *HTTP GET* method:
 
 https://api.openweathermap.org/data/2.5/weather?q=roma&appid=14bbc528b3c2df06e94336bd503ddc1a
 
@@ -125,6 +125,8 @@ Examples include agricultural businesses, sectors linked to tourism (travel agen
 
 * [Piercecchi Gabriel](https://github.com/GabrielPiercecchi)
 * [Rossi Alan](https://github.com/AlanRossi01)
+
+
 
 VERSIONE ITALIANA
 
