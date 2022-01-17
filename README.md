@@ -230,8 +230,6 @@ Il meccanismo di funzionamento del programma è il seguente:
 
 Questa implementazione è rappresentata dal packege <code>controller</code>:
 
-ROOTS
-
 | Roots            | Description                                                                                                       |
 |------------------|-------------------------------------------------------------------------------------------------------------------|
 | <code>/cities</code>          | <code>GET</code>: restituisce il nome di tutte le città inserite (oltre alle prime due di default);<br><code>POST</code>: permette di inserire, e successivamente salvare, il nome di una città |
@@ -242,10 +240,22 @@ ROOTS
 Esempi
 </div>
 
-##### ROOTS
-<div style="text-align: justify">
+[inserire immagini]
 
+##### COME SI USA
+<div style="text-align: justify">
+Per usare questo programma bisogna innanzitutto clonare questa repository in locale e importare il progetto <code>Open-Weather_Project</code> nell'IDE IntelliJ (consigliato).
+
+Per avviare il programma selezionare <code>Open-Weather_Project</code> nel proprio package explorer e dare il comando <code>Run 'OWPSpringBootApplication'</code>.
+
+[inserire immagine WhatsApp]
+
+All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 </div>
+
+##### STRUMENTI UTILIZZATI
+
+Framework [Spring](), libreria [<code>org.json</code>](), libreria [Apache Maven](), JavaDoc, JUnit 5, PostMan, Markdown Monster, Git, Git Hub, IDE IntelliJ
 
 ##### POSSIBLE APPLICATIONS
 I possibili clienti che possono usufruire di quest'applicazione sono tutti quei privati/aziende il cui lavoro è direttamente o indierettamente legato alle condizioni meteo, in particolare alla temperatura.
