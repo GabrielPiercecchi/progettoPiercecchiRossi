@@ -16,22 +16,30 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class CreatingJSONDocument {
 
-    private static int cityCounter = 0;
+    //private static int cityCounter = 0;
 
     public void fileWriter(String name, String formattedDate, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
         JSONObject citiesObj = new JSONObject();
-        citiesObj.put("Call N°", ++cityCounter);
+
         citiesObj.put("Name", name);
         citiesObj.put("Time", formattedDate);
+        citiesObj.put("temp", temp);
+        citiesObj.put("feels_like", feels_like);
+        citiesObj.put("temp_min", temp_min);
+        citiesObj.put("temp_max", temp_max);
 
+        /*
         JSONObject listOfTemps = new JSONObject();
+        citiesObj.put("Call N°", ++cityCounter);
         listOfTemps.put("temp", temp);
         listOfTemps.put("feels_like", feels_like);
         listOfTemps.put("temp_min", temp_min);
         listOfTemps.put("temp_max", temp_max);
 
         citiesObj.put("Main", listOfTemps);
+         */
+
         try {
             // Writing to a file
             File file = new File("FileCities.json");

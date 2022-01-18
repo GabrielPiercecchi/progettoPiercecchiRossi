@@ -9,8 +9,8 @@ import java.util.Date;
 
 public class JSONStructure {
 
-    private String name;
-    private Date time;
+    private String Name;
+    private Date Time;
     private double temp;
     private double feels_like;
     private double temp_min;
@@ -26,8 +26,8 @@ public class JSONStructure {
      * @param temp_max
      */
     public JSONStructure(String name, Date time, double temp, double feels_like, double temp_min, double temp_max) {
-        this.name = name;
-        this.time = time;
+        this.Name = name;
+        this.Time = time;
         this.temp = temp;
         this.feels_like = feels_like;
         this.temp_min = temp_min;
@@ -39,7 +39,7 @@ public class JSONStructure {
      * @return
      */
     public String getName() {
-        return name;
+        return Name;
     }
 
     /**
@@ -47,7 +47,7 @@ public class JSONStructure {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     /**
@@ -119,7 +119,7 @@ public class JSONStructure {
      * @return
      */
     public Date getTime() {
-        return time;
+        return Time;
     }
 
     /**
@@ -127,14 +127,14 @@ public class JSONStructure {
      * @param time
      */
     public void setTime(Date time) {
-        this.time = time;
+        this.Time = time;
     }
 
     @Override
     public String toString() {
         return "JSONStructure{" +
-                "name = " + name +
-                ", time = " + time +
+                "name = " + Name +
+                ", time = " + Time +
                 ", temp = " + temp + "°C" +
                 ", feelsLike = " + feels_like + "°C" +
                 ", tempMin = " + temp_min + "°C" +
