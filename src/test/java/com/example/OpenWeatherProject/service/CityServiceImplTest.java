@@ -3,7 +3,7 @@ package com.example.OpenWeatherProject.service;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test class per CityServiceImpl
+ * Test class principale per test su metodi, classi e d interfacce legate al package "filters"
  */
 class CityServiceImplTest {
 
