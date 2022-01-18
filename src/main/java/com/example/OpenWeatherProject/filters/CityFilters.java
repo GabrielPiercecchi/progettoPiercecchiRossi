@@ -1,29 +1,43 @@
 package com.example.OpenWeatherProject.filters;
 
-import com.example.OpenWeatherProject.stats.CityStats;
+/**
+ * @author Rossi Alan
+ */
 
-public class CityFilters extends CityStats {
+import com.example.OpenWeatherProject.model.JSONStructure;
 
-    private String date;
+import java.util.ArrayList;
+import java.util.Objects;
 
-    /**
-     * @param date       String variable that contains the date a city was called
-     * @param name       String variable that contains the name of the city called
-     * @param temp       double variable that contains the temperature of a city
-     * @param feels_like double variable that contains the perceived temperature of a city
-     * @param temp_max   double variable that contains the maximum temperature of a city
-     * @param temp_min   double variable that contains the minimum temperature of a city
-     */
-    public CityFilters(String date, String name, double temp, double feels_like, double temp_max, double temp_min) {
-        super(name, temp, feels_like, temp_max, temp_min);
-        this.date = date;
-    }
+public class CityFilters {
 
-    public String getDate() {
-        return date;
-    }
+    public ArrayList<JSONStructure> cityFiltered = new ArrayList<>();
 
-    public void setDate(String date) {
-        this.date = date;
+    public void cityFilter(ArrayList<JSONStructure> jsonStructure, String cityInput) {
+
+        //--> Cambio la prima lettera della città in maiuscolo
+        String capCityInput = cityInput.substring(0, 1).toUpperCase() + cityInput.substring(1);
+
+        if (!Objects.equals(capCityInput, "All")) {
+            try {
+                for (JSONStructure elem : jsonStructure) {
+                    if (elem.getName().contains(capCityInput) || capCityInput.contains(elem.getName())) {
+                        cityFiltered.add(elem);
+                    }
+                }
+            } catch (NullPointerException e) {
+                System.out.println("ERROR");
+                System.out.println("--> City data not found");
+                System.out.println();
+            }
+        } else {
+            try {
+                cityFiltered.addAll(jsonStructure);
+            } catch (NullPointerException e) {
+                System.out.println("ERROR");
+                System.out.println("--> Empty database");
+                System.out.println();
+            }
+        }
     }
 }

@@ -1,4 +1,9 @@
-package com.example.OpenWeatherProject.filters;
+/*
+package inactiveClasses;
+
+
+import com.example.OpenWeatherProject.filters.CityFilters;
+import com.example.OpenWeatherProject.filters.ControlFilters;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -92,3 +97,4 @@ public class ControlFiltersImpl implements ControlFilters {
                 "\n}");
     }
 }
+ */

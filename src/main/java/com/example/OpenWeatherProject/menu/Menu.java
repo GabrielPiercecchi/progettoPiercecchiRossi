@@ -1,23 +1,30 @@
 package com.example.OpenWeatherProject.menu;
 
 
-import com.example.OpenWeatherProject.filters.ControlFiltersImpl;
+import com.example.OpenWeatherProject.filters.CityFilters;
+import com.example.OpenWeatherProject.filters.DateTimeFiltersImpl;
 import com.example.OpenWeatherProject.service.CityService;
 import com.example.OpenWeatherProject.service.CityServiceImpl;
+import com.example.OpenWeatherProject.stats.CompareStats;
+import com.example.OpenWeatherProject.stats.CompareStatsImpl;
+import com.example.OpenWeatherProject.utilities.JSONFileManager;
 
 import java.util.Scanner;
 
 /**
- * Questa classe contiene il menu con cui l'utente dovrà interagire per utilizzare il programma
+ * Questa classe contiene il menu con cui l'utente dovrà interagire per utilizzare il programma.
  */
 public class Menu {
 
     /**
-     * Questo metodo rappresenta il MENU del programma assegnato
+     * Questo metodo rappresenta il MENU del programma assegnato.
      */
     public void menu() {
         Scanner scanner = new Scanner(System.in);
-        ControlFiltersImpl controlFilters = new ControlFiltersImpl();
+
+        CityFilters cityFilters = new CityFilters();
+        DateTimeFiltersImpl dateTimeFiltersImpl = new DateTimeFiltersImpl();
+        CompareStats compareStats = new CompareStatsImpl();
 
         //City city = new City();
         String city1Before;
@@ -46,6 +53,8 @@ public class Menu {
             System.out.println("--> Please insert second city:");
             city2Before = scanner.nextLine();
 
+            System.out.println();
+
             //--> Richiamo metodo inputCity (cerca le città inserite)
             CityService cityService = new CityServiceImpl();
             cityService.inputCity(city1Before, city2Before);
@@ -67,14 +76,31 @@ public class Menu {
                             case "Y":
                             case "y":
                                 try {
-                                    System.out.println("--> Please insert two dates:");
+                                    System.out.println("--> Do you want to filter a single city data " +
+                                            "or all data? <CityName>/<all>");
+                                    System.out.println("(Remember all the foreigner cities and the italian most \n" +
+                                            "important cities must be entered strictly in english )");
+                                    System.out.println("Eg. rome, turin, milan, florence,...");
+                                    String strFilter = scanner.nextLine();
+                                    //--> Deserialization dei dati del file, popolano l'ArrayList jsonStructure
+                                    //    e procedono al filtraggio della città
+                                    JSONFileManager.jsonFileManager();
+                                    cityFilters.cityFilter(JSONFileManager.jsonStructure, strFilter);
+
+                                    System.out.println("--> Please now insert two dates:");
                                     System.out.println("(Date format: dd-MM-yyyy HH:mm:ss)");
                                     System.out.println("--> First one:");
                                     String strDate1 = scanner.nextLine();
                                     System.out.println("--> Second one:");
                                     String strDate2 = scanner.nextLine();
-                                    //--> Richiamo metodo checkData della classe controlFilters
-                                    controlFilters.checkData(strDate1, strDate2);
+
+                                    //--> Filtrano ulteriormente i dati servendosi delle due date appena inserite
+                                    dateTimeFiltersImpl.dateTimeFilter(cityFilters.cityFiltered, strDate1, strDate2);
+                                    dateTimeFiltersImpl.printDateTimeFiltered();
+
+                                    //--> Per cancellare i vecchi dati
+                                    cityFilters.cityFiltered.clear();
+                                    dateTimeFiltersImpl.dateTimeFiltered.clear();
                                 } catch (Exception e) {
                                     System.out.println("--> ERROR");
                                     System.out.println("--> Date format not acceptable");

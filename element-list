@@ -6,3 +6,4 @@ com.example.OpenWeatherProject.model
 com.example.OpenWeatherProject.service
 com.example.OpenWeatherProject.stats
 com.example.OpenWeatherProject.utilities
+inactiveClasses

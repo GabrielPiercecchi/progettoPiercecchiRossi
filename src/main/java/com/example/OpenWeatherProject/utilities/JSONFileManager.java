@@ -38,7 +38,9 @@ public class JSONFileManager {
 
             jsonStructure = gson.fromJson(reader, jsonListType);
         } catch (NullPointerException | IOException e) {
-            e.printStackTrace();
+            System.out.println("ERROR");
+            System.out.println("--> File not deserialized");
+            System.out.println();
         }
     }
 }

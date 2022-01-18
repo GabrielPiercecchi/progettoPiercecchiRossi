@@ -4,9 +4,11 @@ import java.util.Date;
 
 /**
  * @author Rossi Alan
- *
  */
 
+/**
+ * Questa classe serve a interfacciarsi con il database quando si vuole filtrare i dati salvati
+ */
 public class JSONStructure {
 
     private String Name;
@@ -17,7 +19,6 @@ public class JSONStructure {
     private double temp_max;
 
     /**
-     *
      * @param name
      * @param time
      * @param temp
@@ -35,7 +36,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @return
      */
     public String getName() {
@@ -43,7 +43,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @param name
      */
     public void setName(String name) {
@@ -51,7 +50,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @return
      */
     public double getTemp() {
@@ -59,7 +57,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @param temp
      */
     public void setTemp(double temp) {
@@ -67,7 +64,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @return
      */
     public double getFeelsLike() {
@@ -75,7 +71,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @param feelsLike
      */
     public void setFeelsLike(double feelsLike) {
@@ -83,7 +78,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @return
      */
     public double getTempMin() {
@@ -91,7 +85,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @param tempMin
      */
     public void setTempMin(double tempMin) {
@@ -99,7 +92,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @return
      */
     public double getTempMax() {
@@ -107,7 +99,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @param tempMax
      */
     public void setTempMax(double tempMax) {
@@ -115,7 +106,6 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @return
      */
     public Date getTime() {
@@ -123,16 +113,14 @@ public class JSONStructure {
     }
 
     /**
-     *
      * @param time
      */
     public void setTime(Date time) {
         this.Time = time;
     }
 
-    @Override
-    public String toString() {
-        return "JSONStructure{" +
+    public String toString(int i) {
+        return "Call N° "+ (i+1)+" {" +
                 "name = " + Name +
                 ", time = " + Time +
                 ", temp = " + temp + "°C" +

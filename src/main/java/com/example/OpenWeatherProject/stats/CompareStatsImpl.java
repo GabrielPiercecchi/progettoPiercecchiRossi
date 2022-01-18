@@ -1,5 +1,9 @@
 package com.example.OpenWeatherProject.stats;
 
+import com.example.OpenWeatherProject.model.JSONStructure;
+
+import java.util.ArrayList;
+
 import static java.lang.Math.round;
 
 /**
@@ -56,5 +60,47 @@ public class CompareStatsImpl implements CompareStats {
             controlC = 0;
             NTemp = 0;
         }
+    }
+
+    @Override
+    public void tempMin(ArrayList<JSONStructure> jsonStructure) {
+
+        double temp_min = jsonStructure.get(0).getTempMin();
+        for (JSONStructure elem : jsonStructure) {
+            temp_min = Math.min(temp_min, elem.getTempMin());
+        }
+        System.out.println("temp_min = " + temp_min + "°C");
+    }
+
+    @Override
+    public void tempMax(ArrayList<JSONStructure> jsonStructure) {
+
+        double temp_max = jsonStructure.get(0).getTempMax();
+        for (JSONStructure elem : jsonStructure) {
+            temp_max = Math.max(temp_max, elem.getTempMax());
+        }
+        System.out.println("temp_max = " + temp_max + "°C");
+    }
+
+    @Override
+    public void tempMean(ArrayList<JSONStructure> jsonStructure) {
+
+        double sum = 0;
+        for (JSONStructure elem : jsonStructure) {
+            sum += elem.getTemp();
+        }
+        double temp_mean = sum / jsonStructure.size();
+        System.out.println("temp_mean = " + temp_mean + "°C");
+    }
+
+    @Override
+    public void feelsLikeMean(ArrayList<JSONStructure> jsonStructure) {
+
+        double sum = 0;
+        for (JSONStructure elem : jsonStructure) {
+            sum += elem.getFeelsLike();
+        }
+        double feels_like = sum / jsonStructure.size();
+        System.out.println("feels_like_mean = " + feels_like + "°C");
     }
 }
