@@ -2,7 +2,6 @@ package com.example.OpenWeatherProject.filters;
 
 /**
  * @author Rossi Alan
- *
  */
 
 import com.example.OpenWeatherProject.model.JSONStructure;
@@ -38,7 +37,7 @@ public class CityFilter_Alan {
     }
 
     public void printCityFiltered() {
-        for(int i = 0; i < cityFiltered.size(); i++) {
+        for (int i = 0; i < cityFiltered.size(); i++) {
             System.out.println(cityFiltered.get(i).toString());
         }
         cityFiltered.clear();
