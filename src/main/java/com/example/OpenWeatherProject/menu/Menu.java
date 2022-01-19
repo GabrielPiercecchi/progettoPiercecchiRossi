@@ -4,8 +4,6 @@ import com.example.OpenWeatherProject.filters.CityFilters;
 import com.example.OpenWeatherProject.filters.DateTimeFiltersImpl;
 import com.example.OpenWeatherProject.service.CityService;
 import com.example.OpenWeatherProject.service.CityServiceImpl;
-import com.example.OpenWeatherProject.stats.CompareStats;
-import com.example.OpenWeatherProject.stats.CompareStatsImpl;
 import com.example.OpenWeatherProject.utilities.JSONFileManager;
 
 import java.util.Scanner;
@@ -41,7 +39,7 @@ public class Menu {
 
             boolean control1 = false;
             do {
-                System.out.println("--> Which operation do you want to do?" +
+                System.out.println("--> Which operation do you want to do? <1>/<2>" +
                         "\n--> 1) look up the statistics of two cities" +
                         "\n--> 2) filter the statistics already collected (in previous searches)");
                 String input = scanner.nextLine();
@@ -58,18 +56,20 @@ public class Menu {
                         System.out.println("ERROR\n" +
                                 "--> Wrong command\n" +
                                 "--> Please use the right ones ;-)");
+                        System.out.println();
                 }
             } while (!control1);
 
             boolean control2 = false;
             do {
-                System.out.println("--> Do you want to exit? (Y/N)\n");
+                System.out.println("--> Do you want to terminate the program? (Y/N)\n");
                 String input = scanner.nextLine();
                 switch (input) {
                     case "Y":
                     case "y":
                         cycle = true;
                         control2 = true;
+                        System.out.println("--> Goodbye ;-)");
                         break;
                     case "N":
                     case "n":
@@ -79,6 +79,7 @@ public class Menu {
                         System.out.println("ERROR\n" +
                                 "--> Wrong command\n" +
                                 "--> Please use the right ones ;-)");
+                        System.out.println();
                 }
             } while (!control2);
         } while (!cycle);
@@ -120,6 +121,7 @@ public class Menu {
                         System.out.println("ERROR\n" +
                                 "--> Wrong command\n" +
                                 "--> Please use the right ones ;-)");
+                        System.out.println();
                 }
             } while (!control1);
         } while (!cycle);
@@ -130,7 +132,6 @@ public class Menu {
 
         CityFilters cityFilters = new CityFilters();
         DateTimeFiltersImpl dateTimeFiltersImpl = new DateTimeFiltersImpl();
-        CompareStats compareStats = new CompareStatsImpl();
 
         boolean cycle = false;
 
@@ -186,6 +187,7 @@ public class Menu {
                         System.out.println("ERROR\n" +
                                 "--> Wrong command\n" +
                                 "--> Please use the right ones ;-)");
+                        System.out.println();
                 }
             } while (!control1);
         } while (!cycle);
