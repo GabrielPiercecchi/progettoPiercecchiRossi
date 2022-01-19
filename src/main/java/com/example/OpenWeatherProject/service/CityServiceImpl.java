@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Questa classe implementa i metodo definiti nell'interfaccia "CityService" associata
+ * This class implements the methods defined in the associated "CityService" interface
  */
 @Service
 public class CityServiceImpl implements CityService {
@@ -25,7 +25,7 @@ public class CityServiceImpl implements CityService {
     private final AtomicLong counter = new AtomicLong();
 
     /**
-     * Questo metodo serve a creare di default due città
+     * This method is used to create two cities by default
      */
     public CityServiceImpl() {
         //loading data
@@ -41,8 +41,7 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     * @param city variabile ti tipo City contenente di conseguenza al suo interno le variabili
-     *             definite nella class City
+     * @param city City-type variable containing consequently the attributes defined in the "City" class.
      */
     @Override
     public void createCity(City city) {
@@ -54,8 +53,8 @@ public class CityServiceImpl implements CityService {
 
 
     /**
-     * @param Id   variabile di tipo int che serve a identificare univocamente una città
-     * @param city variabile di tipo City contenente di conseguenza al suo interno le variabili definite nella class City
+     * @param Id   int variable used to uniquely identify a city.
+     * @param city City-type variable containing consequently the attributes defined in the "City" class.
      */
     @Override
     public void updateCity(Integer Id, City city) {
@@ -65,7 +64,7 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     * @param Id variabile di tipo int che serve per identificare univocamente una città
+     * @param Id int variable used to uniquely identify a city.
      */
     @Override
     public void deleteCity(Integer Id) {
@@ -73,7 +72,7 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     * @return restituisce tutte le città salvate fino a quel momento
+     * @return returns all cities saved up to the time of the call.
      */
     @Override
     public Collection<City> getCities() {
@@ -81,8 +80,8 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
-     * @param city1 variabile di tipo String che contiene il nome della prima città
-     * @param city2 variabile di tipo String che contiene il nome della prima città
+     * @param city1 String variable that contains the name of the first city.
+     * @param city2 String variable that contains the name of the second city.
      */
     @Override
     public void inputCity(String city1, String city2) {
@@ -93,7 +92,7 @@ public class CityServiceImpl implements CityService {
         String city1After;
         String city2After;
 
-        //--> Sostituisco gli spazi con "%20 per poter inserire citta con più "nomi"
+        //--> Sostituisco gli spazi con "%20 per poter inserire città con più "nomi"
         city1After = city1.trim().replaceAll(" ", "%20");
         city2After = city2.trim().replaceAll(" ", "%20");
 
@@ -107,7 +106,7 @@ public class CityServiceImpl implements CityService {
         cityRepo.put(cityII.getId(), cityII);
 
         // Method 2: java.net.Http.HttpClient
-        //--> Uso questo metodo URI perchè più pulito e diretto rispetto a quello URL
+        //--> Uso questo metodo URI perché più pulito e diretto rispetto a quello URL
         try {
 
             HttpClient client = HttpClient.newHttpClient();

@@ -1,24 +1,22 @@
 package com.example.OpenWeatherProject.stats;
 
 import com.example.OpenWeatherProject.model.JSONStructure;
-
 import java.util.ArrayList;
 
 /**
- * Questa interfaccia serve a contenere tutti i metodi che interagiscono con le variabili definite
- * nella classe "CityStats"
+ * This interface contains all the abstract methods that are implemented in the "CompareStats" class.
  */
 public interface CompareStats {
 
     /**
-     * Questo metodo serve per confrontare i dati salvati di due città diverse
+     * This method is for comparing the saved data of two different cities.
      *
-     * @param feels_like variabile double che contiene la temperatura percepita di una città
+     * @param feels_like double variable that contains the perceived temperature of a city.
      */
     void compareT(double feels_like);
 
     /**
-     * This method is used as a control by the above method "compareT"
+     * This method is used as a control by the above method "compareT".
      */
     void resetT();
 

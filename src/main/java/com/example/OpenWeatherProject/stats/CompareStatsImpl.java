@@ -1,10 +1,8 @@
 package com.example.OpenWeatherProject.stats;
 
 import com.example.OpenWeatherProject.model.JSONStructure;
-
-import java.util.ArrayList;
-
 import static java.lang.Math.round;
+import java.util.ArrayList;
 
 /**
  * This class implements the methods defined in the associated "CompareStats" interface

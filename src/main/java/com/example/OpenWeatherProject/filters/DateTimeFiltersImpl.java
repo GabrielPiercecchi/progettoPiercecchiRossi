@@ -1,16 +1,24 @@
 package com.example.OpenWeatherProject.filters;
 
 import com.example.OpenWeatherProject.model.JSONStructure;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ *
+ */
 public class DateTimeFiltersImpl implements DateTimeFilters {
 
     public final ArrayList<JSONStructure> dateTimeFiltered = new ArrayList<>();
 
+    /**
+     *
+     * @param jsonStructure
+     * @param startStringDateTime
+     * @param endStringDateTime
+     */
     @Override
     public void dateTimeFilter(ArrayList<JSONStructure> jsonStructure, String startStringDateTime,
                                String endStringDateTime) {
@@ -45,6 +53,9 @@ public class DateTimeFiltersImpl implements DateTimeFilters {
         jsonStructure.clear();
     }
 
+    /**
+     *
+     */
     @Override
     public void printDateTimeFiltered() {
         if (dateTimeFiltered.size() == 0) {

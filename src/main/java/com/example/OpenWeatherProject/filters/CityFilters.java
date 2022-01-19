@@ -1,18 +1,22 @@
 package com.example.OpenWeatherProject.filters;
 
-/**
- * @author Rossi Alan
- */
-
 import com.example.OpenWeatherProject.model.JSONStructure;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ *
+ */
 public class CityFilters {
 
     public ArrayList<JSONStructure> cityFiltered = new ArrayList<>();
 
+    /**
+     *
+     *
+     * @param jsonStructure
+     * @param cityInput
+     */
     public void cityFilter(ArrayList<JSONStructure> jsonStructure, String cityInput) {
 
         //--> Cambio la prima lettera della città in maiuscolo
