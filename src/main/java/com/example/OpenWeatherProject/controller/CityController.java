@@ -3,17 +3,18 @@ package com.example.OpenWeatherProject.controller;
 import com.example.OpenWeatherProject.model.City;
 import com.example.OpenWeatherProject.service.CityService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
-import java.io.IOException;
+
 
 /**
- * Questa classe contiene tutti i metodi che servono a comunicare con PostMan
+ * This class contains all the methods used to "communicate" with Postman
  */
 @RestController
 public class CityController {
@@ -22,10 +23,10 @@ public class CityController {
     CityService cityService;
 
     /**
-     * Questo metodo serve a richiamare il metodo che restituisce tutte le città salvate all'interno del programma
-     * tramite PostMan
+     * This method is used to call the method which returns all the cities saved within the program
+     * via PostMan
      *
-     * @return restituisce tutte le città salvate
+     * @return returns all saved cities
      */
     @GetMapping(value = "/cities")
     public ResponseEntity<Object>
@@ -34,12 +35,12 @@ public class CityController {
     }
 
     /**
-     * Questo metodo serve a richiamare il metodo che aggiorna, tramite l'Id, il nome delle città già salvate
-     * tramite PostMan
+     * This method is used to call the method that updates, through the {id}, the name of the cities already saved
+     * via Postman
      *
-     * @param id   variabile int che rappresenta in modo univoco ogni città
-     * @param city variabile String che rappresenta il nome della città
-     * @return restituisce, nel caso in cui l'aggiornamento della città sia riuscito, una stringa
+     * @param id   int variable that uniquely represents each city
+     * @param city String variable that represents the name of the city
+     * @return returns a string if the city update is successful
      */
     @PutMapping(value = "/cities/{id}")
     public ResponseEntity<Object>
@@ -49,11 +50,11 @@ public class CityController {
     }
 
     /**
-     * Questo metodo serve a richiamare il metodo che elimina, sfruttando l'Id, una città salvata
-     * tramite PostMan
+     * This method is used to recall the method that eliminates, using the {id}, a saved city
+     * via PostMan
      *
-     * @param id variabile int che rappresenta in modo univoco ogni città
-     * @return restituisce, nel caso in cui l'eliminazione della città sia riuscita, una stringa
+     * @param id int variable that uniquely represents each city
+     * @return returns a string if the deletion of the city is successful
      */
     @DeleteMapping(value = "/cities/{id}")
     public ResponseEntity<Object>
@@ -63,10 +64,10 @@ public class CityController {
     }
 
     /**
-     * Questo metodo serve a richiamare il metodo che aggiunge nuove città al programma tramite PostMan
+     * This method is used to call the method which adds new cities to the program via Postman
      *
-     * @param city variabile String che rappresenta il nome della città
-     * @return restituisce, nel caso in cui la creazione della città sia riuscita, una stringa
+     * @param city String variable that represents the name of the city
+     * @return returns a string if the creation of the city is successful
      */
     @PostMapping(value = "/cities")
     public ResponseEntity<Object>
@@ -76,11 +77,11 @@ public class CityController {
     }
 
     /**
-     * Questo metodo serve a richiamare il metodo che fa ricevere al programma tramite PostMan i dati in formato
-     * Json di due città tramite PostMan
+     * This method is used to call the method that causes the program to receive the data in
+     * Json of two cities via Postman
      *
-     * @param cities variabile String che serve a contenere i nomi delle due città che si vogliono studiare
-     * @return restituisce, nel caso in cui la ricerca delle città sia riuscita, una stringa
+     * @param cities String variable that is used to contain the names of the two cities taken into consideration
+     * @return returns a string if the city search is successful
      */
     @PostMapping(value = "/cities/names")
     public ResponseEntity<Object>
@@ -93,9 +94,9 @@ public class CityController {
     }
 
     /**
-     * Questo metodo serve per restituire tutti i dati delle città salvate nel file Json "FileCities.json"
+     * This method is used to return all the data of the cities saved in the Json file "FileCities.json"
      *
-     * @return restituisce tutti i dati salvati nel file "FileCities.json"
+     * @return returns all data saved in the file "FileCities.json"
      */
     @GetMapping(value = "/cities/metadata")
     public @ResponseBody
@@ -109,5 +110,4 @@ public class CityController {
         }
         return null;
     }
-
 }

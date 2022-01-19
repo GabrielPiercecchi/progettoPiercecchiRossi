@@ -1,52 +1,46 @@
 package com.example.OpenWeatherProject.model;
 
 /**
- * Questa classe contiene le variabili e i metodi necessari a definire e a richiamare una città
+ * This class contains the variables and methods needed to define and retrieve a city
  */
 public class City {
 
-    /**
-     * @param name variabile String che serve a contenere il nome di una città
-     * @param Id variabile int che serve a identificare in maniera univoca ogni città
-     */
     private String Name;
     private int Id;
 
     /**
-     * Questo metodo serve per restituire il nome della città appena salvata
+     * This method is used to return the name of the city just saved
      *
-     * @return restituisce il nome della città appena salvata
+     * @return returns the name of the city just saved
      */
     public String getName() {
         return Name;
     }
 
     /**
-     * Questo metodo serve salvare il nome della città appena inserita tramite terminale o PostMan
+     * This method is used to save the name of the city just entered via the terminal or Postman
      *
-     * @param name variabile String che serve a contenere il nome di una città
+     * @param name String variable that is used to hold the name of a city
      */
     public void setName(String name) {
         this.Name = name;
     }
 
     /**
-     * Questo metodo serve per restituire l'Id della città appena salvata
+     * This method is used to return the ID of the city just saved
      *
-     * @return restituisce l'Id della città appena salvata
+     * @return returns the Id of the city just saved
      */
     public int getId() {
         return Id;
     }
 
     /**
-     * Questo metodo serve salvare l'Id della città
+     * This method is for saving the city ID
      *
-     * @param id variabile int che serve a identificare in maniera univoca ogni città
+     * @param id int variable that serves to uniquely identify each city
      */
     public void setId(Integer id) {
         Id = id;
     }
-
-
 }

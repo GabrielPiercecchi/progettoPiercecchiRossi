@@ -11,15 +11,18 @@ import java.time.format.DateTimeFormatter;
 
 import static java.lang.Math.round;
 
+/**
+ *
+ */
 public class ParseJSONDocument {
 
-    //METODO CHE "parsa" il file JSON ricevuto
-    private static int Ncity = 0;
+    private static int NCity = 0;
 
+    // METHOD that parses the received JSON file
     public static String parse(String responseBody) {
 
-        //--> Richiamo classe del metodo che compara le temp "feels_like"
-        // delle due città dal package stats
+        // Creation of an instance of the class that contains the method that compares the "feels_like" values
+        // of the two cities from the package "stats"
         CompareStats compareStats = new CompareStatsImpl();
 
         CityStats cityStats = new CityStats(null, 0, 0, 0, 0);
@@ -64,16 +67,17 @@ public class ParseJSONDocument {
             jsonDocument.fileWriter(cityStats.getName(), formattedDate, cityStats.getTemp(),
                     cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
 
-            //--> Chiama classe contenente ArrayList: ControlFiltersImpl
             /*
+            //--> Chiama classe contenente ArrayList: ControlFiltersImpl
+
             controlFilters.addData(cityFilters.getDate(), cityStats.getName(), cityStats.getTemp(),
                     cityStats.getFeels_like(), cityStats.getTemp_max(), cityStats.getTemp_min());
-             */
+            */
 
-            Ncity++;
+            NCity++;
         } catch (Exception e) {
             System.out.println("Sorry :-(\n" +
-                    "--> City n° " + (++Ncity) + " not found");
+                    "--> City n° " + (++NCity) + " not found");
             System.out.println();
             compareStats.resetT();
         }

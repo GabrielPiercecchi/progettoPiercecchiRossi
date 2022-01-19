@@ -3,10 +3,6 @@ package com.example.OpenWeatherProject.model;
 import java.util.Date;
 
 /**
- * @author Rossi Alan
- */
-
-/**
  * Questa classe serve a interfacciarsi con il database quando si vuole filtrare i dati salvati
  */
 public class JSONStructure {

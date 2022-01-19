@@ -12,10 +12,6 @@ import org.json.simple.parser.JSONParser;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-/**
- * @author Rossi Alan
- */
-
 public class JSONFileManager {
 
     public static ArrayList<JSONStructure> jsonStructure = new ArrayList<>();

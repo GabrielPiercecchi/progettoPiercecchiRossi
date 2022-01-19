@@ -1,4 +1,7 @@
+#### ENGLISH VERSION
+
 # OpenWeatherApplication
+
 ##### INTRODUCTION
 <div style="text-align: justify">
 
@@ -6,9 +9,8 @@ This file README.md aims to present and explain step by step the development of 
 
 The purpose of this project is to develop a Java application that makes a comparative analysis of statistical data (minimum, maximum, average and variance values of perceived and effective temperature values) concerning the weather information of two cities entered by the user via the terminal.
 
-The implemented API is <span style="color: #0099FF">**OpenWeather**</span>. The application saves time data in a JSON file.
+The implemented API is **OpenWeather**. The application saves time data in a JSON file.
 </div>
-
 
 ##### API
 
@@ -106,26 +108,65 @@ The operating mechanism of the program is as follows:
 6. finally the classes contained in the <code>filters</code> package, through a request made by the terminal (entering two dates), filter the collected data.
 
 **<sup>*</sup> NOTE AGGIUNTIVE:** as an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
+
+
+Questa implementazione è rappresentata dal packege <code>controller</code>:
+
+| Roots            | Description                                                                                                       |
+|------------------|-------------------------------------------------------------------------------------------------------------------|
+| <code>/cities</code>          | <code>GET</code>: restituisce il nome di tutte le città inserite (oltre alle prime due di default);<br><code>POST</code>: permette di inserire, e successivamente salvare, il nome di una città |
+| <code>/cities/{id}</code>     | <code>PUT</code>: permette di aggiornare il nome di una città sfruttando il suo {id} univoco<br><code>DELETE</code>: permette di eliminare il nome di una città sfruttando il suo {id} univoco |
+| <code>/cities/names</code>    | <code>POST</code>: permette di inserire il nome delle due città di cui si vogliono le statistiche                              |
+| <code>/cities/metadata</code> | <code>GET</code>: restituisce i dati collezionati nelle chiamate precedenti (salvati in un file <code>*.json*</code> dedicato) |
+
+Esempi
+</div>
+
+[inserire immagini]
+
+##### COME SI USA
+<div style="text-align: justify">
+Per usare questo programma bisogna innanzitutto clonare questa repository in locale e importare il progetto <code>Open-Weather_Project</code> nell'IDE IntelliJ (consigliato).
+
+Per avviare il programma selezionare <code>Open-Weather_Project</code> nel proprio package explorer e dare il comando <code>Run 'OWPSpringBootApplication'</code>.
+
+[inserire immagine WhatsApp]
+
+All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 </div>
 
 ##### EXPLANATION STEP BY STEP
-
-###### ROOT
-<div style="text-align: justify">
-
-</div>
 
 ##### POSSIBLE APPLICATIONS
 The possible customers who can take advantage of this application are all those individuals / companies whose work is directly or indirectly linked to weather conditions, in particular to temperature.
 
 Examples include agricultural businesses, sectors linked to tourism (travel agencies, ski resorts, etc.), and also research centers (monitoring of climate change, rising seas, etc.).
 
+##### STRUMENTI UTILIZZATI (SOFTWARES & LIBRARIES)
+
+Framework [Spring](), libreria [<code>org.json</code>](), libreria [Apache Maven](), JavaDoc, JUnit 5, PostMan, Markdown Monster, Git, Git Hub, IDE IntelliJ
+
 ##### AUTHORS
 
 * [Piercecchi Gabriel](https://github.com/GabrielPiercecchi)
 * [Rossi Alan](https://github.com/AlanRossi01)
 
-VERSIONE ITALIANA
+<br>
+<br>
+
+#### VERSIONE ITALIANA
+
+# OpenWeatherApplication
+
+##### INTRODUCTION
+<div style="text-align: justify">
+
+This file README.md aims to present and explain step by step the development of the exam project of *Object Oriented Programming* for the session of January 24, 2022.
+
+The purpose of this project is to develop a Java application that makes a comparative analysis of statistical data (minimum, maximum, average and variance values of perceived and effective temperature values) concerning the weather information of two cities entered by the user via the terminal.
+
+The implemented API is **OpenWeather**. The application saves time data in a JSON file.
+</div>
 
 ##### API
 
@@ -257,12 +298,12 @@ All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 
 Framework [Spring](), libreria [<code>org.json</code>](), libreria [Apache Maven](), JavaDoc, JUnit 5, PostMan, Markdown Monster, Git, Git Hub, IDE IntelliJ
 
-##### POSSIBLE APPLICATIONS
+##### POSSIBILI APPLICAZIONI
 I possibili clienti che possono usufruire di quest'applicazione sono tutti quei privati/aziende il cui lavoro è direttamente o indierettamente legato alle condizioni meteo, in particolare alla temperatura.
 
 Alcuni esempi possono essere le imprese agricole, i settori legati al turismo (...impianti sciistici...), e infine settori legati ai cambiamenti climatici (...innalzamento del livello del mare...).
 
-##### AUTHORS
+##### AUTORI
 
 * [Piercecchi Gabriel](https://github.com/GabrielPiercecchi)
 * [Rossi Alan](https://github.com/AlanRossi01)

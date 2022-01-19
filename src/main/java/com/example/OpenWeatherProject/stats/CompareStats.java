@@ -18,7 +18,7 @@ public interface CompareStats {
     void compareT(double feels_like);
 
     /**
-     * Questo metodo viene usato come controllo dal metodo sopra citato: "compareT"
+     * This method is used as a control by the above method "compareT"
      */
     void resetT();
 
