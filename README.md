@@ -95,7 +95,7 @@ The three main functionality are:
 
 The operating mechanism of the program is as follows:
 
-1. the <code>Menu</code> class, interfacing with the user via the terminal, collects the data entered by him (the names of the cities);
+1. the <code>Menu</code> class, interfacing with the user via the terminal *, collects the data entered by him (the names of the cities);
 
 2. the <code>CityServiceImpl.inputCity(...)</code> method, defined by the <code>CityService</code> interface, uses the data entered by the user to send requests through URI calls, using the OpenWeather API, and receive "in response" the statistics of the cities chosen in <code>*.json*</code> format;
 
@@ -109,9 +109,7 @@ The operating mechanism of the program is as follows:
 
 <br>
 
-> [!NOTE]
->
->As an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
+><sup>*</sup> **NOTE AGGIUNTIVE:** As an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
 
 <br>
 
