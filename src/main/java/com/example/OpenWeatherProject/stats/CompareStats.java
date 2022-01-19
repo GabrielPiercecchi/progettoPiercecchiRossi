@@ -20,11 +20,39 @@ public interface CompareStats {
      */
     void resetT();
 
+    /**
+     * This method calculates and prints the minimum temperature among all elements of the JSONStructure-type
+     * ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
     void tempMin(ArrayList<JSONStructure> jsonStructure);
 
+    /**
+     * This method calculates and prints the maximum temperature among all elements of the JSONStructure-type
+     * ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
     void tempMax(ArrayList<JSONStructure> jsonStructure);
 
-    void tempMean(ArrayList<JSONStructure> jsonStructure);
+    /**
+     * This method calculates and prints the average temperature among all elements of the JSONStructure-type
+     * ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
+    void averageTemp(ArrayList<JSONStructure> jsonStructure);
 
-    void feelsLikeMean(ArrayList<JSONStructure> jsonStructure);
+    /**
+     *  This method calculates and prints the average perceived temperature among all elements of the
+     *  JSONStructure-type ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
+    void averageFeelsLike(ArrayList<JSONStructure> jsonStructure);
 }

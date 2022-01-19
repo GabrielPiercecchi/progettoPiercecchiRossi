@@ -63,6 +63,13 @@ public class CompareStatsImpl implements CompareStats {
         }
     }
 
+    /**
+     * This method calculates and prints the minimum temperature among all elements of the JSONStructure-type
+     * ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
     @Override
     public void tempMin(ArrayList<JSONStructure> jsonStructure) {
 
@@ -73,6 +80,13 @@ public class CompareStatsImpl implements CompareStats {
         System.out.println("temp_min = " + temp_min + "°C");
     }
 
+    /**
+     * This method calculates and prints the maximum temperature among all elements of the JSONStructure-type
+     * ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
     @Override
     public void tempMax(ArrayList<JSONStructure> jsonStructure) {
 
@@ -83,25 +97,39 @@ public class CompareStatsImpl implements CompareStats {
         System.out.println("temp_max = " + temp_max + "°C");
     }
 
+    /**
+     * This method calculates and prints the average temperature among all elements of the JSONStructure-type
+     * ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
     @Override
-    public void tempMean(ArrayList<JSONStructure> jsonStructure) {
+    public void averageTemp(ArrayList<JSONStructure> jsonStructure) {
 
         double sum = 0;
         for (JSONStructure elem : jsonStructure) {
             sum += elem.getTemp();
         }
-        double temp_mean = sum / jsonStructure.size();
-        System.out.println("temp_mean = " + temp_mean + "°C");
+        double averageTemp = sum / jsonStructure.size();
+        System.out.println("temp_mean = " + averageTemp + "°C");
     }
 
+    /**
+     *  This method calculates and prints the average perceived temperature among all elements of the
+     *  JSONStructure-type ArrayList taken as a parameter.
+     *
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     */
     @Override
-    public void feelsLikeMean(ArrayList<JSONStructure> jsonStructure) {
+    public void averageFeelsLike(ArrayList<JSONStructure> jsonStructure) {
 
         double sum = 0;
         for (JSONStructure elem : jsonStructure) {
             sum += elem.getFeelsLike();
         }
-        double feels_like = sum / jsonStructure.size();
-        System.out.println("feels_like_mean = " + feels_like + "°C");
+        double averageFeelsLike = sum / jsonStructure.size();
+        System.out.println("feels_like_mean = " + averageFeelsLike + "°C");
     }
 }

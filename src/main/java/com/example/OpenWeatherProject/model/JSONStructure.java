@@ -3,7 +3,8 @@ package com.example.OpenWeatherProject.model;
 import java.util.Date;
 
 /**
- * Questa classe serve a interfacciarsi con il database quando si vuole filtrare i dati salvati
+ * This class is used to model the Json file "FileCities.json" information deserialized by the "JSONFileManager"
+ * class.
  */
 public class JSONStructure {
 

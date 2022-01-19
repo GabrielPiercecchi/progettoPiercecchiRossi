@@ -11,10 +11,24 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.json.simple.JSONObject;
 
+/**
+ *
+ */
 public class CreatingJSONDocument {
 
     //private static int cityCounter = 0;
 
+    /**
+     *
+     *
+     * @param name
+     * @param formattedDate
+     * @param temp
+     * @param feels_like
+     * @param temp_min
+     * @param temp_max
+     * @throws IOException
+     */
     public void fileWriter(String name, String formattedDate, double temp, double feels_like, double temp_min, double temp_max) throws IOException {
 
         JSONObject citiesObj = new JSONObject();
@@ -35,7 +49,7 @@ public class CreatingJSONDocument {
         listOfTemps.put("temp_max", temp_max);
 
         citiesObj.put("Main", listOfTemps);
-         */
+        */
 
         try {
             // Writing to a file

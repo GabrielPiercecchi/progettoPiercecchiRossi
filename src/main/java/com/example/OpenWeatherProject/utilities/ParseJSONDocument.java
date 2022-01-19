@@ -1,13 +1,11 @@
 package com.example.OpenWeatherProject.utilities;
 
-
 import com.example.OpenWeatherProject.stats.CityStats;
 import com.example.OpenWeatherProject.stats.CompareStats;
 import com.example.OpenWeatherProject.stats.CompareStatsImpl;
 import org.json.JSONObject;
-
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 import static java.lang.Math.round;
 
@@ -18,7 +16,13 @@ public class ParseJSONDocument {
 
     private static int NCity = 0;
 
-    // METHOD that parses the received JSON file
+    /**
+     *
+     *
+     * @param responseBody
+     * @return
+     */
+    // method that parses the received JSON file
     public static String parse(String responseBody) {
 
         // Creation of an instance of the class that contains the method that compares the "feels_like" values
@@ -47,23 +51,22 @@ public class ParseJSONDocument {
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String formattedDate = myDateObj.format(myFormatObj);
 
-            //--> Salvataggio stats
+            // statistics saving
             cityStats.setTemp(round((temp - 273.15)));
             cityStats.setFeels_like(round((feels_like - 273.15)));
             cityStats.setTemp_min(round((temp_min - 273.15)));
             cityStats.setTemp_max(round((temp_max - 273.15)));
             cityStats.setName(fName);
-            //cityFilters.setDate(formattedDate);
 
             System.out.println("Current temperatures of " + fName + ":");
-            //--> Println dei valori salvati
+            // prints the previously saved values
             System.out.println(cityStats);
             System.out.println();
 
-            //--> Richiamo metodo che compara le temp "feels_like" delle due città dal package stats
+            // call of the method that compares the "feels_like" temps of the two cities from the "CompareStatsImpl"
             compareStats.compareT(feels_like);
 
-            //--> Richiamo metodo che scrive su file JSON i dati ricevuti
+            // call of the method that writes the received data to a Json file
             jsonDocument.fileWriter(cityStats.getName(), formattedDate, cityStats.getTemp(),
                     cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
 
