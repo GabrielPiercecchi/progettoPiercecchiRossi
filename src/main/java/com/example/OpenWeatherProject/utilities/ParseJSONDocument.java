@@ -10,17 +10,19 @@ import java.time.LocalDateTime;
 import static java.lang.Math.round;
 
 /**
- *
+ * Questa classe serve a "parsare" il file .json ricevuto tramite la chiamata all'API di Open-weather
  */
 public class ParseJSONDocument {
 
     private static int NCity = 0;
 
     /**
+     *Questo metodo serve per "parsare" il file .json ricevuto e salvato sotto forma di variabile String
      *
+     * @param responseBody variabile di tipo String che rappresenta il file .json ricevuto dal metodo che comunica con
+     *                     l'API
      *
-     * @param responseBody
-     * @return
+     * @return null
      */
     // method that parses the received JSON file
     public static String parse(String responseBody) {
@@ -32,14 +34,10 @@ public class ParseJSONDocument {
         CityStats cityStats = new CityStats(null, 0, 0, 0, 0);
 
         try {
-
-            //City city = new City();
             CreatingJSONDocument jsonDocument = new CreatingJSONDocument();
             JSONObject obj = new JSONObject(responseBody);
 
             String fName = (String) obj.get("name");
-
-            //JSONArray arr = obj.getJSONArray("main");
 
             double temp = obj.getJSONObject("main").getDouble("temp");
             double feels_like = obj.getJSONObject("main").getDouble("feels_like");
@@ -69,14 +67,6 @@ public class ParseJSONDocument {
             // call of the method that writes the received data to a Json file
             jsonDocument.fileWriter(cityStats.getName(), formattedDate, cityStats.getTemp(),
                     cityStats.getFeels_like(), cityStats.getTemp_min(), cityStats.getTemp_max());
-
-            /*
-            //--> Chiama classe contenente ArrayList: ControlFiltersImpl
-
-            controlFilters.addData(cityFilters.getDate(), cityStats.getName(), cityStats.getTemp(),
-                    cityStats.getFeels_like(), cityStats.getTemp_max(), cityStats.getTemp_min());
-            */
-
             NCity++;
         } catch (Exception e) {
             System.out.println("Sorry :-(\n" +

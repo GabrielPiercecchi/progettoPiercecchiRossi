@@ -9,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class DateTimeFiltersImplTest {
 
     DateTimeFiltersImpl dateTimeFiltersImpl = new DateTimeFiltersImpl();
@@ -47,11 +45,11 @@ class DateTimeFiltersImplTest {
                 "12-02-2023 11:00:00");
         dateTimeFiltersImpl.printDateTimeFiltered();
 
+        //--> Pulizia ArrayList
         dateTimeFilters.clear();
         cityFilters.cityFiltered.clear();
 
         //--> Test in successione
-
         dateTimeFilters.add(new JSONStructure("Porto recanati", dateTime2, 34.0,12.0,-2.0,
                 10.0));
         dateTimeFilters.add(new JSONStructure("Foggia", dateTime3, 0.0,4.0,-21.0,
@@ -66,6 +64,7 @@ class DateTimeFiltersImplTest {
                 "12-02-2023 11:00:00");
         dateTimeFiltersImpl.printDateTimeFiltered();
 
+        //--> Pulizia ArrayList
         dateTimeFilters.clear();
         cityFilters.cityFiltered.clear();
     }

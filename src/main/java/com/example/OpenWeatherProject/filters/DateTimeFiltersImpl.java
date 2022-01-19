@@ -1,6 +1,9 @@
 package com.example.OpenWeatherProject.filters;
 
 import com.example.OpenWeatherProject.model.JSONStructure;
+import com.example.OpenWeatherProject.stats.CompareStats;
+import com.example.OpenWeatherProject.stats.CompareStatsImpl;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,10 +22,10 @@ public class DateTimeFiltersImpl implements DateTimeFilters {
      * as a parameter to the method, in the time range defined by the two String variables (subsequently converted
      * to Date variables) startStringDateTime and endStringDateTime.
      *
-     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
-     *                      "JSONStructure" model-class.
+     * @param jsonStructure       JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                            "JSONStructure" model-class.
      * @param startStringDateTime String variable that contains the first date.
-     * @param endStringDateTime String variable that contains the second date.
+     * @param endStringDateTime   String variable that contains the second date.
      */
     @Override
     public void dateTimeFilter(ArrayList<JSONStructure> jsonStructure, String startStringDateTime,
@@ -64,18 +67,28 @@ public class DateTimeFiltersImpl implements DateTimeFilters {
     @Override
     public void printDateTimeFiltered() {
 
+        CompareStats compareStats = new CompareStatsImpl();
+
         if (dateTimeFiltered.size() == 0) {
             System.out.println("--> There are no cities call collected");
             System.out.println();
         } else {
             for (int i = 0; i < dateTimeFiltered.size(); i++) {
-                if (i==0){
+                if (i == 0) {
                     System.out.println("--> Data collected from " + dateTimeFiltered.get(i).getTime() + " to " +
-                            dateTimeFiltered.get(dateTimeFiltered.size()-1).getTime() + " are:");
+                            dateTimeFiltered.get(dateTimeFiltered.size() - 1).getTime() + " are:");
                     System.out.println();
                 }
                 System.out.println(dateTimeFiltered.get(i).toString(i));
             }
+            System.out.println();
+            System.out.println("Final stats: " +
+                    "\n{");
+            compareStats.averageTemp(dateTimeFiltered);
+            compareStats.averageFeelsLike(dateTimeFiltered);
+            compareStats.tempMin(dateTimeFiltered);
+            compareStats.tempMax(dateTimeFiltered);
+            System.out.println("}");
         }
     }
 }

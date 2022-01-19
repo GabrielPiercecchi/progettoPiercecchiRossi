@@ -1,5 +1,7 @@
 package com.example.OpenWeatherProject.model;
 
+import com.example.OpenWeatherProject.stats.CityStats;
+
 import java.util.Date;
 
 /**

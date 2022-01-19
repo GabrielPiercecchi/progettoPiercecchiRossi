@@ -77,7 +77,7 @@ public class CompareStatsImpl implements CompareStats {
         for (JSONStructure elem : jsonStructure) {
             temp_min = Math.min(temp_min, elem.getTempMin());
         }
-        System.out.println("temp_min = " + temp_min + "°C");
+        System.out.println("--> The lowest Temp_min = " + temp_min + "°C");
     }
 
     /**
@@ -94,7 +94,7 @@ public class CompareStatsImpl implements CompareStats {
         for (JSONStructure elem : jsonStructure) {
             temp_max = Math.max(temp_max, elem.getTempMax());
         }
-        System.out.println("temp_max = " + temp_max + "°C");
+        System.out.println("--> The highest Temp_max = " + temp_max + "°C");
     }
 
     /**
@@ -112,7 +112,7 @@ public class CompareStatsImpl implements CompareStats {
             sum += elem.getTemp();
         }
         double averageTemp = sum / jsonStructure.size();
-        System.out.println("temp_mean = " + averageTemp + "°C");
+        System.out.println("--> Average_Temp = " + averageTemp + "°C");
     }
 
     /**
@@ -130,6 +130,6 @@ public class CompareStatsImpl implements CompareStats {
             sum += elem.getFeelsLike();
         }
         double averageFeelsLike = sum / jsonStructure.size();
-        System.out.println("feels_like_mean = " + averageFeelsLike + "°C");
+        System.out.println("--> Average_Feels_like = " + averageFeelsLike + "°C");
     }
 }

@@ -6,7 +6,7 @@ package com.example.OpenWeatherProject.stats;
  */
 public class CityStats {
 
-    private String name;
+    private String Name;
     private double temp;
     private double feels_like;
     private double temp_max;
@@ -20,7 +20,7 @@ public class CityStats {
      * @param temp_min   double variable that contains the minimum temperature of a city.
      */
     public CityStats(String name, double temp, double feels_like, double temp_max, double temp_min) {
-        this.name = name;
+        this.Name = name;
         this.temp = temp;
         this.feels_like = feels_like;
         this.temp_max = temp_max;
@@ -33,7 +33,7 @@ public class CityStats {
      * @return returns the current name of a city.
      */
     public String getName() {
-        return name;
+        return Name;
     }
 
     /**
@@ -42,7 +42,7 @@ public class CityStats {
      * @param name double variable that contains the name of a city.
      */
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     /**

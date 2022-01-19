@@ -20,6 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class CityServiceImpl implements CityService {
 
+    //--> Serve per salvare i dati (Id, Name) inerenti alla città
     private static Map<Integer, City> cityRepo = new HashMap<>();
     private final AtomicLong counter = new AtomicLong();
 
@@ -85,7 +86,6 @@ public class CityServiceImpl implements CityService {
     @Override
     public void inputCity(String city1, String city2) {
 
-        //City city = new City();
         City cityI = new City();
         City cityII = new City();
         String city1After;
@@ -114,7 +114,6 @@ public class CityServiceImpl implements CityService {
             request = HttpRequest.newBuilder().uri(URI.create("https://api.openweathermap.org/data/2.5/weather?q=" + city1After + "&appid=" + "14bbc528b3c2df06e94336bd503ddc1a")).build();
             client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                     .thenApply(HttpResponse::body)
-                    //.thenAccept(System.out::println) --> PRINTLN FILE JSON
                     .thenApply(ParseJSONDocument::parse)
                     .join();
 
