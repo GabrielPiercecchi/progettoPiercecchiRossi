@@ -12,7 +12,7 @@ public class CityStats {
     private double temp_min;
 
     /**
-     * @param name       String variable from the "City" class
+     * @param name       String variable that contains the name of a city
      * @param temp       double variable that contains the temperature of a city
      * @param feels_like double variable that contains the perceived temperature of a city
      * @param temp_max   double variable that contains the maximum temperature of a city

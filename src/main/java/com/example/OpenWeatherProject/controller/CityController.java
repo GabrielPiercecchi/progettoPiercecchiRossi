@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * This class contains all the methods used to "communicate" with Postman
+ * This class contains all the methods used to "communicate" with Postman.
  */
 @RestController
 public class CityController {
@@ -22,9 +22,9 @@ public class CityController {
 
     /**
      * This method is used to call the method which returns all the cities saved within the program
-     * via PostMan
+     * via Postman.
      *
-     * @return returns all saved cities
+     * @return returns all saved cities.
      */
     @GetMapping(value = "/cities")
     public ResponseEntity<Object>
@@ -34,11 +34,11 @@ public class CityController {
 
     /**
      * This method is used to call the method that updates, through the {id}, the name of the cities already saved
-     * via Postman
+     * via Postman.
      *
-     * @param id   int variable that uniquely represents each city
-     * @param city String variable that represents the name of the city
-     * @return returns a string if the city update is successful
+     * @param id   int variable that uniquely represents each city.
+     * @param city String variable that represents the name of the city.
+     * @return returns a string if the city update is successful.
      */
     @PutMapping(value = "/cities/{id}")
     public ResponseEntity<Object>
@@ -49,10 +49,10 @@ public class CityController {
 
     /**
      * This method is used to recall the method that eliminates, using the {id}, a saved city
-     * via PostMan
+     * via PostMan.
      *
-     * @param id int variable that uniquely represents each city
-     * @return returns a string if the deletion of the city is successful
+     * @param id int variable that uniquely represents each city.
+     * @return returns a string if the deletion of the city is successful.
      */
     @DeleteMapping(value = "/cities/{id}")
     public ResponseEntity<Object>
@@ -62,10 +62,10 @@ public class CityController {
     }
 
     /**
-     * This method is used to call the method which adds new cities to the program via Postman
+     * This method is used to call the method which adds new cities to the program via Postman.
      *
-     * @param city String variable that represents the name of the city
-     * @return returns a string if the creation of the city is successful
+     * @param city String variable that represents the name of the city.
+     * @return returns a string if the creation of the city is successful.
      */
     @PostMapping(value = "/cities")
     public ResponseEntity<Object>
@@ -76,10 +76,10 @@ public class CityController {
 
     /**
      * This method is used to call the method that causes the program to receive the data in
-     * Json of two cities via Postman
+     * Json of two cities via Postman.
      *
-     * @param cities String variable that is used to contain the names of the two cities taken into consideration
-     * @return returns a string if the city search is successful
+     * @param cities String variable that is used to contain the names of the two cities taken into consideration.
+     * @return returns a string if the city search is successful.
      */
     @PostMapping(value = "/cities/names")
     public ResponseEntity<Object>
@@ -92,9 +92,9 @@ public class CityController {
     }
 
     /**
-     * This method is used to return all the data of the cities saved in the Json file "FileCities.json"
+     * This method is used to return all the data of the cities saved in the Json file "FileCities.json".
      *
-     * @return returns all data saved in the file "FileCities.json"
+     * @return returns all data saved in the file "FileCities.json".
      */
     @GetMapping(value = "/cities/metadata")
     public @ResponseBody

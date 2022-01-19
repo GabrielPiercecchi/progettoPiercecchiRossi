@@ -12,14 +12,17 @@ public class CityFilters {
     public ArrayList<JSONStructure> cityFiltered = new ArrayList<>();
 
     /**
+     * this method takes as parameters a JSONStructure-type ArrayList, in particular the ArrayList
+     * "JSONFileManager.jsonStructure" containing deserialized data from the Json file "FileCities.json",
+     * and a String variable, and filters data based on user input.
      *
-     *
-     * @param jsonStructure
+     * @param jsonStructure JSONStructure-type ArrayList containing deserialized data from the Json file
+     *                      "File Cities.json" through the "JSONFileManager" class
      * @param cityInput
      */
     public void cityFilter(ArrayList<JSONStructure> jsonStructure, String cityInput) {
 
-        //--> Cambio la prima lettera della città in maiuscolo
+        // the following step changes the first letter of the city name to uppercase
         String capCityInput = cityInput.substring(0, 1).toUpperCase() + cityInput.substring(1);
 
         if (!Objects.equals(capCityInput, "All")) {

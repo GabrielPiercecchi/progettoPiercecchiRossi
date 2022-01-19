@@ -1,6 +1,5 @@
 /**
- * Questo pacchetto serve per contenere tutte quelle classi che vanno a definire, attraverso delle variabili,
- * gli oggetti (Es Città) necessari per lo sviluppo del progetto.
+ * This package is used to contain all those classes that model, through their attributes,
+ * the objects (e.g. City) necessary for the development of the project.
  */
 package com.example.OpenWeatherProject.model;
-

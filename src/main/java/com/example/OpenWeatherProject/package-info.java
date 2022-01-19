@@ -1,5 +1,5 @@
 /**
- * Questo pacchetto contiene tutti i pacchetti e le classi create per produrre il progetto
- * assegnato.
+ * This package contains all the packages and related classes created to produce the project
+ * assigned.
  */
 package com.example.OpenWeatherProject;
