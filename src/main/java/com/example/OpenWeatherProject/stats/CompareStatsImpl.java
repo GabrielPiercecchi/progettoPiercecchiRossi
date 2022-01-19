@@ -73,9 +73,9 @@ public class CompareStatsImpl implements CompareStats {
     @Override
     public void tempMin(ArrayList<JSONStructure> jsonStructure) {
 
-        double temp_min = jsonStructure.get(0).getTempMin();
+        double temp_min = jsonStructure.get(0).getTemp_min();
         for (JSONStructure elem : jsonStructure) {
-            temp_min = Math.min(temp_min, elem.getTempMin());
+            temp_min = Math.min(temp_min, elem.getTemp_max());
         }
         System.out.println("--> The lowest Temp_min = " + temp_min + "°C");
     }
@@ -90,9 +90,9 @@ public class CompareStatsImpl implements CompareStats {
     @Override
     public void tempMax(ArrayList<JSONStructure> jsonStructure) {
 
-        double temp_max = jsonStructure.get(0).getTempMax();
+        double temp_max = jsonStructure.get(0).getTemp_max();
         for (JSONStructure elem : jsonStructure) {
-            temp_max = Math.max(temp_max, elem.getTempMax());
+            temp_max = Math.max(temp_max, elem.getTemp_max());
         }
         System.out.println("--> The highest Temp_max = " + temp_max + "°C");
     }
@@ -127,7 +127,7 @@ public class CompareStatsImpl implements CompareStats {
 
         double sum = 0;
         for (JSONStructure elem : jsonStructure) {
-            sum += elem.getFeelsLike();
+            sum += elem.getFeels_like();
         }
         double averageFeelsLike = sum / jsonStructure.size();
         System.out.println("--> Average_Feels_like = " + averageFeelsLike + "°C");

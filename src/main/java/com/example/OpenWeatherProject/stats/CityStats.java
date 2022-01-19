@@ -122,7 +122,6 @@ public class CityStats {
      *
      * @return returns all the values defined in this class.
      */
-    @Override
     public String toString() {
         return "{" +
                 " \n--> The temperature is " + this.temp + "°C" +
