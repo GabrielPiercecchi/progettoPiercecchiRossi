@@ -75,7 +75,7 @@ public class CompareStatsImpl implements CompareStats {
 
         double temp_min = jsonStructure.get(0).getTemp_min();
         for (JSONStructure elem : jsonStructure) {
-            temp_min = Math.min(temp_min, elem.getTemp_max());
+            temp_min = Math.min(temp_min, elem.getTemp_min());
         }
         System.out.println("--> The lowest Temp_min = " + temp_min + "°C");
     }
