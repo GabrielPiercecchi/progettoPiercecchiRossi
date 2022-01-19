@@ -95,7 +95,7 @@ The three main functionality are:
 
 The operating mechanism of the program is as follows:
 
-1. the <code>Menu</code> class, interfacing with the user via the terminal *, collects the data entered by him (the names of the cities);
+1. the <code>Menu</code> class, interfacing with the user via the terminal, collects the data entered by him (the names of the cities);
 
 2. the <code>CityServiceImpl.inputCity(...)</code> method, defined by the <code>CityService</code> interface, uses the data entered by the user to send requests through URI calls, using the OpenWeather API, and receive "in response" the statistics of the cities chosen in <code>*.json*</code> format;
 
@@ -105,11 +105,11 @@ The operating mechanism of the program is as follows:
 
 5. the classes contained in the <code>stats</code> package are used to save and compare the obtained data.
 
-6. finally the classes contained in the <code>filters</code> package, through a request made by the terminal (entering two dates), filter the collected data.
+6. finally the classes contained in the <code>filters</code> package, through a request, made by the terminal (entering two dates), filter the collected data.
 
 <br>
 
-><sup>*</sup> **NOTE AGGIUNTIVE:** As an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
+>**NOTE AGGIUNTIVE:** As an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
 
 <br>
 
@@ -138,8 +138,6 @@ Per avviare il programma selezionare <code>Open-Weather_Project</code> nel propr
 All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 </div>
 
-##### EXPLANATION STEP BY STEP
-
 ##### POSSIBLE APPLICATIONS
 The possible customers who can take advantage of this application are all those individuals / companies whose work is directly or indirectly linked to weather conditions, in particular to temperature.
 
@@ -147,7 +145,15 @@ Examples include agricultural businesses, sectors linked to tourism (travel agen
 
 ##### STRUMENTI UTILIZZATI (SOFTWARES & LIBRARIES)
 
-Framework [Spring](), libreria [<code>org.json</code>](), libreria [Apache Maven](), JavaDoc, JUnit 5, PostMan, Markdown Monster, Git, Git Hub, IDE IntelliJ
+* IDE [IntelliJ](https://www.jetbrains.com/idea/) per creare il progetto assegnato;
+* [PostMan](https://www.postman.com/) per testare e infine richiamare le API utilizzate (Current OpenWeather);
+* Editor [Markdown Monster](https://markdownmonster.west-wind.com/) per creare il README.md; 
+* [Git](https://git-scm.com/) e [GitHub](https://github.com) per il versioning del codice;
+* Framework [Spring](https://spring.io/), ed in particolare [Spring Boot](https://spring.io/projects/spring-boot), per velocizzare lo sviluppo del progetto;
+* Framework [JUnit 5](https://junit.org/junit5/) per testare il funzionamento delle varie componenti del progetto;
+* [JavaDoc](https://www.oracle.com/it/technical-resources/articles/java/javadoc-tool.html), per generare automaticamente la documentazione del codice sorgente scritto in Java;
+* libreria [<code>org.json</code>](http://www.JSON.org/) per parsare e generare Json file; 
+* libreria [Apache Maven](https://maven.apache.org/) per la gestione delle dipendenze;
 
 ##### AUTHORS
 
