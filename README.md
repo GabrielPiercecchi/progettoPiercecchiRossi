@@ -135,6 +135,8 @@ Per avviare il programma selezionare <code>Open-Weather_Project</code> nel propr
 
 [inserire immagine WhatsApp]
 
+![](WhatsApp Image 2022-01-19 at 09.00.15.jpeg)
+
 All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 </div>
 
