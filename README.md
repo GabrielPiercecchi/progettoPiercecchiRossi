@@ -7,7 +7,7 @@
 
 This file README.md aims to present and explain step by step the development of the exam project of *Object Oriented Programming* for the session of January 24, 2022.
 
-The purpose of this project is to develop a Java application that makes a comparative analysis of statistical data (minimum, maximum, average and variance values of perceived and effective temperature values) concerning the weather information of two cities entered by the user via the terminal.
+The main purpose of this project is to develop a Java application that makes a comparative analysis of statistical data (minimum, maximum, average and variance values of perceived and effective temperature values) concerning the weather information of two cities entered by the user via the terminal.
 
 The implemented API is **OpenWeather**. The application saves time data in a JSON file.
 </div>
@@ -95,7 +95,7 @@ The three main functionality are:
 
 The operating mechanism of the program is as follows:
 
-1. the <code>Menu</code> class, interfacing with the user via the terminal *, collects the data entered by him (the names of the cities);
+1. the <code>Menu</code> class, interfacing with the user via the terminal, collects the data entered by him (the names of the cities);
 
 2. the <code>CityServiceImpl.inputCity(...)</code> method, defined by the <code>CityService</code> interface, uses the data entered by the user to send requests through URI calls, using the OpenWeather API, and receive "in response" the statistics of the cities chosen in <code>*.json*</code> format;
 
@@ -107,10 +107,15 @@ The operating mechanism of the program is as follows:
 
 6. finally the classes contained in the <code>filters</code> package, through a request made by the terminal (entering two dates), filter the collected data.
 
-**<sup>*</sup> NOTE AGGIUNTIVE:** as an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
+<br>
 
+> [!NOTE]
+>
+>As an additional implementation, the user was given the possibility to enter cities and request the related statistics via HTTP requests.
 
-Questa implementazione è rappresentata dal packege <code>controller</code>:
+<br>
+
+Tale implementazione è presente nel packege <code>controller</code>:
 
 | Roots            | Description                                                                                                       |
 |------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -161,9 +166,9 @@ Framework [Spring](), libreria [<code>org.json</code>](), libreria [Apache Maven
 ##### INTRODUCTION
 <div style="text-align: justify">
 
-This file README.md aims to present and explain step by step the development of the exam project of *Object Oriented Programming* for the session of January 24, 2022.
+Questo file README.md ha lo scopo di presentare e spiegare passo dopo passo lo sviluppo del progetto d'esame di *Programmazione ad Oggetti* per la sessione del 24 gennaio 2022.
 
-The purpose of this project is to develop a Java application that makes a comparative analysis of statistical data (minimum, maximum, average and variance values of perceived and effective temperature values) concerning the weather information of two cities entered by the user via the terminal.
+L'obbiettivo principale di questo progetto is to develop a Java application that makes a comparative analysis of statistical data (minimum, maximum, average and variance values of perceived and effective temperature values) concerning the weather information of two cities entered by the user via the terminal.
 
 The implemented API is **OpenWeather**. The application saves time data in a JSON file.
 </div>
