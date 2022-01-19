@@ -5,18 +5,17 @@ import com.example.OpenWeatherProject.utilities.ParseJSONDocument;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * This class implements the methods defined in the associated "CityService" interface
+ * This class implements the methods defined in the associated "CityService" interface.
  */
 @Service
 public class CityServiceImpl implements CityService {
@@ -25,7 +24,7 @@ public class CityServiceImpl implements CityService {
     private final AtomicLong counter = new AtomicLong();
 
     /**
-     * This method is used to create two cities by default
+     * This method is used to create two cities by default.
      */
     public CityServiceImpl() {
         //loading data

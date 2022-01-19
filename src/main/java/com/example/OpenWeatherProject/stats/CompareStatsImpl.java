@@ -5,7 +5,8 @@ import static java.lang.Math.round;
 import java.util.ArrayList;
 
 /**
- * This class implements the methods defined in the associated "CompareStats" interface
+ * This class contains the methods that deal with comparing statistical data of different cities and/or
+ * periods of time.
  */
 public class CompareStatsImpl implements CompareStats {
 
@@ -14,7 +15,9 @@ public class CompareStatsImpl implements CompareStats {
     private static int controlC = 0;
 
     /**
-     * @param feels_like double variable that contains the perceived temperature of a city
+     * This method is for comparing the perceived temperature of two different cities.
+     *
+     * @param feels_like double variable that contains the perceived temperature of a city.
      */
     @Override
     public void compareT(double feels_like) {
@@ -47,7 +50,7 @@ public class CompareStatsImpl implements CompareStats {
     }
 
     /**
-     * This method is used as a control of the above method: "compareT"
+     * This method is used as a control by the above method "compareT".
      */
     @Override
     public void resetT() {

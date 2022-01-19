@@ -14,7 +14,7 @@ public interface CityService {
      *
      * @param city City-type variable containing consequently the attributes defined in the "City" class.
      */
-    public abstract void createCity(City city);
+    void createCity(City city);
 
     /**
      * This method is for updating the name of a city.
@@ -22,14 +22,14 @@ public interface CityService {
      * @param Id   int variable used to uniquely identify a city.
      * @param city City-type variable containing consequently the attributes defined in the "City" class.
      */
-    public abstract void updateCity(Integer Id, City city);
+    void updateCity(Integer Id, City city);
 
     /**
      * This method is for deleting a city saved in the program.
      *
      * @param Id int variable used to uniquely identify a city.
      */
-    public abstract void deleteCity(Integer Id);
+    void deleteCity(Integer Id);
 
     /**
      * This method is used to search the meteorological data of two cities through URI requests to the
@@ -38,13 +38,12 @@ public interface CityService {
      * @param city1 String variable that contains the name of the first city.
      * @param city2 String variable that contains the name of the second city.
      */
-    public abstract void inputCity(String city1, String city2);
+    void inputCity(String city1, String city2);
 
     /**
      * This method is used to print all cities saved up to the time of the call.
      *
      * @return returns all cities saved up to the time of the call.
      */
-    public abstract Collection<City> getCities();
+    Collection<City> getCities();
 }
-

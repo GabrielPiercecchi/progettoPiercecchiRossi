@@ -7,17 +7,22 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
+ * This class contains the methods necessary to filter the data according to a time range chosen by the user,
+ * and print them on the terminal.
  */
 public class DateTimeFiltersImpl implements DateTimeFilters {
 
     public final ArrayList<JSONStructure> dateTimeFiltered = new ArrayList<>();
 
     /**
+     * This method filters data present on the JSONStructure-type ArrayList "cityFiltered", afterwards passed
+     * as a parameter to the method, in the time range defined by the two String variables (subsequently converted
+     * to Date variables) startStringDateTime and endStringDateTime.
      *
-     * @param jsonStructure
-     * @param startStringDateTime
-     * @param endStringDateTime
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     * @param startStringDateTime String variable that contains the first date.
+     * @param endStringDateTime String variable that contains the second date.
      */
     @Override
     public void dateTimeFilter(ArrayList<JSONStructure> jsonStructure, String startStringDateTime,
@@ -54,10 +59,11 @@ public class DateTimeFiltersImpl implements DateTimeFilters {
     }
 
     /**
-     *
+     * This method prints filtered data to the terminal.
      */
     @Override
     public void printDateTimeFiltered() {
+
         if (dateTimeFiltered.size() == 0) {
             System.out.println("--> There are no cities call collected");
             System.out.println();

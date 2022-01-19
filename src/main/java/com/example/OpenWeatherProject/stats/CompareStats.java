@@ -4,12 +4,12 @@ import com.example.OpenWeatherProject.model.JSONStructure;
 import java.util.ArrayList;
 
 /**
- * This interface contains all the abstract methods that are implemented in the "CompareStats" class.
+ * This interface contains all the methods that are implemented in the "CompareStatsImpl" class.
  */
 public interface CompareStats {
 
     /**
-     * This method is for comparing the saved data of two different cities.
+     * This method is for comparing the perceived temperature of two different cities.
      *
      * @param feels_like double variable that contains the perceived temperature of a city.
      */

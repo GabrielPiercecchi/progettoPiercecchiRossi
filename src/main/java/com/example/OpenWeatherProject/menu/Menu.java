@@ -12,12 +12,12 @@ import com.example.OpenWeatherProject.utilities.JSONFileManager;
 import java.util.Scanner;
 
 /**
- * Questa classe contiene il menu con cui l'utente dovrà interagire per utilizzare il programma.
+ * This class contains the menu which the user will have to interact with to use the program.
  */
 public class Menu {
 
     /**
-     * Questo metodo rappresenta il MENU del programma assegnato.
+     * This method contains the MENU (usable through the terminal) of this program.
      */
     public void menu() {
         Scanner scanner = new Scanner(System.in);
@@ -78,8 +78,8 @@ public class Menu {
                                 try {
                                     System.out.println("--> Do you want to filter a single city data " +
                                             "or all data? <CityName>/<all>");
-                                    System.out.println("(Remember all the foreigner cities and the italian most \n" +
-                                            "important cities must be entered strictly in english )");
+                                    System.out.println("(All the foreign cities and the most important\n" +
+                                            "italian cities must be entered strictly in english )");
                                     System.out.println("Eg. rome, turin, milan, florence,...");
                                     String strFilter = scanner.nextLine();
                                     //--> Deserialization dei dati del file, popolano l'ArrayList jsonStructure

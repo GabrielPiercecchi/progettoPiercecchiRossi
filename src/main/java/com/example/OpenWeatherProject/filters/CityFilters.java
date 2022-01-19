@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- *
+ * This class contains the methods needed to filter the data according to the city chosen by the user.
  */
 public class CityFilters {
 
     public ArrayList<JSONStructure> cityFiltered = new ArrayList<>();
 
     /**
-     * this method takes as parameters a JSONStructure-type ArrayList, in particular the ArrayList
+     * This method takes as parameters a JSONStructure-type ArrayList, in particular the ArrayList
      * "JSONFileManager.jsonStructure" containing deserialized data from the Json file "FileCities.json",
      * and a String variable, and filters data based on user input.
      *
-     * @param jsonStructure JSONStructure-type ArrayList containing deserialized data from the Json file
-     *                      "File Cities.json" through the "JSONFileManager" class
-     * @param cityInput
+     * @param jsonStructure JSONStructure-type ArrayList containing all the attributes and methods of the
+     *                      "JSONStructure" model-class.
+     * @param cityInput String variable containing the name of the city chosen by the user.
      */
     public void cityFilter(ArrayList<JSONStructure> jsonStructure, String cityInput) {
 
