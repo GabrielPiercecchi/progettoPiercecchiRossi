@@ -65,7 +65,7 @@ public class Menu {
             boolean control2 = false;
 
             do {
-                System.out.println("--> Do you want to terminate the program? (Y/N)\n");
+                System.out.println("--> Do you want to terminate the program? (Y/N)");
                 String input = scanner.nextLine();
                 switch (input) {
                     case "Y":
