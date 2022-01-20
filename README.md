@@ -321,7 +321,7 @@ All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 * libreria [<code>org.json</code>](http://www.JSON.org/) per "parsare" e generare Json file;
 * libreria [Apache Maven](https://maven.apache.org/) per la gestione delle dipendenze;
 ##### POSSIBILI APPLICAZIONI
-I possibili clienti che possono usufruire di quest'applicazione sono tutti quei privati/aziende il cui lavoro è direttamente o indierettamente legato alle condizioni meteo, in particolare alla temperatura.
+I possibili clienti che possono usufruire di quest'applicazione sono tutti quei privati/aziende il cui lavoro è direttamente o indirettamente legato alle condizioni meteo, in particolare alla temperatura.
 
 Alcuni esempi possono essere le imprese agricole, i settori legati al turismo (...impianti sciistici...), e infine settori legati ai cambiamenti climatici (...innalzamento del livello del mare...).
 
