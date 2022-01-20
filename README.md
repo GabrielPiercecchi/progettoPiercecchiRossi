@@ -127,15 +127,21 @@ Esempi
 
 [inserire immagini]
 
+(Esempio-POST indirizzo /cities/names)
+![](Images/Postman-post.png)
+
+(Esempio-GET indirizzo /cities/metadata)
+![](Images/Postman-get.png)
+
 ##### COME SI USA
 <div style="text-align: justify">
 Per usare questo programma bisogna innanzitutto clonare questa repository in locale e importare il progetto <code>Open-Weather_Project</code> nell'IDE IntelliJ (consigliato).
 
 Per avviare il programma selezionare <code>Open-Weather_Project</code> nel proprio package explorer e dare il comando <code>Run 'OWPSpringBootApplication'</code>.
 
-![](WhatsApp Image 2022-01-19 at 09.00.15.jpeg)
-
 All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
+
+![](Images/Menu.png)
 </div>
 
 ##### POSSIBLE APPLICATIONS
@@ -152,7 +158,7 @@ Examples include agricultural businesses, sectors linked to tourism (travel agen
 * Framework [Spring](https://spring.io/), ed in particolare [Spring Boot](https://spring.io/projects/spring-boot), per velocizzare lo sviluppo del progetto;
 * Framework [JUnit 5](https://junit.org/junit5/) per testare il funzionamento delle varie componenti del progetto;
 * [JavaDoc](https://www.oracle.com/it/technical-resources/articles/java/javadoc-tool.html), per generare automaticamente la documentazione del codice sorgente scritto in Java;
-* libreria [<code>org.json</code>](http://www.JSON.org/) per parsare e generare Json file; 
+* libreria [<code>org.json</code>](http://www.JSON.org/) per "parsare" e generare Json file; 
 * libreria [Apache Maven](https://maven.apache.org/) per la gestione delle dipendenze;
 
 ##### AUTHORS
@@ -305,8 +311,15 @@ All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 
 ##### STRUMENTI UTILIZZATI
 
-Framework [Spring](), libreria [<code>org.json</code>](), libreria [Apache Maven](), JavaDoc, JUnit 5, PostMan, Markdown Monster, Git, Git Hub, IDE IntelliJ
-
+* IDE [IntelliJ](https://www.jetbrains.com/idea/) per creare il progetto assegnato;
+* [PostMan](https://www.postman.com/) per testare e infine richiamare le API utilizzate (Current OpenWeather);
+* Editor [Markdown Monster](https://markdownmonster.west-wind.com/) per creare il README.md;
+* [Git](https://git-scm.com/) e [GitHub](https://github.com) per il versioning del codice;
+* Framework [Spring](https://spring.io/), ed in particolare [Spring Boot](https://spring.io/projects/spring-boot), per velocizzare lo sviluppo del progetto;
+* Framework [JUnit 5](https://junit.org/junit5/) per testare il funzionamento delle varie componenti del progetto;
+* [JavaDoc](https://www.oracle.com/it/technical-resources/articles/java/javadoc-tool.html), per generare automaticamente la documentazione del codice sorgente scritto in Java;
+* libreria [<code>org.json</code>](http://www.JSON.org/) per "parsare" e generare Json file;
+* libreria [Apache Maven](https://maven.apache.org/) per la gestione delle dipendenze;
 ##### POSSIBILI APPLICAZIONI
 I possibili clienti che possono usufruire di quest'applicazione sono tutti quei privati/aziende il cui lavoro è direttamente o indierettamente legato alle condizioni meteo, in particolare alla temperatura.
 
@@ -316,3 +329,11 @@ Alcuni esempi possono essere le imprese agricole, i settori legati al turismo (.
 
 * [Piercecchi Gabriel](https://github.com/GabrielPiercecchi)
 * [Rossi Alan](https://github.com/AlanRossi01)
+
+#### CONTRIBUTI
+
+* Piercecchi Gabriel (50%): implementazione packages <code>service</code>, <code>menu</code>, <code>controller</code> e 
+parzialmente <code>utilities</code> (classe <code>ParseJSONDocument</code>) e
+<code>model</code> (classe <code>City</code>);
+* Rossi Alan(50%): implementazione packages <code>stats</code>, <code>filters</code> e 
+le restanti classi in <code>utilities</code> e <code>model</code>.
