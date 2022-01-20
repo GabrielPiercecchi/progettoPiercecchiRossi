@@ -39,6 +39,7 @@ public class Menu {
                     "Let's begin!!\n");
 
             boolean control1 = false;
+
             do {
                 System.out.println("--> Which operation do you want to do? <1>/<2>" +
                         "\n--> 1) search the statistics of two cities" +
@@ -62,8 +63,9 @@ public class Menu {
             } while (!control1);
 
             boolean control2 = false;
+
             do {
-                System.out.println("--> Do you want to terminate the program? (Y/N)");
+                System.out.println("--> Do you want to terminate the program? (Y/N)\n");
                 String input = scanner.nextLine();
                 switch (input) {
                     case "Y":
@@ -108,6 +110,7 @@ public class Menu {
             System.out.println();
 
             boolean control1 = false;
+
             do {
                 System.out.println("--> Do you want to keep searching? (Y/N)");
                 String input = scanner.nextLine();
@@ -141,8 +144,11 @@ public class Menu {
         DateTimeFiltersImpl dateTimeFiltersImpl = new DateTimeFiltersImpl();
 
         boolean cycle = false;
+
         do {
+
             try {
+
                 System.out.println("--> Do you want to filter a single city data " +
                         "or all data? <CityName>/<all>");
                 System.out.println("(All the foreign cities and the most important\n" +
@@ -175,6 +181,7 @@ public class Menu {
             }
 
             boolean control1 = false;
+
             do {
                 System.out.println("--> Do you want to continue filtering? (Y/N)");
                 String input = scanner.nextLine();
