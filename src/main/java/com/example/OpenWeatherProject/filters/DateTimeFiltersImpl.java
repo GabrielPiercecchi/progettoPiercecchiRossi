@@ -14,6 +14,9 @@ import java.util.Date;
  */
 public class DateTimeFiltersImpl implements DateTimeFilters {
 
+    /**
+     * This ArrayList contain data taken from the .json file "FileCities"
+     */
     public final ArrayList<JSONStructure> dateTimeFiltered = new ArrayList<>();
 
     /**
