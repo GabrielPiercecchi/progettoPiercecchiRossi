@@ -16,7 +16,7 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
 
     /**
-     * this method allows the user to use the services provided by this program, calling the "searchCity"
+     * This method allows the user to use the services provided by this program, calling the "searchCity"
      * and "filterCity" methods of this same class.
      */
     public void menu() {
