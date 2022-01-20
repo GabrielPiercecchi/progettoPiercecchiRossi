@@ -2,17 +2,17 @@ package com.example.OpenWeatherProject.service;
 
 import com.example.OpenWeatherProject.model.City;
 import com.example.OpenWeatherProject.utilities.ParseJSONDocument;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URI;
 import java.util.Collection;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * This class implements the methods defined in the associated "CityService" interface.
@@ -41,6 +41,8 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
+     * This method is for create a city.
+     *
      * @param city City-type variable containing consequently the attributes defined in the "City" class.
      */
     @Override
@@ -53,6 +55,8 @@ public class CityServiceImpl implements CityService {
 
 
     /**
+     * This method is for update the name of a city.
+     *
      * @param Id   int variable used to uniquely identify a city.
      * @param city City-type variable containing consequently the attributes defined in the "City" class.
      */
@@ -64,6 +68,8 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
+     * This method is for delete a city saved in the program.
+     *
      * @param Id int variable used to uniquely identify a city.
      */
     @Override
@@ -72,6 +78,8 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
+     * This method is used to print all cities saved up to the time of the call.
+     *
      * @return returns all cities saved up to the time of the call.
      */
     @Override
@@ -80,6 +88,9 @@ public class CityServiceImpl implements CityService {
     }
 
     /**
+     * This method is used to search the meteorological data of two cities through URI requests to the
+     * current API of "OpenWeather".
+     *
      * @param city1 String variable that contains the name of the first city.
      * @param city2 String variable that contains the name of the second city.
      */

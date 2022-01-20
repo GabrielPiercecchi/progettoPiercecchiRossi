@@ -112,7 +112,7 @@ public class CompareStatsImpl implements CompareStats {
             sum += elem.getTemp();
         }
         double averageTemp = sum / jsonStructure.size();
-        System.out.println("--> Average_Temp = " + averageTemp + "°C");
+        System.out.println("--> Average_Temp = " + (double) round(averageTemp) + "°C");
     }
 
     /**
@@ -130,6 +130,6 @@ public class CompareStatsImpl implements CompareStats {
             sum += elem.getFeels_like();
         }
         double averageFeelsLike = sum / jsonStructure.size();
-        System.out.println("--> Average_Feels_like = " + averageFeelsLike + "°C");
+        System.out.println("--> Average_Feels_like = " + (double) round(averageFeelsLike) + "°C");
     }
 }

@@ -5,19 +5,20 @@ import com.example.OpenWeatherProject.filters.DateTimeFiltersImpl;
 import com.example.OpenWeatherProject.service.CityService;
 import com.example.OpenWeatherProject.service.CityServiceImpl;
 import com.example.OpenWeatherProject.utilities.JSONFileManager;
-
 import java.util.Scanner;
 
 /**
- * This class contains the menu which the user will have to interact with to use the program.
+ * This class contains the menu (usable through the terminal) which the user will have to interact with
+ * to use the program.
  */
 public class Menu {
+
     Scanner scanner = new Scanner(System.in);
 
     /**
-     * This method contains the MENU (usable through the terminal) of this program.
+     * this method allows the user to use the services provided by this program, calling the "searchCity"
+     * and "filterCity" methods of this same class.
      */
-    // Menu
     public void menu() {
 
         boolean cycle = false;
@@ -40,7 +41,7 @@ public class Menu {
             boolean control1 = false;
             do {
                 System.out.println("--> Which operation do you want to do? <1>/<2>" +
-                        "\n--> 1) look up the statistics of two cities" +
+                        "\n--> 1) search the statistics of two cities" +
                         "\n--> 2) filter the statistics already collected (in previous searches)");
                 String input = scanner.nextLine();
                 switch (input) {
@@ -85,7 +86,10 @@ public class Menu {
         } while (!cycle);
     }
 
-    // Ricerca
+    /**
+     * This method deals with managing the search for two cities (and the related statistical data), calling
+     * the "inputCity" method of the "CityServiceImpl" class (through its instance).
+     */
     public void searchCity() {
 
         boolean cycle = false;
@@ -97,7 +101,7 @@ public class Menu {
             String city2Before = scanner.nextLine();
             System.out.println();
 
-            //--> Richiamo metodo inputCity (cerca le città inserite)
+            // call "inputCity" method (search entered cities)
             CityService cityService = new CityServiceImpl();
             cityService.inputCity(city1Before, city2Before);
 
@@ -127,7 +131,10 @@ public class Menu {
         } while (!cycle);
     }
 
-    // Filtraggio
+    /**
+     * This method takes care of managing the filtering of the data, appropriately calling the methods of
+     * the "filters" package classes (through their instances).
+     */
     public void filterCity() {
 
         CityFilters cityFilters = new CityFilters();
@@ -145,9 +152,10 @@ public class Menu {
                         "italian cities must be entered strictly in english )");
                 System.out.println("E.g. rome, turin, milan, florence,...");
                 String strFilter = scanner.nextLine();
-                //--> Deserialization dei dati del file, popolano l'ArrayList jsonStructure
-                //    e procedono al filtraggio della città
+                // call the method that deserializes data contained in the Json file
+                // and data is copied to the "jsonStructure" ArrayList
                 JSONFileManager.jsonFileManager();
+                // data is filtered according to the chosen city
                 cityFilters.cityFilter(JSONFileManager.jsonStructure, strFilter);
 
                 System.out.println("--> Please now insert two dates:");
@@ -157,11 +165,11 @@ public class Menu {
                 System.out.println("--> Second one:");
                 String strDate2 = scanner.nextLine();
 
-                //--> Filtrano ulteriormente i dati servendosi delle due date appena inserite
+                // filter the data further using the two dates just entered
                 dateTimeFiltersImpl.dateTimeFilter(cityFilters.cityFiltered, strDate1, strDate2);
                 dateTimeFiltersImpl.printDateTimeFiltered();
 
-                //--> Per cancellare i vecchi dati
+                // delete data from ArrayLists
                 cityFilters.cityFiltered.clear();
                 dateTimeFiltersImpl.dateTimeFiltered.clear();
             } catch (Exception e) {

@@ -1,5 +1,4 @@
 /**
- * This package contains program's menu.
+ * This package contains program's menù.
  */
 package com.example.OpenWeatherProject.menu;
-

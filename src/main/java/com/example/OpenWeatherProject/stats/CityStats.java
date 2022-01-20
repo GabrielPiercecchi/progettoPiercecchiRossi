@@ -13,6 +13,8 @@ public class CityStats {
     private double temp_min;
 
     /**
+     * "CityStats" class constructor which has the purpose of initialize the instance variables.
+     *
      * @param name       String variable that contains the name of a city.
      * @param temp       double variable that contains the temperature of a city.
      * @param feels_like double variable that contains the perceived temperature of a city.

@@ -3,24 +3,23 @@ package com.example.OpenWeatherProject.utilities;
 import com.example.OpenWeatherProject.stats.CityStats;
 import com.example.OpenWeatherProject.stats.CompareStats;
 import com.example.OpenWeatherProject.stats.CompareStatsImpl;
-import org.json.JSONObject;
+import static java.lang.Math.round;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-
-import static java.lang.Math.round;
+import org.json.JSONObject;
 
 /**
- * Questa classe serve a "parsare" il file .json ricevuto tramite la chiamata all'API di Open-weather
+ * This class contains the method used to parse the Json file received through the call to the OpenWeather API.
  */
 public class ParseJSONDocument {
 
     private static int NCity = 0;
 
     /**
-     *Questo metodo serve per "parsare" il file .json ricevuto e salvato sotto forma di variabile String
+     * This method is used to parse the Json file received and saved as a String variable.
      *
-     * @param responseBody variabile di tipo String che rappresenta il file .json ricevuto dal metodo che comunica con
-     *                     l'API
+     * @param responseBody String variable that contains Json file information received by the method that
+     *                     communicates with the API.
      *
      * @return null
      */
@@ -44,7 +43,6 @@ public class ParseJSONDocument {
             double temp_min = obj.getJSONObject("main").getDouble("temp_min");
             double temp_max = obj.getJSONObject("main").getDouble("temp_max");
 
-            //--> Serve per STATS/FILTRI su base oraria
             LocalDateTime myDateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String formattedDate = myDateObj.format(myFormatObj);

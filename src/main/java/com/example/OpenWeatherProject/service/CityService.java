@@ -17,7 +17,7 @@ public interface CityService {
     void createCity(City city);
 
     /**
-     * This method is for updating the name of a city.
+     * This method is for update the name of a city.
      *
      * @param Id   int variable used to uniquely identify a city.
      * @param city City-type variable containing consequently the attributes defined in the "City" class.
@@ -25,7 +25,7 @@ public interface CityService {
     void updateCity(Integer Id, City city);
 
     /**
-     * This method is for deleting a city saved in the program.
+     * This method is for delete a city saved in the program.
      *
      * @param Id int variable used to uniquely identify a city.
      */

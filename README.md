@@ -133,8 +133,6 @@ Per usare questo programma bisogna innanzitutto clonare questa repository in loc
 
 Per avviare il programma selezionare <code>Open-Weather_Project</code> nel proprio package explorer e dare il comando <code>Run 'OWPSpringBootApplication'</code>.
 
-[inserire immagine WhatsApp]
-
 ![](WhatsApp Image 2022-01-19 at 09.00.15.jpeg)
 
 All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
@@ -318,6 +316,3 @@ Alcuni esempi possono essere le imprese agricole, i settori legati al turismo (.
 
 * [Piercecchi Gabriel](https://github.com/GabrielPiercecchi)
 * [Rossi Alan](https://github.com/AlanRossi01)
-
-
-

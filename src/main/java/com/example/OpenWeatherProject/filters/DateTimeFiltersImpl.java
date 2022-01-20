@@ -3,7 +3,6 @@ package com.example.OpenWeatherProject.filters;
 import com.example.OpenWeatherProject.model.JSONStructure;
 import com.example.OpenWeatherProject.stats.CompareStats;
 import com.example.OpenWeatherProject.stats.CompareStatsImpl;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class DateTimeFiltersImpl implements DateTimeFilters {
     }
 
     /**
-     * This method prints filtered data to the terminal.
+     * This method prints filtered data on the terminal.
      */
     @Override
     public void printDateTimeFiltered() {
@@ -83,7 +82,7 @@ public class DateTimeFiltersImpl implements DateTimeFilters {
             }
             System.out.println();
             System.out.println("Final stats: " +
-                    "\n{");
+                               "\n{");
             compareStats.averageTemp(dateTimeFiltered);
             compareStats.averageFeelsLike(dateTimeFiltered);
             compareStats.tempMin(dateTimeFiltered);

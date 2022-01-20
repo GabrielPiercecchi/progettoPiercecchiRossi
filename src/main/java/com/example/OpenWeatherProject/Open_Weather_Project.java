@@ -1,15 +1,16 @@
 package com.example.OpenWeatherProject;
 
 import com.example.OpenWeatherProject.menu.Menu;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
 
 /**
  * This class represents the start of the assigned project, and therefore contains the "main" method.
  *
  * @author Piercecchi Gabriel
  * @author Rossi Alan
- * @implNote once the program is finished, format the file "fileCities.json".
+ *
+ * @implNote once the program is finished, format the Json file "FileCities.json".
  */
 @SpringBootApplication
 public class Open_Weather_Project {

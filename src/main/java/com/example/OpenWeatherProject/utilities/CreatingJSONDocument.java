@@ -13,18 +13,21 @@ import java.nio.file.Paths;
 import org.json.simple.JSONObject;
 
 /**
- *Questa classe contiene i metodi che servono a creare/aggiornare il file .json che viene utilizzato per salvare
- * le statistiche richieste
+ * This class contains the method used to create (or update) the Json file, which is used to save
+ * the required statistics.
  */
 public class CreatingJSONDocument {
 
     /**
-     * @param name
-     * @param formattedDate
-     * @param temp
-     * @param feels_like
-     * @param temp_min
-     * @param temp_max
+     * This method is used to create (or update if it does not exist) the Json file, which is used as database to save
+     * the required statistics.
+     *
+     * @param name          String variable that contains the name of a city.
+     * @param formattedDate String variable that contains the date formatted and time the statistics are saved.
+     * @param temp          double variable that contains the temperature of a city.
+     * @param feels_like    double variable that contains the perceived temperature of a city.
+     * @param temp_min      double variable that contains the maximum temperature of a city.
+     * @param temp_max      double variable that contains the minimum temperature of a city.
      */
     public void fileWriter(String name, String formattedDate, double temp, double feels_like, double temp_min, double temp_max) {
 
