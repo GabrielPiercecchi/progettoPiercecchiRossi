@@ -63,7 +63,7 @@ public class Menu {
 
             boolean control2 = false;
             do {
-                System.out.println("--> Do you want to terminate the program? (Y/N)\n");
+                System.out.println("--> Do you want to terminate the program? (Y/N)");
                 String input = scanner.nextLine();
                 switch (input) {
                     case "Y":
@@ -141,11 +141,8 @@ public class Menu {
         DateTimeFiltersImpl dateTimeFiltersImpl = new DateTimeFiltersImpl();
 
         boolean cycle = false;
-
         do {
-
             try {
-
                 System.out.println("--> Do you want to filter a single city data " +
                         "or all data? <CityName>/<all>");
                 System.out.println("(All the foreign cities and the most important\n" +
