@@ -320,6 +320,7 @@ All'avvio del programma seguire le indicazioni fornite dal menù da terminale.
 * [JavaDoc](https://www.oracle.com/it/technical-resources/articles/java/javadoc-tool.html), per generare automaticamente la documentazione del codice sorgente scritto in Java;
 * libreria [<code>org.json</code>](http://www.JSON.org/) per "parsare" e generare Json file;
 * libreria [Apache Maven](https://maven.apache.org/) per la gestione delle dipendenze;
+
 ##### POSSIBILI APPLICAZIONI
 I possibili clienti che possono usufruire di quest'applicazione sono tutti quei privati/aziende il cui lavoro è direttamente o indirettamente legato alle condizioni meteo, in particolare alla temperatura.
 
