@@ -152,7 +152,7 @@ public class Menu {
                 System.out.println("--> Do you want to filter a single city data " +
                         "or all data? <CityName>/<all>");
                 System.out.println("(All the foreign cities and the most important\n" +
-                        "italian cities must be entered strictly in english )");
+                        "italian cities must be entered strictly in english)");
                 System.out.println("E.g. rome, turin, milan, florence,...");
                 String strFilter = scanner.nextLine();
                 // call the method that deserializes data contained in the Json file
