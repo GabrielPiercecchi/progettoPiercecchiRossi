@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 import org.json.JSONObject;
 
 /**
- * This class contains the method used to parse the Json file received through the call to the OpenWeather API.
+ * This class contains the method used to parse the Json file received through the call
+ * to the OpenWeather API.
  */
 public class ParseJSONDocument {
 
