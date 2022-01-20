@@ -125,8 +125,6 @@ Tale implementazione è presente nel packege <code>controller</code>:
 Esempi
 </div>
 
-[inserire immagini]
-
 (Esempio-POST indirizzo /cities/names)
 ![](Images/Postman-post.png)
 
