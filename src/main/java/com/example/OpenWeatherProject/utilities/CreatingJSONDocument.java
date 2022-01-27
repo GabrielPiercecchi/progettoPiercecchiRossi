@@ -57,7 +57,7 @@ public class CreatingJSONDocument {
             Charset charset = StandardCharsets.UTF_8;
             String content = Files.readString(path, charset);
 
-            bufferedWriter = new BufferedWriter(new FileWriter(new File("FileCities.json"), false));
+            bufferedWriter = new BufferedWriter(new FileWriter("FileCities.json", false));
 
             content = content.replaceAll("]\n", ",\n");
             bufferedWriter.write(content);
